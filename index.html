@@ -1,0 +1,565 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Yalla Finanzen – Finanzberatung auf Arabisch, Deutsch und Englisch</title>
+<meta name="description" content="Kostenloser Finanz-Check für Ärzte, Ingenieure und Lehrer in Deutschland: Krankenversicherung, Vermögensaufbau, Rente und Absicherung. Beratung auf Arabisch, Deutsch oder Englisch aus Heidelberg.">
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#193329">
+<meta property="og:title" content="Yalla Finanzen – Finanzberatung auf Arabisch, Deutsch und Englisch">
+<meta property="og:description" content="Kostenloser Finanz-Check: 30 Minuten, auf Arabisch, Deutsch oder Englisch.">
+<meta property="og:image" content="https://yallafinanzen.de/img/karim.webp">
+<meta property="og:url" content="https://yallafinanzen.de/">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="preload" href="fonts/poppins-latin-800-normal.woff2" as="font" type="font/woff2" crossorigin>
+<style>
+@font-face{font-family:'Poppins';font-style:normal;font-display:swap;font-weight:400;src:url(fonts/poppins-latin-ext-400-normal.woff2) format('woff2');unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF;}
+@font-face{font-family:'Poppins';font-style:normal;font-display:swap;font-weight:400;src:url(fonts/poppins-latin-400-normal.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;}
+@font-face{font-family:'Poppins';font-style:normal;font-display:swap;font-weight:500;src:url(fonts/poppins-latin-ext-500-normal.woff2) format('woff2');unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF;}
+@font-face{font-family:'Poppins';font-style:normal;font-display:swap;font-weight:500;src:url(fonts/poppins-latin-500-normal.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;}
+@font-face{font-family:'Poppins';font-style:normal;font-display:swap;font-weight:600;src:url(fonts/poppins-latin-ext-600-normal.woff2) format('woff2');unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF;}
+@font-face{font-family:'Poppins';font-style:normal;font-display:swap;font-weight:600;src:url(fonts/poppins-latin-600-normal.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;}
+@font-face{font-family:'Poppins';font-style:normal;font-display:swap;font-weight:700;src:url(fonts/poppins-latin-ext-700-normal.woff2) format('woff2');unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF;}
+@font-face{font-family:'Poppins';font-style:normal;font-display:swap;font-weight:700;src:url(fonts/poppins-latin-700-normal.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;}
+@font-face{font-family:'Poppins';font-style:normal;font-display:swap;font-weight:800;src:url(fonts/poppins-latin-ext-800-normal.woff2) format('woff2');unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF;}
+@font-face{font-family:'Poppins';font-style:normal;font-display:swap;font-weight:800;src:url(fonts/poppins-latin-800-normal.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;}
+@font-face{font-family:'IBM Plex Sans Arabic';font-style:normal;font-display:swap;font-weight:400;src:url(fonts/ibm-plex-sans-arabic-arabic-400-normal.woff2) format('woff2');unicode-range:U+0600-06FF,U+0750-077F,U+0870-088E,U+0890-0891,U+0897-08E1,U+08E3-08FF,U+200C-200E,U+2010-2011,U+204F,U+2E41,U+FB50-FDFF,U+FE70-FE74,U+FE76-FEFC,U+102E0-102FB,U+10E60-10E7E,U+10EC2-10EC4,U+10EFC-10EFF,U+1EE00-1EE03,U+1EE05-1EE1F,U+1EE21-1EE22,U+1EE24,U+1EE27,U+1EE29-1EE32,U+1EE34-1EE37,U+1EE39,U+1EE3B,U+1EE42,U+1EE47,U+1EE49,U+1EE4B,U+1EE4D-1EE4F,U+1EE51-1EE52,U+1EE54,U+1EE57,U+1EE59,U+1EE5B,U+1EE5D,U+1EE5F,U+1EE61-1EE62,U+1EE64,U+1EE67-1EE6A,U+1EE6C-1EE72,U+1EE74-1EE77,U+1EE79-1EE7C,U+1EE7E,U+1EE80-1EE89,U+1EE8B-1EE9B,U+1EEA1-1EEA3,U+1EEA5-1EEA9,U+1EEAB-1EEBB,U+1EEF0-1EEF1;}
+@font-face{font-family:'IBM Plex Sans Arabic';font-style:normal;font-display:swap;font-weight:400;src:url(fonts/ibm-plex-sans-arabic-latin-ext-400-normal.woff2) format('woff2');unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF;}
+@font-face{font-family:'IBM Plex Sans Arabic';font-style:normal;font-display:swap;font-weight:400;src:url(fonts/ibm-plex-sans-arabic-latin-400-normal.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;}
+@font-face{font-family:'IBM Plex Sans Arabic';font-style:normal;font-display:swap;font-weight:500;src:url(fonts/ibm-plex-sans-arabic-arabic-500-normal.woff2) format('woff2');unicode-range:U+0600-06FF,U+0750-077F,U+0870-088E,U+0890-0891,U+0897-08E1,U+08E3-08FF,U+200C-200E,U+2010-2011,U+204F,U+2E41,U+FB50-FDFF,U+FE70-FE74,U+FE76-FEFC,U+102E0-102FB,U+10E60-10E7E,U+10EC2-10EC4,U+10EFC-10EFF,U+1EE00-1EE03,U+1EE05-1EE1F,U+1EE21-1EE22,U+1EE24,U+1EE27,U+1EE29-1EE32,U+1EE34-1EE37,U+1EE39,U+1EE3B,U+1EE42,U+1EE47,U+1EE49,U+1EE4B,U+1EE4D-1EE4F,U+1EE51-1EE52,U+1EE54,U+1EE57,U+1EE59,U+1EE5B,U+1EE5D,U+1EE5F,U+1EE61-1EE62,U+1EE64,U+1EE67-1EE6A,U+1EE6C-1EE72,U+1EE74-1EE77,U+1EE79-1EE7C,U+1EE7E,U+1EE80-1EE89,U+1EE8B-1EE9B,U+1EEA1-1EEA3,U+1EEA5-1EEA9,U+1EEAB-1EEBB,U+1EEF0-1EEF1;}
+@font-face{font-family:'IBM Plex Sans Arabic';font-style:normal;font-display:swap;font-weight:500;src:url(fonts/ibm-plex-sans-arabic-latin-ext-500-normal.woff2) format('woff2');unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF;}
+@font-face{font-family:'IBM Plex Sans Arabic';font-style:normal;font-display:swap;font-weight:500;src:url(fonts/ibm-plex-sans-arabic-latin-500-normal.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;}
+@font-face{font-family:'IBM Plex Sans Arabic';font-style:normal;font-display:swap;font-weight:600;src:url(fonts/ibm-plex-sans-arabic-arabic-600-normal.woff2) format('woff2');unicode-range:U+0600-06FF,U+0750-077F,U+0870-088E,U+0890-0891,U+0897-08E1,U+08E3-08FF,U+200C-200E,U+2010-2011,U+204F,U+2E41,U+FB50-FDFF,U+FE70-FE74,U+FE76-FEFC,U+102E0-102FB,U+10E60-10E7E,U+10EC2-10EC4,U+10EFC-10EFF,U+1EE00-1EE03,U+1EE05-1EE1F,U+1EE21-1EE22,U+1EE24,U+1EE27,U+1EE29-1EE32,U+1EE34-1EE37,U+1EE39,U+1EE3B,U+1EE42,U+1EE47,U+1EE49,U+1EE4B,U+1EE4D-1EE4F,U+1EE51-1EE52,U+1EE54,U+1EE57,U+1EE59,U+1EE5B,U+1EE5D,U+1EE5F,U+1EE61-1EE62,U+1EE64,U+1EE67-1EE6A,U+1EE6C-1EE72,U+1EE74-1EE77,U+1EE79-1EE7C,U+1EE7E,U+1EE80-1EE89,U+1EE8B-1EE9B,U+1EEA1-1EEA3,U+1EEA5-1EEA9,U+1EEAB-1EEBB,U+1EEF0-1EEF1;}
+@font-face{font-family:'IBM Plex Sans Arabic';font-style:normal;font-display:swap;font-weight:600;src:url(fonts/ibm-plex-sans-arabic-latin-ext-600-normal.woff2) format('woff2');unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF;}
+@font-face{font-family:'IBM Plex Sans Arabic';font-style:normal;font-display:swap;font-weight:600;src:url(fonts/ibm-plex-sans-arabic-latin-600-normal.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;}
+@font-face{font-family:'IBM Plex Sans Arabic';font-style:normal;font-display:swap;font-weight:700;src:url(fonts/ibm-plex-sans-arabic-arabic-700-normal.woff2) format('woff2');unicode-range:U+0600-06FF,U+0750-077F,U+0870-088E,U+0890-0891,U+0897-08E1,U+08E3-08FF,U+200C-200E,U+2010-2011,U+204F,U+2E41,U+FB50-FDFF,U+FE70-FE74,U+FE76-FEFC,U+102E0-102FB,U+10E60-10E7E,U+10EC2-10EC4,U+10EFC-10EFF,U+1EE00-1EE03,U+1EE05-1EE1F,U+1EE21-1EE22,U+1EE24,U+1EE27,U+1EE29-1EE32,U+1EE34-1EE37,U+1EE39,U+1EE3B,U+1EE42,U+1EE47,U+1EE49,U+1EE4B,U+1EE4D-1EE4F,U+1EE51-1EE52,U+1EE54,U+1EE57,U+1EE59,U+1EE5B,U+1EE5D,U+1EE5F,U+1EE61-1EE62,U+1EE64,U+1EE67-1EE6A,U+1EE6C-1EE72,U+1EE74-1EE77,U+1EE79-1EE7C,U+1EE7E,U+1EE80-1EE89,U+1EE8B-1EE9B,U+1EEA1-1EEA3,U+1EEA5-1EEA9,U+1EEAB-1EEBB,U+1EEF0-1EEF1;}
+@font-face{font-family:'IBM Plex Sans Arabic';font-style:normal;font-display:swap;font-weight:700;src:url(fonts/ibm-plex-sans-arabic-latin-ext-700-normal.woff2) format('woff2');unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF;}
+@font-face{font-family:'IBM Plex Sans Arabic';font-style:normal;font-display:swap;font-weight:700;src:url(fonts/ibm-plex-sans-arabic-latin-700-normal.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;}
+body{margin:0;background:#ffffff}
+a{color:#193329}a:hover{color:#0f2019}
+.sticky-cta{display:none}
+.topic-bar{display:flex;justify-content:center}.nav-links{display:none !important}@media (max-width:900px){.topic-bar{justify-content:flex-start}}
+.cutout{display:flex}
+.mobile-photo{display:none}
+@media (max-width:1100px){.cutout{flex-basis:242px !important}.cut-left img{height:295px !important}.cut-right img{height:258px !important}}
+@media (max-width:760px){.cutout{display:none}.mobile-photo{display:flex}.hero-cta{width:100%;min-width:0 !important}.hero-text{padding:48px 0 0 !important}.stats{grid-template-columns:repeat(2,minmax(0,1fr)) !important}}
+summary{list-style:none;cursor:pointer}summary::-webkit-details-marker{display:none}details[open] .faq-plus{transform:rotate(45deg)}
+@media (max-width:720px){.sticky-cta{display:flex}.nav-links{display:none !important}.topic-bar{display:flex}.nav-cta{display:none !important}.stat-num{font-size:26px !important}.site-footer{padding-bottom:110px !important}section{padding-left:20px !important;padding-right:20px !important}}
+</style>
+</head>
+<body>
+<form name="termin" data-netlify="true" netlify-honeypot="bot-field" hidden><input name="bot-field"><input name="name"><input name="telefon"><input name="email"><input name="thema"><input name="guide"><input name="sprache"><input name="einwilligung"><input name="zeit"><input name="seite"></form>
+<form name="guide" data-netlify="true" netlify-honeypot="bot-field" hidden><input name="bot-field"><input name="name"><input name="telefon"><input name="email"><input name="thema"><input name="guide"><input name="sprache"><input name="einwilligung"><input name="zeit"><input name="seite"></form>
+<div id="app"></div>
+<noscript><p style="padding:24px;font-family:sans-serif">Bitte JavaScript aktivieren oder direkt anrufen: <a href="tel:+491631549878">0163 1549878</a></p></noscript>
+<script>(function(global,factory){typeof exports==="object"&&typeof module!=="undefined"?module.exports=factory():typeof define==="function"&&define.amd?define(factory):(global=global||self,global.morphdom=factory())})(this,function(){"use strict";var DOCUMENT_FRAGMENT_NODE=11;function morphAttrs(fromNode,toNode){var toNodeAttrs=toNode.attributes;var attr;var attrName;var attrNamespaceURI;var attrValue;var fromValue;if(toNode.nodeType===DOCUMENT_FRAGMENT_NODE||fromNode.nodeType===DOCUMENT_FRAGMENT_NODE){return}for(var i=toNodeAttrs.length-1;i>=0;i--){attr=toNodeAttrs[i];attrName=attr.name;attrNamespaceURI=attr.namespaceURI;attrValue=attr.value;if(attrNamespaceURI){attrName=attr.localName||attrName;fromValue=fromNode.getAttributeNS(attrNamespaceURI,attrName);if(fromValue!==attrValue){if(attr.prefix==="xmlns"){attrName=attr.name}fromNode.setAttributeNS(attrNamespaceURI,attrName,attrValue)}}else{fromValue=fromNode.getAttribute(attrName);if(fromValue!==attrValue){fromNode.setAttribute(attrName,attrValue)}}}var fromNodeAttrs=fromNode.attributes;for(var d=fromNodeAttrs.length-1;d>=0;d--){attr=fromNodeAttrs[d];attrName=attr.name;attrNamespaceURI=attr.namespaceURI;if(attrNamespaceURI){attrName=attr.localName||attrName;if(!toNode.hasAttributeNS(attrNamespaceURI,attrName)){fromNode.removeAttributeNS(attrNamespaceURI,attrName)}}else{if(!toNode.hasAttribute(attrName)){fromNode.removeAttribute(attrName)}}}}var range;var NS_XHTML="http://www.w3.org/1999/xhtml";var doc=typeof document==="undefined"?undefined:document;var HAS_TEMPLATE_SUPPORT=!!doc&&"content"in doc.createElement("template");var HAS_RANGE_SUPPORT=!!doc&&doc.createRange&&"createContextualFragment"in doc.createRange();function createFragmentFromTemplate(str){var template=doc.createElement("template");template.innerHTML=str;return template.content.childNodes[0]}function createFragmentFromRange(str){if(!range){range=doc.createRange();range.selectNode(doc.body)}var fragment=range.createContextualFragment(str);return fragment.childNodes[0]}function createFragmentFromWrap(str){var fragment=doc.createElement("body");fragment.innerHTML=str;return fragment.childNodes[0]}function toElement(str){str=str.trim();if(HAS_TEMPLATE_SUPPORT){return createFragmentFromTemplate(str)}else if(HAS_RANGE_SUPPORT){return createFragmentFromRange(str)}return createFragmentFromWrap(str)}function compareNodeNames(fromEl,toEl){var fromNodeName=fromEl.nodeName;var toNodeName=toEl.nodeName;var fromCodeStart,toCodeStart;if(fromNodeName===toNodeName){return true}fromCodeStart=fromNodeName.charCodeAt(0);toCodeStart=toNodeName.charCodeAt(0);if(fromCodeStart<=90&&toCodeStart>=97){return fromNodeName===toNodeName.toUpperCase()}else if(toCodeStart<=90&&fromCodeStart>=97){return toNodeName===fromNodeName.toUpperCase()}else{return false}}function createElementNS(name,namespaceURI){return!namespaceURI||namespaceURI===NS_XHTML?doc.createElement(name):doc.createElementNS(namespaceURI,name)}function moveChildren(fromEl,toEl){var curChild=fromEl.firstChild;while(curChild){var nextChild=curChild.nextSibling;toEl.appendChild(curChild);curChild=nextChild}return toEl}function syncBooleanAttrProp(fromEl,toEl,name){if(fromEl[name]!==toEl[name]){fromEl[name]=toEl[name];if(fromEl[name]){fromEl.setAttribute(name,"")}else{fromEl.removeAttribute(name)}}}var specialElHandlers={OPTION:function(fromEl,toEl){var parentNode=fromEl.parentNode;if(parentNode){var parentName=parentNode.nodeName.toUpperCase();if(parentName==="OPTGROUP"){parentNode=parentNode.parentNode;parentName=parentNode&&parentNode.nodeName.toUpperCase()}if(parentName==="SELECT"&&!parentNode.hasAttribute("multiple")){if(fromEl.hasAttribute("selected")&&!toEl.selected){fromEl.setAttribute("selected","selected");fromEl.removeAttribute("selected")}parentNode.selectedIndex=-1}}syncBooleanAttrProp(fromEl,toEl,"selected")},INPUT:function(fromEl,toEl){syncBooleanAttrProp(fromEl,toEl,"checked");syncBooleanAttrProp(fromEl,toEl,"disabled");if(fromEl.value!==toEl.value){fromEl.value=toEl.value}if(!toEl.hasAttribute("value")){fromEl.removeAttribute("value")}},TEXTAREA:function(fromEl,toEl){var newValue=toEl.value;if(fromEl.value!==newValue){fromEl.value=newValue}var firstChild=fromEl.firstChild;if(firstChild){var oldValue=firstChild.nodeValue;if(oldValue==newValue||!newValue&&oldValue==fromEl.placeholder){return}firstChild.nodeValue=newValue}},SELECT:function(fromEl,toEl){if(!toEl.hasAttribute("multiple")){var selectedIndex=-1;var i=0;var curChild=fromEl.firstChild;var optgroup;var nodeName;while(curChild){nodeName=curChild.nodeName&&curChild.nodeName.toUpperCase();if(nodeName==="OPTGROUP"){optgroup=curChild;curChild=optgroup.firstChild}else{if(nodeName==="OPTION"){if(curChild.hasAttribute("selected")){selectedIndex=i;break}i++}curChild=curChild.nextSibling;if(!curChild&&optgroup){curChild=optgroup.nextSibling;optgroup=null}}}fromEl.selectedIndex=selectedIndex}}};var ELEMENT_NODE=1;var DOCUMENT_FRAGMENT_NODE$1=11;var TEXT_NODE=3;var COMMENT_NODE=8;function noop(){}function defaultGetNodeKey(node){if(node){return node.getAttribute&&node.getAttribute("id")||node.id}}function morphdomFactory(morphAttrs){return function morphdom(fromNode,toNode,options){if(!options){options={}}if(typeof toNode==="string"){if(fromNode.nodeName==="#document"||fromNode.nodeName==="HTML"||fromNode.nodeName==="BODY"){var toNodeHtml=toNode;toNode=doc.createElement("html");toNode.innerHTML=toNodeHtml}else{toNode=toElement(toNode)}}else if(toNode.nodeType===DOCUMENT_FRAGMENT_NODE$1){toNode=toNode.firstElementChild}var getNodeKey=options.getNodeKey||defaultGetNodeKey;var onBeforeNodeAdded=options.onBeforeNodeAdded||noop;var onNodeAdded=options.onNodeAdded||noop;var onBeforeElUpdated=options.onBeforeElUpdated||noop;var onElUpdated=options.onElUpdated||noop;var onBeforeNodeDiscarded=options.onBeforeNodeDiscarded||noop;var onNodeDiscarded=options.onNodeDiscarded||noop;var onBeforeElChildrenUpdated=options.onBeforeElChildrenUpdated||noop;var skipFromChildren=options.skipFromChildren||noop;var addChild=options.addChild||function(parent,child){return parent.appendChild(child)};var childrenOnly=options.childrenOnly===true;var fromNodesLookup=Object.create(null);var keyedRemovalList=[];function addKeyedRemoval(key){keyedRemovalList.push(key)}function walkDiscardedChildNodes(node,skipKeyedNodes){if(node.nodeType===ELEMENT_NODE){var curChild=node.firstChild;while(curChild){var key=undefined;if(skipKeyedNodes&&(key=getNodeKey(curChild))){addKeyedRemoval(key)}else{onNodeDiscarded(curChild);if(curChild.firstChild){walkDiscardedChildNodes(curChild,skipKeyedNodes)}}curChild=curChild.nextSibling}}}function removeNode(node,parentNode,skipKeyedNodes){if(onBeforeNodeDiscarded(node)===false){return}if(parentNode){parentNode.removeChild(node)}onNodeDiscarded(node);walkDiscardedChildNodes(node,skipKeyedNodes)}function indexTree(node){if(node.nodeType===ELEMENT_NODE||node.nodeType===DOCUMENT_FRAGMENT_NODE$1){var curChild=node.firstChild;while(curChild){var key=getNodeKey(curChild);if(key){fromNodesLookup[key]=curChild}indexTree(curChild);curChild=curChild.nextSibling}}}indexTree(fromNode);function handleNodeAdded(el){onNodeAdded(el);var curChild=el.firstChild;while(curChild){var nextSibling=curChild.nextSibling;var key=getNodeKey(curChild);if(key){var unmatchedFromEl=fromNodesLookup[key];if(unmatchedFromEl&&compareNodeNames(curChild,unmatchedFromEl)){curChild.parentNode.replaceChild(unmatchedFromEl,curChild);morphEl(unmatchedFromEl,curChild)}else{handleNodeAdded(curChild)}}else{handleNodeAdded(curChild)}curChild=nextSibling}}function cleanupFromEl(fromEl,curFromNodeChild,curFromNodeKey){while(curFromNodeChild){var fromNextSibling=curFromNodeChild.nextSibling;if(curFromNodeKey=getNodeKey(curFromNodeChild)){addKeyedRemoval(curFromNodeKey)}else{removeNode(curFromNodeChild,fromEl,true)}curFromNodeChild=fromNextSibling}}function morphEl(fromEl,toEl,childrenOnly){var toElKey=getNodeKey(toEl);if(toElKey){delete fromNodesLookup[toElKey]}if(!childrenOnly){var beforeUpdateResult=onBeforeElUpdated(fromEl,toEl);if(beforeUpdateResult===false){return}else if(beforeUpdateResult instanceof HTMLElement){fromEl=beforeUpdateResult;indexTree(fromEl)}morphAttrs(fromEl,toEl);onElUpdated(fromEl);if(onBeforeElChildrenUpdated(fromEl,toEl)===false){return}}if(fromEl.nodeName!=="TEXTAREA"){morphChildren(fromEl,toEl)}else{specialElHandlers.TEXTAREA(fromEl,toEl)}}function morphChildren(fromEl,toEl){var skipFrom=skipFromChildren(fromEl,toEl);var curToNodeChild=toEl.firstChild;var curFromNodeChild=fromEl.firstChild;var curToNodeKey;var curFromNodeKey;var fromNextSibling;var toNextSibling;var matchingFromEl;outer:while(curToNodeChild){toNextSibling=curToNodeChild.nextSibling;curToNodeKey=getNodeKey(curToNodeChild);while(!skipFrom&&curFromNodeChild){fromNextSibling=curFromNodeChild.nextSibling;if(curToNodeChild.isSameNode&&curToNodeChild.isSameNode(curFromNodeChild)){curToNodeChild=toNextSibling;curFromNodeChild=fromNextSibling;continue outer}curFromNodeKey=getNodeKey(curFromNodeChild);var curFromNodeType=curFromNodeChild.nodeType;var isCompatible=undefined;if(curFromNodeType===curToNodeChild.nodeType){if(curFromNodeType===ELEMENT_NODE){if(curToNodeKey){if(curToNodeKey!==curFromNodeKey){if(matchingFromEl=fromNodesLookup[curToNodeKey]){if(fromNextSibling===matchingFromEl){isCompatible=false}else{fromEl.insertBefore(matchingFromEl,curFromNodeChild);if(curFromNodeKey){addKeyedRemoval(curFromNodeKey)}else{removeNode(curFromNodeChild,fromEl,true)}curFromNodeChild=matchingFromEl;curFromNodeKey=getNodeKey(curFromNodeChild)}}else{isCompatible=false}}}else if(curFromNodeKey){isCompatible=false}isCompatible=isCompatible!==false&&compareNodeNames(curFromNodeChild,curToNodeChild);if(isCompatible){morphEl(curFromNodeChild,curToNodeChild)}}else if(curFromNodeType===TEXT_NODE||curFromNodeType==COMMENT_NODE){isCompatible=true;if(curFromNodeChild.nodeValue!==curToNodeChild.nodeValue){curFromNodeChild.nodeValue=curToNodeChild.nodeValue}}}if(isCompatible){curToNodeChild=toNextSibling;curFromNodeChild=fromNextSibling;continue outer}if(curFromNodeKey){addKeyedRemoval(curFromNodeKey)}else{removeNode(curFromNodeChild,fromEl,true)}curFromNodeChild=fromNextSibling}if(curToNodeKey&&(matchingFromEl=fromNodesLookup[curToNodeKey])&&compareNodeNames(matchingFromEl,curToNodeChild)){if(!skipFrom){addChild(fromEl,matchingFromEl)}morphEl(matchingFromEl,curToNodeChild)}else{var onBeforeNodeAddedResult=onBeforeNodeAdded(curToNodeChild);if(onBeforeNodeAddedResult!==false){if(onBeforeNodeAddedResult){curToNodeChild=onBeforeNodeAddedResult}if(curToNodeChild.actualize){curToNodeChild=curToNodeChild.actualize(fromEl.ownerDocument||doc)}addChild(fromEl,curToNodeChild);handleNodeAdded(curToNodeChild)}}curToNodeChild=toNextSibling;curFromNodeChild=fromNextSibling}cleanupFromEl(fromEl,curFromNodeChild,curFromNodeKey);var specialElHandler=specialElHandlers[fromEl.nodeName];if(specialElHandler){specialElHandler(fromEl,toEl)}}var morphedNode=fromNode;var morphedNodeType=morphedNode.nodeType;var toNodeType=toNode.nodeType;if(!childrenOnly){if(morphedNodeType===ELEMENT_NODE){if(toNodeType===ELEMENT_NODE){if(!compareNodeNames(fromNode,toNode)){onNodeDiscarded(fromNode);morphedNode=moveChildren(fromNode,createElementNS(toNode.nodeName,toNode.namespaceURI))}}else{morphedNode=toNode}}else if(morphedNodeType===TEXT_NODE||morphedNodeType===COMMENT_NODE){if(toNodeType===morphedNodeType){if(morphedNode.nodeValue!==toNode.nodeValue){morphedNode.nodeValue=toNode.nodeValue}return morphedNode}else{morphedNode=toNode}}}if(morphedNode===toNode){onNodeDiscarded(fromNode)}else{if(toNode.isSameNode&&toNode.isSameNode(morphedNode)){return}morphEl(morphedNode,toNode,childrenOnly);if(keyedRemovalList){for(var i=0,len=keyedRemovalList.length;i<len;i++){var elToRemove=fromNodesLookup[keyedRemovalList[i]];if(elToRemove){removeNode(elToRemove,elToRemove.parentNode,false)}}}}if(!childrenOnly&&morphedNode!==fromNode&&fromNode.parentNode){if(morphedNode.actualize){morphedNode=morphedNode.actualize(fromNode.ownerDocument||doc)}fromNode.parentNode.replaceChild(morphedNode,fromNode)}return morphedNode}}var morphdom=morphdomFactory(morphAttrs);return morphdom});</script>
+<script>
+window.YL_TPL = "\n<div dir=\"{{dir}}\" lang=\"{{lang}}\" style=\"background: #ffffff; color: #1a1b2c; font-family: {{font}}; box-sizing: border-box;\">\n\n<a href=\"{{checkUrl}}\" style=\"display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 10px; padding: 14px 20px; background: #193329; color: #ffffff; text-decoration: none; font-size: 17px; text-align: center;\">\n<span style=\"padding: 3px 12px; border-radius: 999px; background: #ffffff; color: #1a1b2c; font-size: 12px; font-weight: 700;\">{{t.promoTag}}</span>\n<span><strong style=\"font-weight: 700;\">{{t.promoBold}}</strong> {{t.promoRest}}</span>\n<svg width=\"26\" height=\"14\" viewBox=\"0 0 26 14\" fill=\"none\" stroke=\"#ffffff\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\" style=\"transform: {{arrowFlip}};\"><path d=\"M1 7h23\"></path><path d=\"M18 1l6 6-6 6\"></path></svg>\n</a>\n\n<header style=\"background: #1b1c2c; color: #ffffff;\">\n<div style=\"max-width: 1200px; margin: 0 auto; padding: 14px 32px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px;\">\n<a href=\"#top\" style=\"display: flex; align-items: center; gap: 10px; text-decoration: none; color: #ffffff;\">\n<svg width=\"30\" height=\"20\" viewBox=\"0 0 30 20\" fill=\"#ffffff\" aria-hidden=\"true\"><path d=\"M15 0l15 20H0z\"></path><path d=\"M15 9l6 8H9z\" fill=\"#1b1c2c\"></path></svg>\n<span style=\"font-weight: 800; font-size: 18px; letter-spacing: 0.02em; text-transform: uppercase;\">Yalla Finanzen</span>\n</a>\n<nav class=\"nav-links\" aria-label=\"{{t.navTopicsLabel}}\" style=\"display: flex; flex-wrap: wrap; gap: 6px; font-size: 15px; font-weight: 600;\">\n<sc-for list=\"{{navTopics}}\" as=\"nt\" hint-placeholder-count=\"6\">\n<button type=\"button\" onClick=\"{{nt.pick}}\" aria-pressed=\"{{nt.pressed}}\" style=\"{{nt.style}}\">{{nt.label}}</button>\n</sc-for>\n</nav>\n<div style=\"display: flex; align-items: center; gap: 12px; flex-wrap: wrap;\">\n<div role=\"group\" aria-label=\"Sprache\" style=\"display: flex; gap: 2px; padding: 3px; border-radius: 999px; border: 1px solid #3a3f4b;\">\n<sc-for list=\"{{langs}}\" as=\"l\" hint-placeholder-count=\"3\">\n<button type=\"button\" onClick=\"{{l.pick}}\" aria-pressed=\"{{l.pressed}}\" style=\"{{l.style}}\">{{l.label}}</button>\n</sc-for>\n</div>\n<a class=\"nav-cta\" href=\"{{checkUrl}}\" style=\"display: inline-flex; align-items: center; min-height: 44px; padding: 0 22px; border-radius: 999px; background: #c6f432; color: #193329; font-weight: 600; font-size: 15px; text-decoration: none;\">{{t.ctaShort}}</a>\n</div>\n</div>\n</header>\n\n<nav class=\"topic-bar\" aria-label=\"{{t.navTopicsLabel}}\" style=\"background: #1b1c2c; border-top: 1px solid #3a3f4b; padding: 10px 16px; gap: 8px; overflow-x: auto; white-space: nowrap;\">\n<sc-for list=\"{{navTopics}}\" as=\"nt\" hint-placeholder-count=\"6\">\n<button type=\"button\" onClick=\"{{nt.pick}}\" aria-pressed=\"{{nt.pressed}}\" style=\"{{nt.chip}}\">{{nt.label}}</button>\n</sc-for>\n</nav>\n\n<section id=\"top\" style=\"position: relative; background: #efefee; overflow: hidden;\">\n<div style=\"max-width: 1280px; margin: 0 auto; padding: 0 24px; display: flex; align-items: flex-end; justify-content: space-between; gap: 24px; min-height: 520px; direction: ltr;\">\n<div class=\"cutout cut-left\" style=\"flex: 0 0 340px; align-items: flex-end; justify-content: center;\"><img src=\"img/karim.webp\" alt=\"{{t.cutLeft}}\" style=\"display: block; height: 410px; width: auto;\"></div>\n<div class=\"hero-text\" dir=\"{{dir}}\" style=\"flex: 1 1 560px; min-width: 0; padding: 72px 0 88px; display: flex; flex-direction: column; align-items: center; gap: 24px; text-align: center;\">\n<h1 style=\"margin: 0; max-width: 760px; font-weight: 800; font-size: clamp(34px, 4.4vw, 56px); line-height: 1.12; text-transform: {{upper}}; letter-spacing: -0.01em;\">{{t.h1}}</h1>\n<p style=\"margin: 0; max-width: 520px; font-size: 19px; line-height: 1.5; color: #1a1b2c;\">{{t.sub}}</p>\n<a class=\"hero-cta\" href=\"{{checkUrl}}\" style=\"display: inline-flex; align-items: center; justify-content: center; min-height: 64px; min-width: 300px; box-sizing: border-box; padding: 0 40px; border-radius: 999px; background: #c6f432; color: #193329; font-weight: 700; font-size: 17px; letter-spacing: 0.02em; text-transform: {{upper}}; text-decoration: none;\">{{t.cta}}</a>\n<span style=\"font-size: 14px; color: #555a66;\">{{t.reassure}}</span>\n<div class=\"mobile-photo\" style=\"width: 100%; align-items: flex-end; justify-content: center; gap: 4px; direction: ltr;\"><img src=\"img/karim.webp\" alt=\"{{t.cutLeft}}\" style=\"display: block; height: 230px; width: auto;\"><img src=\"img/linda.webp\" alt=\"{{t.cutRight}}\" style=\"display: block; height: 202px; width: auto;\"></div>\n</div>\n<div class=\"cutout cut-right\" style=\"flex: 0 0 340px; align-items: flex-end; justify-content: center;\"><img src=\"img/linda.webp\" alt=\"{{t.cutRight}}\" style=\"display: block; height: 360px; width: auto;\"></div>\n</div>\n</section>\n\n<section aria-label=\"{{t.statsLabel}}\" style=\"border-top: 1px solid #e6e7ec; background: #ffffff;\">\n<div class=\"stats\" style=\"max-width: 1200px; margin: 0 auto; padding: 28px 32px; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 24px;\">\n<sc-for list=\"{{t.stats}}\" as=\"s\" hint-placeholder-count=\"4\">\n<div style=\"{{statStyle}}\">\n<span class=\"stat-num\" style=\"font-weight: 700; font-size: 34px; line-height: 1.1;\">{{s.num}}</span>\n<span style=\"font-size: 12px; font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase; color: #555a66; overflow-wrap: anywhere;\">{{s.label}}</span>\n</div>\n</sc-for>\n</div>\n</section>\n\n<section id=\"halal-guide\" style=\"display: {{gdBoxDisplay}}; background: #193329; color: #ffffff; padding: 40px 24px;\">\n<div dir=\"{{dir}}\" style=\"width: 100%; max-width: 1100px; margin: 0 auto; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 20px 32px;\">\n<div style=\"flex: 1 1 420px; display: flex; flex-direction: column; align-items: flex-start; gap: 10px; text-align: start;\">\n<span style=\"{{eyebrow}}\">{{t.hlTag}}</span>\n<strong style=\"font-size: clamp(22px, 2.6vw, 30px); font-weight: 800; line-height: 1.25;\">{{t.hlTitle}}</strong>\n<span style=\"font-size: 16px; line-height: 1.5; color: #d6e4da;\">{{t.hlNote}}</span>\n</div>\n<button type=\"button\" onClick=\"{{hlOpenFn}}\" style=\"flex: none; display: {{hlBtnDisplay}}; align-items: center; justify-content: center; min-height: 56px; padding: 0 28px; border-radius: 999px; border: none; background: #c6f432; color: #193329; font: inherit; font-weight: 700; font-size: 16px; cursor: pointer;\">{{t.guideBtn}}</button>\n<form style=\"display: {{hlFormDisplay}}; flex: 1 1 100%; flex-direction: column; gap: 12px; padding: 20px; border-radius: 6px; background: #ffffff; color: #1a1b2c;\">\n<strong style=\"font-size: 17px; font-weight: 700;\">{{t.gdTitle}}</strong>\n<label style=\"display: flex; flex-direction: column; gap: 6px; font-size: 14px; font-weight: 600;\">{{t.cbName}}<input type=\"text\" name=\"name\" required autocomplete=\"given-name\" style=\"{{inputStyle}}\"></label>\n<label style=\"display: flex; flex-direction: column; gap: 6px; font-size: 14px; font-weight: 600;\">{{t.bkPhone}}<span dir=\"ltr\" style=\"display: flex; gap: 8px;\"><select name=\"cc\" aria-label=\"{{t.ccLabel}}\" style=\"{{inputStyle}} flex: none; width: 112px; padding: 0 8px;\"><sc-for list=\"{{countryCodes}}\" as=\"cc\" hint-placeholder-count=\"16\"><option value=\"{{cc.code}}\">{{cc.label}}</option></sc-for></select><input type=\"tel\" name=\"phone\" required autocomplete=\"tel-national\" inputmode=\"tel\" placeholder=\"163 1234567\" style=\"{{inputStyle}} flex: 1 1 auto; min-width: 0;\"></span></label>\n<label style=\"display: flex; gap: 10px; align-items: flex-start; font-size: 13px; line-height: 1.5; color: #555a66;\"><input type=\"checkbox\" name=\"consent\" required style=\"margin-top: 3px; width: 18px; height: 18px; flex: none;\"><span>{{t.gdConsent}} <a href=\"datenschutz.html\" target=\"_blank\">{{t.bkPrivLink}}</a></span></label>\n<button type=\"button\" onClick=\"{{hlSubmit}}\" style=\"min-height: 52px; border-radius: 999px; border: none; background: #c6f432; color: #193329; font: inherit; font-weight: 700; font-size: 15px; cursor: pointer;\">{{t.gdSubmitLabel}}</button>\n</form>\n<p role=\"status\" style=\"display: {{hlThanksDisplay}}; flex: 1 1 100%; margin: 0; font-size: 15px; line-height: 1.5; font-weight: 600;\">{{hlThanks}}</p>\n<a href=\"{{hlPdf}}\" target=\"_blank\" rel=\"noopener\" download style=\"display: {{hlDlDisplay}}; align-items: center; justify-content: center; min-height: 56px; padding: 0 28px; border-radius: 999px; background: #c6f432; color: #193329; font-weight: 700; font-size: 16px; text-decoration: none;\">{{t.gdDownload}}</a>\n</div>\n</section>\n\n<section id=\"video\" style=\"background: #ffffff; padding: 40px 32px 96px;\">\n<div style=\"max-width: 960px; margin: 0 auto; display: flex; flex-direction: column; align-items: center; gap: 28px; text-align: center;\">\n<h2 style=\"margin: 0; font-weight: 800; font-size: clamp(28px, 3.2vw, 40px); line-height: 1.15; text-transform: {{upper}};\"><span style=\"color: #193329;\">{{t.vidBlue}}</span> {{t.vidRest}}</h2>\n<div role=\"tablist\" aria-label=\"{{t.vidBlue}}\" style=\"display: flex; flex-wrap: wrap; justify-content: center; gap: 10px;\">\n<sc-for list=\"{{topicTabs}}\" as=\"tb\" hint-placeholder-count=\"6\">\n<button type=\"button\" role=\"tab\" aria-selected=\"{{tb.selected}}\" onClick=\"{{tb.pick}}\" style=\"{{tb.style}}\">{{tb.label}}</button>\n</sc-for>\n</div>\n<video src=\"{{vidSrc}}\" controls playsinline preload=\"metadata\" style=\"display: {{vidDisplay}}; width: 100%; aspect-ratio: 16 / 9; border: 4px solid #1a1b2c; background: #000000;\"></video>\n<div style=\"position: relative; width: 100%; aspect-ratio: 16 / 9; border: 4px solid #1a1b2c; background: #1b1c2c; display: {{vidPhDisplay}}; flex-direction: column; align-items: center; justify-content: center; gap: 18px; padding: 24px; box-sizing: border-box; color: #c9ccd6;\">\n<button type=\"button\" aria-label=\"{{t.play}}\" style=\"width: 80px; height: 80px; border-radius: 999px; border: none; background: #193329; display: flex; align-items: center; justify-content: center; cursor: pointer;\">\n<svg width=\"30\" height=\"30\" viewBox=\"0 0 24 24\" fill=\"#ffffff\" aria-hidden=\"true\"><path d=\"M8 5.5v13l11-6.5z\"></path></svg>\n</button>\n<span style=\"font-size: 15px; line-height: 1.5; max-width: 480px;\">{{cur.ph}}</span>\n</div>\n<p style=\"margin: 0; max-width: 640px; font-size: 17px; line-height: 1.6;\"><strong style=\"font-weight: 700;\">{{cur.label}}:</strong> {{cur.text}}</p>\n<div id=\"guide-box\" style=\"display: {{gdBoxDisplay}}; width: 100%; max-width: 760px; box-sizing: border-box; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 18px; padding: 20px 24px; background: #efefee; border-radius: 6px; text-align: start;\">\n<div style=\"flex: 1 1 320px; display: flex; flex-direction: column; gap: 4px;\">\n<span style=\"font-size: 12px; font-weight: 700; letter-spacing: 0.08em; text-transform: {{upper}}; color: #193329;\">{{t.guideTag}}</span>\n<strong style=\"font-size: 18px; font-weight: 700; line-height: 1.35;\">{{cur.guide}}</strong>\n<span style=\"font-size: 14px; color: #555a66;\">{{t.guideNote}}</span>\n</div>\n<button type=\"button\" onClick=\"{{gdOpen}}\" aria-expanded=\"{{gdExpanded}}\" style=\"flex: none; display: {{gdBtnDisplay}}; align-items: center; justify-content: center; min-height: 52px; padding: 0 24px; border-radius: 999px; border: 2px solid #c6f432; background: #c6f432; color: #193329; font: inherit; font-weight: 700; font-size: 15px; cursor: pointer;\">{{t.guideBtn}}</button>\n<form style=\"display: {{gdFormDisplay}}; flex: 1 1 100%; flex-direction: column; gap: 12px; padding-top: 16px; border-top: 1px solid #d5d6dc;\">\n<strong style=\"font-size: 17px; font-weight: 700;\">{{t.gdTitle}}</strong>\n<label style=\"display: flex; flex-direction: column; gap: 6px; font-size: 14px; font-weight: 600;\">{{t.cbName}}<input type=\"text\" name=\"name\" required autocomplete=\"given-name\" style=\"{{inputStyle}}\"></label>\n<label style=\"display: flex; flex-direction: column; gap: 6px; font-size: 14px; font-weight: 600;\">{{t.bkPhone}}<span dir=\"ltr\" style=\"display: flex; gap: 8px;\"><select name=\"cc\" aria-label=\"{{t.ccLabel}}\" style=\"{{inputStyle}} flex: none; width: 112px; padding: 0 8px;\"><sc-for list=\"{{countryCodes}}\" as=\"cc\" hint-placeholder-count=\"16\"><option value=\"{{cc.code}}\">{{cc.label}}</option></sc-for></select><input type=\"tel\" name=\"phone\" required autocomplete=\"tel-national\" inputmode=\"tel\" placeholder=\"163 1234567\" style=\"{{inputStyle}} flex: 1 1 auto; min-width: 0;\"></span></label>\n<label style=\"display: flex; gap: 10px; align-items: flex-start; font-size: 13px; line-height: 1.5; color: #555a66;\"><input type=\"checkbox\" name=\"consent\" required style=\"margin-top: 3px; width: 18px; height: 18px; flex: none;\"><span>{{t.gdConsent}} <a href=\"datenschutz.html\" target=\"_blank\">{{t.bkPrivLink}}</a></span></label>\n<button type=\"button\" onClick=\"{{gdSubmit}}\" style=\"min-height: 52px; border-radius: 999px; border: none; background: #c6f432; color: #193329; font: inherit; font-weight: 700; font-size: 15px; cursor: pointer;\">{{t.gdSubmitLabel}}</button>\n</form>\n<p role=\"status\" style=\"display: {{gdThanksDisplay}}; flex: 1 1 100%; margin: 0; font-size: 15px; line-height: 1.5; font-weight: 600; color: #1a1b2c;\">{{gdThanks}}</p>\n<a href=\"{{gdPdf}}\" target=\"_blank\" rel=\"noopener\" download style=\"display: {{gdDlDisplay}}; align-items: center; justify-content: center; min-height: 52px; padding: 0 28px; border-radius: 999px; background: #c6f432; color: #193329; font-weight: 700; font-size: 16px; text-decoration: none;\">{{t.gdDownload}}</a>\n</div>\n<a href=\"{{checkUrl}}\" style=\"display: inline-flex; align-items: center; justify-content: center; min-height: 60px; padding: 0 36px; border-radius: 999px; background: #c6f432; color: #193329; font-weight: 700; font-size: 16px; letter-spacing: 0.02em; text-transform: {{upper}}; text-decoration: none;\">{{t.cta}}</a>\n</div>\n</section>\n\n<section id=\"angebot\" style=\"background: #efefee; padding: 88px 32px;\">\n<div style=\"max-width: 1200px; margin: 0 auto; display: flex; flex-direction: column; align-items: center; gap: 40px;\">\n<div style=\"display: flex; flex-direction: column; align-items: center; gap: 18px; text-align: center;\">\n<span style=\"{{eyebrow}}\">{{t.offerTag}}</span>\n<h2 style=\"{{h2}}\"><span style=\"color: #193329;\">{{t.offerBlue}}</span> {{t.offerRest}}</h2>\n</div>\n<div style=\"width: 100%; display: flex; flex-wrap: wrap; justify-content: center; gap: 20px;\">\n<sc-for list=\"{{t.offer}}\" as=\"o\" hint-placeholder-count=\"6\">\n<div style=\"flex: 0 1 340px; min-width: 240px; box-sizing: border-box; background: #ffffff; border: 1px solid #e6e7ec; border-radius: 6px; padding: 28px; display: flex; flex-direction: column; gap: 12px;\">\n<svg width=\"32\" height=\"32\" viewBox=\"0 0 32 32\" aria-hidden=\"true\"><circle cx=\"16\" cy=\"16\" r=\"16\" fill=\"#193329\"></circle><path d=\"M9.5 16.5l4.5 4.5 8.5-9\" fill=\"none\" stroke=\"#ffffff\" stroke-width=\"2.6\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path></svg>\n<h3 style=\"margin: 0; font-size: 19px; font-weight: 700; line-height: 1.3;\">{{o.title}}</h3>\n<p style=\"margin: 0; font-size: 16px; line-height: 1.55; color: #555a66;\">{{o.text}}</p>\n</div>\n</sc-for>\n</div>\n<div style=\"width: 100%; display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px;\">\n<div style=\"{{forStyle}} border-color: #193329;\">\n<h3 style=\"margin: 0; font-size: 15px; font-weight: 700; letter-spacing: 0.06em; text-transform: {{upper}}; color: #193329;\">{{t.forTitle}}</h3>\n<p style=\"margin: 0; font-size: 17px; line-height: 1.55;\">{{t.forText}}</p>\n</div>\n<div style=\"{{forStyle}} border-color: #1a1b2c;\">\n<h3 style=\"margin: 0; font-size: 15px; font-weight: 700; letter-spacing: 0.06em; text-transform: {{upper}};\">{{t.notTitle}}</h3>\n<p style=\"margin: 0; font-size: 17px; line-height: 1.55;\">{{t.notText}}</p>\n</div>\n</div>\n<a href=\"{{checkUrl}}\" style=\"{{ctaStyle}}\">{{t.cta}}</a>\n</div>\n</section>\n\n<section id=\"bewertungen\" style=\"background: #ffffff; padding: 88px 32px;\">\n<div style=\"max-width: 1200px; margin: 0 auto; display: flex; flex-direction: column; align-items: center; gap: 40px;\">\n<h2 style=\"{{h2}} text-align: center;\"><span style=\"color: #193329;\">{{t.revBlue}}</span> {{t.revRest}}</h2>\n<div style=\"width: 100%; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 420px), 1fr)); gap: 20px;\">\n<sc-for list=\"{{t.reviews}}\" as=\"r\" hint-placeholder-count=\"4\">\n<figure style=\"margin: 0; border: 4px solid #1a1b2c; padding: 28px; display: flex; flex-direction: column; gap: 16px;\">\n<span aria-hidden=\"true\" style=\"color: #193329; font-size: 20px; letter-spacing: 3px;\">★★★★★</span>\n<blockquote style=\"margin: 0; font-size: 17px; line-height: 1.6;\">{{r.quote}}</blockquote>\n<figcaption style=\"display: flex; flex-direction: column; gap: 2px;\"><strong style=\"font-weight: 700;\">{{r.name}}</strong><span style=\"font-size: 14px; color: #555a66;\">{{r.role}}</span></figcaption>\n</figure>\n</sc-for>\n</div>\n<a href=\"#\" style=\"font-weight: 600; font-size: 16px;\">{{t.revLink}}</a>\n</div>\n</section>\n\n<section style=\"background: #efefee; padding: 88px 32px;\">\n<div style=\"max-width: 1200px; margin: 0 auto; display: flex; flex-direction: column; align-items: center; gap: 40px;\">\n<h2 style=\"{{h2}} text-align: center;\"><span style=\"color: #193329;\">{{t.stepsBlue}}</span> {{t.stepsRest}}</h2>\n<ol style=\"list-style: none; margin: 0; padding: 0; width: 100%; display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 32px;\">\n<sc-for list=\"{{t.steps}}\" as=\"s\" hint-placeholder-count=\"3\">\n<li style=\"display: flex; flex-direction: column; gap: 10px;\">\n<span aria-hidden=\"true\" style=\"font-weight: 800; font-size: 56px; line-height: 1; color: #193329;\">{{s.num}}</span>\n<h3 style=\"margin: 0; font-size: 21px; font-weight: 700;\">{{s.title}}</h3>\n<p style=\"margin: 0; font-size: 16px; line-height: 1.55; color: #555a66;\">{{s.text}}</p>\n</li>\n</sc-for>\n</ol>\n<a href=\"{{checkUrl}}\" style=\"{{ctaStyle}}\">{{t.cta}}</a>\n</div>\n</section>\n\n<section id=\"ueber-mich\" style=\"background: #ffffff; padding: 88px 32px;\">\n<div style=\"max-width: 1100px; margin: 0 auto; display: flex; flex-wrap: wrap; align-items: center; gap: 56px;\">\n<div style=\"flex: 1 1 320px; max-width: 440px; margin: 0 auto; border: 4px solid #1a1b2c; background: #efefee; display: flex; justify-content: center; align-items: flex-end; height: 460px; overflow: hidden; box-sizing: border-box;\">\n<img src=\"img/karim.webp\" alt=\"{{t.cutLeft}}\" style=\"display: block; height: 420px; width: auto; max-width: 100%; object-fit: contain; object-position: bottom center;\">\n</div>\n<div style=\"flex: 1 1 420px; display: flex; flex-direction: column; gap: 18px;\">\n<span style=\"{{eyebrow}} align-self: flex-start;\">{{t.aboutTag}}</span>\n<h2 style=\"{{h2}}\">{{t.aboutPre}} <span style=\"color: #193329;\">{{t.aboutName}}</span></h2>\n<sc-for list=\"{{t.story}}\" as=\"p\" hint-placeholder-count=\"2\">\n<p style=\"margin: 0; font-size: 17px; line-height: 1.65;\">{{p.text}}</p>\n</sc-for>\n<p style=\"margin: 0; font-size: 17px; line-height: 1.65; font-weight: 700;\">{{t.teamLine}}</p>\n</div>\n</div>\n</section>\n\n<section id=\"termin\" style=\"background: #efefee; padding: 88px 32px;\">\n<div style=\"max-width: 1200px; margin: 0 auto; display: flex; flex-direction: column; align-items: center; gap: 36px;\">\n<div style=\"display: flex; flex-direction: column; align-items: center; gap: 18px; text-align: center;\">\n\n<h2 style=\"{{h2}}\"><span style=\"color: #193329;\">{{t.termBlue}}</span> {{t.termRest}}</h2>\n</div>\n<div style=\"width: 100%; display: flex; flex-wrap: wrap; gap: 28px; align-items: flex-start;\">\n<div style=\"flex: 2 1 460px; display: flex; flex-direction: column; gap: 10px; min-width: 0;\">\n<form style=\"display: {{bkFormDisplay}}; flex-direction: column; gap: 16px; background: #ffffff; border: 4px solid #1a1b2c; padding: 32px; box-sizing: border-box;\">\n<span style=\"font-size: 13px; font-weight: 700; letter-spacing: 0.08em; text-transform: {{upper}}; color: #193329;\">{{t.bkStep1}}</span>\n<h3 style=\"margin: 0; font-size: 22px; font-weight: 800; line-height: 1.3;\">{{t.bkTitle}}</h3>\n<span style=\"font-size: 14px; color: #555a66;\">{{t.cbTopic}} <strong style=\"color: #1a1b2c;\">{{cur.label}}</strong></span>\n<label style=\"display: flex; flex-direction: column; gap: 6px; font-size: 14px; font-weight: 600;\">{{t.cbName}}<input type=\"text\" name=\"name\" required autocomplete=\"given-name\" style=\"{{inputStyle}}\"></label>\n<label style=\"display: flex; flex-direction: column; gap: 6px; font-size: 14px; font-weight: 600;\">{{t.bkPhone}}<span dir=\"ltr\" style=\"display: flex; gap: 8px;\"><select name=\"cc\" aria-label=\"{{t.ccLabel}}\" style=\"{{inputStyle}} flex: none; width: 112px; padding: 0 8px;\"><sc-for list=\"{{countryCodes}}\" as=\"cc\" hint-placeholder-count=\"16\"><option value=\"{{cc.code}}\">{{cc.label}}</option></sc-for></select><input type=\"tel\" name=\"phone\" required autocomplete=\"tel-national\" inputmode=\"tel\" placeholder=\"163 1234567\" style=\"{{inputStyle}} flex: 1 1 auto; min-width: 0;\"></span></label>\n<label style=\"display: flex; flex-direction: column; gap: 6px; font-size: 14px; font-weight: 600;\">{{t.bkEmail}}<input type=\"email\" name=\"email\" required autocomplete=\"email\" dir=\"ltr\" style=\"{{inputStyle}}\"></label>\n<label style=\"display: flex; gap: 10px; align-items: flex-start; font-size: 13px; line-height: 1.5; color: #555a66;\"><input type=\"checkbox\" name=\"consent\" required style=\"margin-top: 3px; width: 18px; height: 18px; flex: none;\"><span>{{t.bkConsent}} <a href=\"datenschutz.html\" target=\"_blank\">{{t.bkPrivLink}}</a></span></label>\n<button type=\"button\" onClick=\"{{bkSubmit}}\" style=\"min-height: 56px; border-radius: 999px; border: none; background: #c6f432; color: #193329; font: inherit; font-weight: 700; font-size: 17px; cursor: pointer;\">{{t.bkNext}}</button>\n<span style=\"font-size: 13px; color: #555a66; text-align: center;\">{{t.bkNote}}</span>\n</form>\n<div style=\"display: {{bkCalDisplay}}; flex-direction: column; gap: 10px;\">\n<p role=\"status\" style=\"margin: 0; font-size: 16px; line-height: 1.5; font-weight: 600;\">{{bkThanks}}</p>\n<span style=\"font-size: 13px; font-weight: 700; letter-spacing: 0.08em; text-transform: {{upper}}; color: #193329;\">{{t.bkStep2}}</span>\n<div style=\"background: #ffffff; border: 4px solid #1a1b2c; box-sizing: border-box;\">\n<iframe src=\"{{calSrc}}\" title=\"{{t.calTitle}}\" loading=\"lazy\" style=\"display: block; width: 100%; height: 700px; border: 0;\"></iframe>\n</div>\n<a href=\"{{calLinkUrl}}\" target=\"_blank\" rel=\"noopener\" style=\"display: inline-flex; align-items: center; justify-content: center; min-height: 52px; border-radius: 999px; border: 2px solid #193329; color: #193329; font-weight: 700; font-size: 15px; text-decoration: none;\">{{t.calLink}}</a>\n</div>\n</div>\n<div style=\"flex: 1 1 300px; display: flex; flex-direction: column; gap: 20px;\">\n<figure style=\"margin: 0; background: #ffffff; border: 1px solid #e6e7ec; border-radius: 6px; padding: 24px; display: flex; flex-direction: column; gap: 12px;\">\n<span aria-hidden=\"true\" style=\"color: #193329; font-size: 18px; letter-spacing: 3px;\">★★★★★</span>\n<blockquote style=\"margin: 0; font-size: 16px; line-height: 1.6;\">{{top.quote}}</blockquote>\n<figcaption style=\"font-size: 14px;\"><strong>{{top.name}}</strong> · {{top.role}}</figcaption>\n</figure>\n<div style=\"background: #ffffff; border-radius: 6px; padding: 24px; {{accentSide}}: 4px solid #193329; display: flex; flex-direction: column; gap: 8px;\">\n<h3 style=\"margin: 0; font-size: 15px; font-weight: 700; letter-spacing: 0.06em; text-transform: {{upper}}; color: #193329;\">{{t.promiseTitle}}</h3>\n<p style=\"margin: 0; font-size: 16px; line-height: 1.55;\">{{t.promiseText}}</p>\n</div>\n<div style=\"display: flex; flex-direction: column; gap: 10px;\">\n<span style=\"font-size: 15px; color: #555a66;\">{{t.waText}}</span>\n<a href=\"https://wa.me/491631549878\" style=\"display: inline-flex; align-items: center; justify-content: center; min-height: 52px; border-radius: 999px; border: 2px solid #1a1b2c; color: #1a1b2c; font-weight: 700; font-size: 15px; text-decoration: none;\">{{t.waBtn}}</a>\n</div>\n<div style=\"background: #ffffff; border: 1px solid #e6e7ec; border-radius: 6px; padding: 24px; display: flex; flex-direction: column; gap: 14px;\">\n<h3 style=\"margin: 0; font-size: 18px; font-weight: 700;\">{{t.cbTitle}}</h3>\n<p style=\"margin: 0; font-size: 15px; line-height: 1.5; color: #555a66;\">{{t.telText}}</p>\n<a href=\"tel:+491631549878\" dir=\"ltr\" style=\"display: inline-flex; align-items: center; justify-content: center; gap: 10px; min-height: 52px; border-radius: 999px; background: #1a1b2c; color: #ffffff; font-weight: 700; font-size: 17px; text-decoration: none;\"><svg width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"#ffffff\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z\"></path></svg>{{t.telNum}}</a>\n<span style=\"font-size: 14px; color: #555a66; text-align: center;\">{{t.telHours}}</span>\n</div>\n</div>\n</div>\n</div>\n</section>\n\n<section id=\"faq\" style=\"background: #ffffff; padding: 88px 32px;\">\n<div style=\"max-width: 860px; margin: 0 auto; display: flex; flex-direction: column; gap: 36px;\">\n<h2 style=\"{{h2}} text-align: center;\">{{t.faqPre}} <span style=\"color: #193329;\">{{t.faqBlue}}</span></h2>\n<div style=\"display: flex; flex-direction: column;\">\n<sc-for list=\"{{t.faqs}}\" as=\"f\" hint-placeholder-count=\"6\">\n<details style=\"border-bottom: 2px dotted #1a1b2c; padding: 22px 0;\">\n<summary style=\"display: flex; justify-content: space-between; align-items: center; gap: 16px; font-size: 19px; font-weight: 700;\">{{f.q}}<span class=\"faq-plus\" aria-hidden=\"true\" style=\"flex: none; font-size: 28px; font-weight: 400; line-height: 1; color: #193329; transition: transform .2s;\">+</span></summary>\n<p style=\"margin: 14px 0 0; font-size: 17px; line-height: 1.6; color: #555a66;\">{{f.a}}</p>\n</details>\n</sc-for>\n</div>\n<p id=\"guide\" style=\"display: {{gdBoxDisplay}}; margin: 0; text-align: center; font-size: 16px; color: #555a66;\">{{t.guideText}} <a href=\"#guide-box\" onClick=\"{{gdOpen}}\" style=\"font-weight: 700;\">{{t.guideLink}} {{cur.guide}}</a></p>\n<div style=\"display: flex; justify-content: center;\"><a href=\"{{checkUrl}}\" style=\"{{ctaStyle}}\">{{t.cta}}</a></div>\n</div>\n</section>\n\n<footer class=\"site-footer\" style=\"background: #1b1c2c; color: #c9ccd6; padding: 48px 32px;\">\n<div style=\"max-width: 1200px; margin: 0 auto; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 24px; font-size: 14px; line-height: 1.6;\">\n<div style=\"display: flex; flex-direction: column; gap: 10px;\">\n<span style=\"display: flex; align-items: center; gap: 10px; color: #ffffff;\"><svg width=\"26\" height=\"18\" viewBox=\"0 0 30 20\" fill=\"#ffffff\" aria-hidden=\"true\"><path d=\"M15 0l15 20H0z\"></path><path d=\"M15 9l6 8H9z\" fill=\"#1b1c2c\"></path></svg><strong style=\"font-weight: 800; letter-spacing: 0.02em; text-transform: uppercase;\">Yalla Finanzen</strong></span>\n<span>{{t.footAddr}}</span>\n<span dir=\"ltr\"><a href=\"tel:+491631549878\" style=\"color: #ffffff;\">0163 1549878</a> · <a href=\"mailto:karimelmaimouny@gmail.com\" style=\"color: #ffffff;\">karimelmaimouny@gmail.com</a></span>\n<span>{{t.footReg}}</span>\n</div>\n<nav aria-label=\"Rechtliches\" style=\"display: flex; flex-wrap: wrap; gap: 20px; align-items: flex-start;\">\n<a href=\"impressum.html\" style=\"color: #ffffff;\">{{t.footImp}}</a>\n<a href=\"datenschutz.html\" style=\"color: #ffffff;\">{{t.footPriv}}</a>\n<a href=\"erstinformation.html\" style=\"color: #ffffff;\">{{t.footInfo}}</a>\n</nav>\n</div>\n</footer>\n\n<a href=\"https://wa.me/491631549878\" aria-label=\"WhatsApp\" style=\"position: fixed; right: 24px; bottom: 24px; width: 56px; height: 56px; border-radius: 999px; background: #25d366; display: flex; align-items: center; justify-content: center; z-index: 20;\">\n<svg width=\"28\" height=\"28\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"#0b2e13\" stroke-width=\"1.8\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M20 11.6a8.4 8.4 0 0 1-12.4 7.4L3.5 20.5l1.5-4A8.4 8.4 0 1 1 20 11.6z\"></path><path d=\"M9 8.5c0 3.6 2.9 6.5 6.5 6.5l1-1.6-2-1-1 .8a4.6 4.6 0 0 1-2.7-2.7l.8-1-1-2z\"></path></svg>\n</a>\n\n<div class=\"sticky-cta\" style=\"position: fixed; left: 0; right: 0; bottom: 0; padding: 12px 16px; background: #ffffff; border-top: 1px solid #e6e7ec; z-index: 19;\">\n<a href=\"{{checkUrl}}\" style=\"flex: 1; display: flex; align-items: center; justify-content: center; min-height: 52px; border-radius: 999px; background: #c6f432; color: #193329; font-weight: 700; font-size: 16px; text-decoration: none;\">{{t.ctaShort}}</a>\n</div>\n\n</div>\n";
+// Kleine Laufzeit, die den Entwurf ohne Design-Werkzeug im Browser darstellt.
+var ylHandlers = [];
+var ylComp = null;
+var ylQueued = false;
+
+function DCLogic(props) { this.props = props || {}; this.state = {}; }
+DCLogic.prototype.setState = function (o) { Object.assign(this.state, o); ylSchedule(); };
+
+function ylGet(scope, p) {
+  return p.split('.').reduce(function (o, k) { return o == null ? undefined : o[k]; }, scope);
+}
+function ylEsc(v) {
+  if (v == null) return '';
+  return String(v).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+}
+function ylSubst(str, scope) {
+  return str
+    .replace(/onClick="\{\{([^}]+)\}\}"/g, function (m, p) { ylHandlers.push(ylGet(scope, p.trim())); return 'data-yl-click="' + (ylHandlers.length - 1) + '"'; })
+    .replace(/\{\{([^}]+)\}\}/g, function (m, p) { return ylEsc(ylGet(scope, p.trim())); });
+}
+function ylRender(str, scope) {
+  var out = '', i = 0;
+  for (;;) {
+    var s = str.indexOf('<sc-for', i);
+    if (s < 0) { out += ylSubst(str.slice(i), scope); break; }
+    out += ylSubst(str.slice(i, s), scope);
+    var tagEnd = str.indexOf('>', s), tag = str.slice(s, tagEnd + 1);
+    var list = tag.match(/list="\{\{([^}]+)\}\}"/)[1].trim(), as = tag.match(/as="([^"]+)"/)[1];
+    var depth = 1, j = tagEnd + 1;
+    while (depth) {
+      var o = str.indexOf('<sc-for', j), c = str.indexOf('</sc-for>', j);
+      if (o >= 0 && o < c) { depth++; j = o + 7; } else { depth--; j = c + 9; }
+    }
+    var inner = str.slice(tagEnd + 1, j - 9);
+    (ylGet(scope, list) || []).forEach(function (item) { var sc = Object.create(scope); sc[as] = item; out += ylRender(inner, sc); });
+    i = j;
+  }
+  return out;
+}
+function ylSchedule() {
+  if (ylQueued) return;
+  ylQueued = true;
+  (window.requestAnimationFrame || setTimeout)(function () { ylQueued = false; ylPaint(); });
+}
+function ylPaint() {
+  var vals = ylComp.renderVals();
+  ylHandlers = [];
+  var html = ylRender(window.YL_TPL, vals);
+  var root = document.getElementById('app');
+  morphdom(root, '<div id="app">' + html + '</div>', {
+    onBeforeElUpdated: function (from, to) {
+      var t = from.tagName;
+      // Eingaben der Besucher nicht überschreiben
+      if (t === 'INPUT' || t === 'SELECT' || t === 'TEXTAREA') return false;
+      if (t === 'DETAILS' && from.open) to.setAttribute('open', '');
+      return true;
+    }
+  });
+  if (vals.lang) document.documentElement.lang = vals.lang;
+  if (vals.dir) document.documentElement.dir = vals.dir;
+}
+window.ylSend = function (form, data) {
+  data['form-name'] = form;
+  data.zeit = new Date().toISOString();
+  data.seite = window.location.href;
+  try {
+    return fetch('/', { method: 'POST', headers: { 'Content-Type': 'application/x-www-form-urlencoded' }, body: new URLSearchParams(data).toString() })
+      .catch(function (e) { console.warn('Formular nicht gesendet', e); });
+  } catch (e) { console.warn('Formular nicht gesendet', e); }
+};
+function ylStart(Comp) {
+  ylComp = new Comp({});
+  try {
+    var m = window.location.search.match(/[?&]lang=(de|ar|en)/i);
+    if (m) ylComp.state.lang = m[1].toLowerCase();
+    else if (/^ar/i.test(navigator.language || '')) ylComp.state.lang = 'ar';
+  } catch (e) {}
+  var root = document.getElementById('app');
+  root.addEventListener('click', function (e) {
+    var el = e.target.closest && e.target.closest('[data-yl-click]');
+    if (!el) return;
+    var f = ylHandlers[+el.getAttribute('data-yl-click')];
+    if (typeof f !== 'function') return;
+    e.preventDefault();
+    f({ currentTarget: el, target: e.target, nativeEvent: e, preventDefault: function () {} });
+  });
+  root.addEventListener('submit', function (e) {
+    e.preventDefault();
+    var b = e.target.querySelector('[data-yl-click]');
+    if (b) b.click();
+  });
+  ylPaint();
+  if (window.location.hash) {
+    var target = document.getElementById(window.location.hash.slice(1));
+    if (target) setTimeout(function () { target.scrollIntoView(); }, 50);
+  }
+}
+
+
+// Themen-Videos (Leiste über den Guides): Datei in videos/ legen und Namen eintragen, z. B. 'videos/krankenkasse-ar.mp4'.
+// Pro Sprache möglich: { ar: '...', en: '...' }. Leere Themen zeigen keinen Video-Kasten.
+var TOPIC_VIDEOS = { krankenkasse: '', vermoegen: '', rente: '', bu: '', immobilien: '' };
+class Component extends DCLogic {
+constructor(props) {
+super(props);
+// Thema aus dem Link: ?thema=krankenkasse | vermoegen | rente | bu | immobilien
+var landing = 5;
+try {
+var q = (window.location.search + '&' + window.location.hash).toLowerCase();
+var m = q.match(/thema=([a-z]+)/);
+var map = { krankenkasse: 0, kv: 0, vermoegen: 1, etf: 1, rente: 2, bu: 3, immobilien: 4 };
+if (m && map[m[1]] !== undefined) landing = map[m[1]];
+} catch (e) {}
+this.state = { lang: 'de', topic: landing % 5, landing: landing, bk: 'form', bkName: '', bkEmail: '', lead: null, gdOpen: false, gdDone: {} };
+}
+renderVals() {
+var texts = {
+de: {
+promoTag: 'NEU', promoBold: 'Finanzberatung jetzt auch auf Arabisch:', promoRest: 'Sichere dir deinen kostenlosen Finanz-Check',
+navStart: 'Start', navTopicsLabel: 'Themen', navTopics: ['Krankenkasse', 'Vermögen', 'Rente', 'Einkommenssicherung', 'Immobilien'],
+ctaShort: 'Ich bin bereit zu sparen', cta: 'Ich bin bereit zu sparen',
+variants: [
+{ h1: 'Arzt oder Ingenieur in Deutschland und willst die optimale Krankenkasse für dich finden?', sub: 'Lass dich von dem Team beraten, das jährlich über 1.000 Menschen bei ihrer Krankenversicherung unterstützt.', cta: 'Ich bin bereit zu sparen' },
+{ h1: 'Arzt oder Ingenieur in Deutschland und willst dein Geld vor Inflation schützen?', sub: 'Lass dich von dem Team beraten, das jährlich über 1.000 Menschen bei ihrem Vermögensaufbau unterstützt.', cta: 'Ich bin bereit zu investieren' },
+{ h1: 'Arzt oder Ingenieur in Deutschland und möchtest genau wissen, wie viel Rente du bekommst?', sub: 'Lass dich von dem Team beraten, das jährlich über 1.000 Menschen bei ihrer Altersvorsorge unterstützt.', cta: 'Ich will meine Rentenlücke kennen' },
+{ h1: 'Arzt oder Ingenieur in Deutschland und willst dein Einkommen für mehr Sicherheit absichern?', sub: 'Lass dich von dem Team beraten, das jährlich über 1.000 Menschen bei ihrer Absicherung unterstützt.', cta: 'Ich will mich absichern' },
+{ h1: 'Arzt oder Ingenieur in Deutschland und willst wissen, wie du eine Immobilie kaufst?', sub: 'Lass dich von dem Team beraten, das jährlich über 1.000 Menschen auf dem Weg zur eigenen Immobilie unterstützt.', cta: 'Ich will meine eigene Wohnung' },
+{ h1: "Arzt oder Ingenieur in Deutschland und willst dein Geld schützen und dein Vermögen aufbauen?", sub: "Lass dich von dem Team beraten, das jährlich über 1.000 Menschen bei Absicherung, Vorsorge und Vermögensaufbau unterstützt.", cta: "Ich bin bereit zu sparen" }
+],
+h1: 'Arzt oder Ingenieur in Deutschland und willst die optimale Krankenkasse für dich finden?',
+sub: 'Lass dich von dem Team beraten, das jährlich über 1.000 Menschen bei ihrer Krankenversicherung unterstützt.',
+reassure: 'Kostenlos · 30 Minuten · auf Arabisch, Deutsch oder Englisch',
+cutLeft: 'Karim Adel, Gründer von Yalla Finanzen',
+cutRight: 'Linda, Co-Founderin und Senior-Beraterin von Yalla Finanzen',
+cutMobile: '[Handy: ein gemeinsames freigestelltes Foto, z. B. du und dein Team]',
+statsLabel: 'Zahlen',
+stats: [
+{ num: '1.000+', label: 'Beratungsgespräche' },
+{ num: '100 Mio. €+', label: 'Betreutes Vermögen' },
+{ num: '4,9 ★', label: 'aus 100+ Google-Bewertungen' },
+{ num: '3', label: 'Sprachen' }
+],
+vidBlue: 'Kurz erklärt:', vidRest: 'deine Finanzthemen',
+topics: [
+{ label: 'Krankenversicherung', text: 'Die falsche Wahl am Anfang kann dich über die Jahre viel Geld kosten, und der Weg zurück ist oft versperrt. Welche Variante zu dir passt, rechnen wir im Termin durch.', ph: 'Video folgt in Kürze' , guide: 'In 5 Minuten wissen, ob du zu viel für deine Krankenkasse zahlst' },
+{ label: 'Vermögensaufbau', text: 'Geld, das nur auf dem Konto liegt, verliert jedes Jahr an Kaufkraft. Wie dein Plan dagegen aussieht, besprechen wir im Termin.', ph: 'Video folgt in Kürze' , guide: 'Raus vom Konto: In 6 Schritten zu deinem ersten ETF-Sparplan' },
+{ label: 'Altersvorsorge', text: 'Die gesetzliche Rente ersetzt nur einen Teil deines letzten Gehalts. Wie groß deine Lücke ist und wie du sie schließt, zeigen wir dir im Termin.', ph: 'Video folgt in Kürze' , guide: 'Deine Rentenlücke: Der 10-Minuten-Check' },
+{ label: 'Einkommenssicherung', text: 'Wenn du nicht mehr arbeiten kannst, fällt dein Einkommen weg, aber deine Kosten bleiben. Ob du richtig abgesichert bist, prüfen wir im Termin.', ph: 'Video folgt in Kürze' , guide: 'Was dir fehlt, wenn du nicht mehr arbeiten kannst: Der 5-Minuten-Check' },
+{ label: 'Immobilien', text: 'Banken prüfen Expats oft strenger, und wer die Regeln nicht kennt, zahlt drauf oder wird abgelehnt. Wie du trotzdem zur eigenen Wohnung kommst, besprechen wir im Termin.', ph: 'Video folgt in Kürze', guide: 'Als Expat zur eigenen Wohnung: Prüf in 10 Minuten, ob du bereit bist' }
+],
+play: 'Video abspielen',
+offerTag: 'Der 30-Min-Finanz-Check', offerBlue: 'Das bekommst du', offerRest: 'in 30 Minuten',
+offer: [
+{ title: 'Krankenkassen-Check', text: 'Gesetzlich oder privat: Wir rechnen durch, was sich für dich lohnt, bevor du dich festlegst.' },
+{ title: 'Dein Vermögens-Fahrplan', text: 'Wie viel du monatlich investierst, wie lange und mit welcher Struktur.' },
+{ title: 'BU-Check', text: 'Bist du richtig abgesichert, falls du nicht mehr arbeiten kannst? Ja oder nein.' },
+{ title: 'Deine Rentenlücke in Euro', text: 'Berechnet auf dein Gehalt, damit du weißt, was dir im Alter fehlt.' },
+{ title: 'Alles schriftlich', text: 'Nach dem Gespräch bekommst du deine Zusammenfassung als PDF.' }
+],
+forTitle: 'Für wen das ist', forText: 'Ärzte, Ingenieure und Lehrer in Deutschland mit gutem Einkommen, die ihr Geld endlich planen wollen.',
+notTitle: 'Für wen das nicht ist', notText: 'Wer schnell reich werden will oder Aktientipps sucht.',
+revBlue: 'Echte Stimmen', revRest: 'von Ärzten und Ingenieuren',
+reviews: [
+{ quote: '„Als arabischer Arzt in Deutschland war ich unsicher, wie ich PKV, Altersvorsorge und Vermögensaufbau sinnvoll verbinden kann. Besonders wichtig war mir, dass meine familiären Verpflichtungen und meine internationale Lebenssituation berücksichtigt werden. Die Beratung war verständlich strukturiert und ohne Druck. Heute weiß ich genau, welche Schritte ich als Nächstes gehen muss.“', name: 'Ali Z.', role: 'Arzt, Tübingen' },
+{ quote: '„Vor der Beratung hatte ich verschiedene Sparverträge, aber keinen klaren Plan. Karim hat mit mir meine Ziele, meinen monatlichen Spielraum und meine Risikobereitschaft analysiert. Jetzt habe ich eine verständliche Strategie für Rücklagen, den langfristigen Vermögensaufbau und meine finanzielle Zukunft in Deutschland.“', name: 'Moneeb A.', role: 'Ingenieur, Stuttgart' },
+{ quote: '„Ich wollte in Deutschland eine Immobilie kaufen, wusste aber nicht, wie viel Eigenkapital sinnvoll ist […]. Die Beratung hat mir geholfen, die […] Absicherung und langfristige Belastung realistisch einzuschätzen. Es war super, mit Karim zu arbeiten. Ich kann ihn nur weiterempfehlen.“', name: 'Habiba T.', role: 'Lehrerin, München' },
+{ quote: '„Als Expat war es für mich besonders hilfreich, dass die komplexen deutschen Finanz- und Versicherungsthemen verständlich erklärt wurden. Auch die Kommunikation auf Arabisch, Englisch und Deutsch hat vieles einfacher gemacht. Ich hatte zum ersten Mal das Gefühl, meine finanziellen Entscheidungen wirklich zu verstehen.“', name: 'Ahmed H.', role: 'Tischtennis-Bundesligaspieler, Mannheim' }
+],
+revLink: 'Alle Bewertungen auf Google ansehen',
+stepsBlue: 'So läuft', stepsRest: 'es ab',
+steps: [
+{ num: '1', title: 'Termin wählen', text: 'Such dir unten einen freien Termin aus. Das dauert eine Minute.' },
+{ num: '2', title: '30 Minuten Gespräch', text: 'Per Video oder in unserem Büro in Heidelberg, auf Arabisch, Deutsch oder Englisch.' },
+{ num: '3', title: 'Dein Plan als PDF', text: 'Du bekommst alles schriftlich und entscheidest in Ruhe.' }
+],
+aboutTag: 'Yalla Finanzen', aboutPre: 'Über', aboutName: 'uns',
+story: [
+{ text: 'Karim Adel, Gründer von Yalla Finanzen sowie Teamleader und Mentor eines 15-köpfigen Teams aus jungen, ambitionierten Beratern.' },
+{ text: 'Als ich damals frisch nach Deutschland gezogen bin, wusste ich nicht, wie ich hier meine Finanzen planen muss. Also habe ich es mir zur Aufgabe gemacht, es nicht nur selbst zu lernen, sondern es auch meinen Freunden zu erklären, die als Ärzte, Ingenieure und Lehrer in Deutschland arbeiten.' }
+],
+teamLine: 'Mit meinem Team in Heidelberg betreuen wir mittlerweile über 100 Millionen Euro Vermögen.',
+scarcity: '',
+termBlue: 'Wähle deinen Termin', termRest: 'für den Finanz-Check',
+calTitle: 'Termin für deinen Finanz-Check wählen', calLink: 'Kalender lädt nicht? Hier direkt deinen Termin wählen',
+promiseTitle: 'Unser Versprechen', promiseText: 'Wenn du nach dem Gespräch nichts Neues gelernt hast, sag es uns, und wir spenden 50 € an einen Zweck deiner Wahl.',
+waText: 'Lieber schreiben?', waBtn: 'Schreib uns auf WhatsApp',
+gdTitle: 'Gib deine Nummer ein und hol dir den Guide sofort', gdConsent: 'Ich möchte den kostenlosen Guide erhalten und willige ein, dass Yalla Finanzen mich telefonisch, per WhatsApp oder per E-Mail kontaktiert, um mir einen kostenlosen Finanz-Check anzubieten. Ich kann diese Einwilligung jederzeit widerrufen. Mehr dazu in der', gdSubmitLabel: 'Guide jetzt freischalten', gdThanks: 'Dein Guide „%g“ ist freigeschaltet.', gdDownload: 'Guide jetzt herunterladen (PDF)',
+bkStep1: 'Schritt 1 von 2', bkStep2: 'Schritt 2 von 2: Wähle deinen Termin', bkTitle: 'Wohin dürfen wir dich melden?', bkPhone: 'Deine Telefonnummer', ccLabel: 'Ländervorwahl', bkEmail: 'Deine E-Mail', bkConsent: 'Ich willige ein, dass Yalla Finanzen mich telefonisch, per WhatsApp oder per E-Mail kontaktiert, um meinen kostenlosen Finanz-Check zu vereinbaren und durchzuführen. Ich kann diese Einwilligung jederzeit widerrufen. Mehr dazu in der', bkPrivLink: 'Datenschutzerklärung.', bkNext: 'Weiter zur Terminauswahl', bkNote: 'Kostenlos. Kein Newsletter, kein Spam.', bkThanksPre: 'Danke', bkThanks: 'Wähle jetzt deinen Termin. Findest du keinen passenden, rufen wir dich an.',
+cbTitle: 'Lieber telefonieren?', telText: 'Ruf uns an und mach direkt deinen Termin aus.', telNum: '0163 1549878', telHours: 'Erreichbar täglich, auch am Wochenende, 10–18 Uhr', cbOr: 'Oder wir rufen dich zurück:', cbBtn: 'Rückruf anfordern', cbTopic: 'Thema:', cbName: 'Vorname', cbPhone: 'Telefonnummer', cbTime: 'Wann passt es dir?', cbTimes: [{ v: 'Vormittags' }, { v: 'Nachmittags' }, { v: 'Abends' }], cbConsent: 'Ich bitte Yalla Finanzen, mich zu meinem Thema telefonisch zurückzurufen. Meine Daten werden nur dafür genutzt. Ich kann das jederzeit widerrufen.', cbThanks: 'Danke! Wir rufen dich zur gewünschten Zeit an.',
+faqPre: 'Häufige', faqBlue: 'Fragen',
+faqs: [
+{ q: 'Kostet der Finanz-Check etwas?', a: 'Nein. Die 30 Minuten sind kostenlos.' },
+{ q: 'Wie verdienst du dein Geld?', a: 'Wenn du dich nach dem Gespräch für einen Vertrag entscheidest, zahlt mir die Gesellschaft eine Provision. Die Beratung selbst kostet dich nichts, und ob du abschließt, entscheidest du allein.' },
+{ q: 'Muss ich etwas abschließen?', a: 'Nein. Du bekommst deinen Plan als PDF und entscheidest in Ruhe, ob und mit wem du ihn umsetzt.' },
+{ q: 'Ist mein Deutsch gut genug?', a: 'Wir sprechen Arabisch, Deutsch und Englisch. Du wählst die Sprache.' },
+{ q: 'Geht das auch online?', a: 'Ja, per Video von überall in Deutschland oder persönlich in unserem Büro in Heidelberg.' }
+],
+guideText: 'Noch nicht bereit?', guideLink: 'Hol dir den Gratis-Guide:', guideTag: 'Gratis-Guide zum Thema', guideNote: 'Schritt für Schritt erklärt, als PDF.', guideBtn: 'Guide kostenlos holen', hlTag: 'Neu · Gratis-Guide', hlTitle: 'Deine Rentenlücke: In 5 Minuten erkennen und halal schließen', hlNote: 'Was die Rentenlücke ist, wie sie sich anfühlt und wie Halal-ETFs funktionieren. Als PDF.',
+footAddr: 'Yalla Finanzen · Heidelberg', footReg: '',
+footImp: 'Impressum', footPriv: 'Datenschutz', footInfo: 'Erstinformation'
+},
+ar: {
+promoTag: 'جديد', promoBold: 'استشارات مالية بالعربية الآن:', promoRest: 'احجز فحصك المالي المجاني',
+navStart: 'الرئيسية', navTopicsLabel: 'المواضيع', navTopics: ['التأمين الصحي', 'الثروة', 'التقاعد', 'حماية الدخل', 'العقارات'],
+ctaShort: 'أنا مستعد للتوفير', cta: 'أنا مستعد للتوفير',
+variants: [
+{ h1: 'طبيب أو مهندس في ألمانيا وتريد أن تعرف أيهما الأمثل لك: التأمين الصحي الحكومي أم الخاص؟', sub: 'استشر الفريق الذي يساعد أكثر من 1.000 شخص سنويًا في تأمينهم الصحي.', cta: 'أنا مستعد للتوفير' },
+{ h1: 'طبيب أو مهندس في ألمانيا وتريد أن تحمي أموالك من التضخم؟', sub: 'استشر الفريق الذي يساعد أكثر من 1.000 شخص سنويًا في بناء ثروتهم.', cta: 'أنا مستعد للاستثمار' },
+{ h1: 'طبيب أو مهندس في ألمانيا وتريد أن تعرف بالضبط كم ستحصل من التقاعد؟', sub: 'استشر الفريق الذي يساعد أكثر من 1.000 شخص سنويًا في التخطيط لتقاعدهم.', cta: 'أريد معرفة فجوة تقاعدي' },
+{ h1: 'طبيب أو مهندس في ألمانيا؟ هل قدرتك على العمل محمية بشكل صحيح؟', sub: 'استشر الفريق الذي يساعد أكثر من 1.000 شخص سنويًا في حماية دخلهم.', cta: 'أريد أن أحمي نفسي' },
+{ h1: 'طبيب أو مهندس في ألمانيا وتريد أن تعرف كيف تشتري عقارًا؟', sub: 'استشر الفريق الذي يساعد أكثر من 1.000 شخص سنويًا في طريقهم إلى شقتهم الخاصة.', cta: 'أريد شقتي الخاصة' },
+{ h1: "طبيب أو مهندس في ألمانيا، وتريد أن تحافظ على أموالك وتزيد أملاكك؟", sub: "استشر الفريق الذي يساعد أكثر من 1.000 شخص سنويًا في الحماية والتقاعد وبناء الثروة.", cta: "أنا مستعد للتوفير" }
+],
+h1: 'طبيب أو مهندس في ألمانيا وتريد أن تعرف أيهما الأمثل لك: التأمين الصحي الحكومي أم الخاص؟',
+sub: 'استشر الفريق الذي يساعد أكثر من 1.000 شخص سنويًا في تأمينهم الصحي.',
+reassure: 'مجاني · 30 دقيقة · بالعربية أو الألمانية أو الإنجليزية',
+cutLeft: 'كريم عادل، مؤسس يلا فينانزن',
+cutRight: 'ليندا، المؤسسة المشاركة والمستشارة الأولى في يلا فينانزن',
+cutMobile: '[على الهاتف: صورة مفرغة واحدة، مثلًا أنت وفريقك]',
+statsLabel: 'أرقام',
+stats: [
+{ num: '+1000', label: 'جلسة استشارية' },
+{ num: '+100 مليون €', label: 'أصول نديرها' },
+{ num: '4.9 ★', label: 'من أكثر من 100 تقييم على Google' },
+{ num: '3', label: 'لغات' }
+],
+vidBlue: 'شرح سريع:', vidRest: 'مواضيعك المالية',
+topics: [
+{ label: 'التأمين الصحي', text: 'الاختيار الخاطئ في البداية قد يكلفك الكثير على مر السنين، والعودة غالبًا ما تكون صعبة. نحسب في الموعد أي خيار يناسبك.', ph: 'الفيديو قريبًا' , guide: 'اعرف في 5 دقائق إن كنت تدفع أكثر من اللازم لتأمينك الصحي' },
+{ label: 'بناء الثروة', text: 'المال الذي يبقى في الحساب فقط يفقد جزءًا من قيمته كل عام. نناقش في الموعد كيف تبدو خطتك لمواجهة ذلك.', ph: 'الفيديو قريبًا' , guide: 'أخرج أموالك من الحساب: 6 خطوات إلى أول خطة ادخار في ETF' },
+{ label: 'التقاعد', text: 'التقاعد الحكومي لا يعوّض إلا جزءًا من راتبك الأخير. نريك في الموعد حجم الفجوة لديك وكيف تسدها.', ph: 'الفيديو قريبًا' , guide: 'فجوة تقاعدك: فحص في 10 دقائق' },
+{ label: 'حماية الدخل', text: 'إذا لم تعد قادرًا على العمل، يختفي دخلك لكن مصاريفك تبقى. نتحقق في الموعد مما إذا كنت محميًا بشكل صحيح.', ph: 'الفيديو قريبًا' , guide: 'ماذا ينقصك إن لم تعد قادرًا على العمل؟ فحص في 5 دقائق' },
+{ label: 'العقارات', text: 'البنوك غالبًا ما تدقق أكثر مع المغتربين، ومن لا يعرف القواعد يدفع أكثر أو يُرفض طلبه. نناقش في الموعد كيف تصل رغم ذلك إلى شقتك الخاصة.', ph: 'الفيديو قريبًا', guide: 'شقتك الخاصة كمغترب: اعرف في 10 دقائق إن كنت جاهزًا' }
+],
+play: 'تشغيل الفيديو',
+offerTag: 'الفحص المالي في 30 دقيقة', offerBlue: 'ما ستحصل عليه', offerRest: 'في 30 دقيقة',
+offer: [
+{ title: 'فحص التأمين الصحي', text: 'حكومي أم خاص: نحسب ما هو الأنسب لك قبل أن تلتزم.' },
+{ title: 'خطة بناء ثروتك', text: 'كم تستثمر شهريًا، ولأي مدة، وبأي هيكل.' },
+{ title: 'فحص التأمين ضد العجز المهني', text: 'هل أنت محمي بشكل صحيح إذا لم تعد قادرًا على العمل؟ نعم أم لا.' },
+{ title: 'فجوة تقاعدك باليورو', text: 'محسوبة على راتبك، لتعرف ما سينقصك عند التقاعد.' },
+{ title: 'كل شيء مكتوب', text: 'بعد الجلسة تحصل على ملخصك كملف PDF.' }
+],
+forTitle: 'لمن هذا', forText: 'للأطباء والمهندسين والمعلمين في ألمانيا ذوي الدخل الجيد الذين يريدون أخيرًا تخطيط أموالهم.',
+notTitle: 'لمن ليس هذا', notText: 'لمن يريد الثراء السريع أو يبحث عن توصيات أسهم.',
+revBlue: 'آراء حقيقية', revRest: 'من أطباء ومهندسين',
+reviews: [
+{ quote: '«كطبيب عربي في ألمانيا لم أكن متأكدًا كيف أجمع بين التأمين الصحي الخاص والتقاعد وبناء الثروة بشكل صحيح. كان مهمًا لي أن تؤخذ التزاماتي العائلية ووضعي الدولي بعين الاعتبار. كانت الاستشارة واضحة ومنظمة ودون أي ضغط. اليوم أعرف بالضبط ما هي خطوتي التالية.»', name: 'علي ز.', role: 'طبيب، توبينغن · مترجم من الألمانية' },
+{ quote: '«قبل الاستشارة كانت لدي عقود ادخار مختلفة، لكن بدون خطة واضحة. حلّل كريم معي أهدافي وهامشي الشهري ومدى استعدادي للمخاطرة. الآن لدي استراتيجية واضحة للاحتياطي وبناء الثروة على المدى الطويل ومستقبلي المالي في ألمانيا.»', name: 'منيب أ.', role: 'مهندس، شتوتغارت · مترجم من الألمانية' },
+{ quote: '«أردت شراء عقار في ألمانيا، لكنني لم أكن أعرف كم رأس المال الخاص المناسب […]. ساعدتني الاستشارة على تقييم […] التأمين والعبء طويل المدى بشكل واقعي. كان العمل مع كريم رائعًا، وأنصح به بشدة.»', name: 'حبيبة ت.', role: 'معلمة، ميونخ · مترجم من الألمانية' },
+{ quote: '«كمغترب كان من المفيد جدًا لي أن تُشرح المواضيع المالية والتأمينية الألمانية المعقدة بطريقة مفهومة. كما أن التواصل بالعربية والإنجليزية والألمانية سهّل أشياء كثيرة. لأول مرة شعرت أنني أفهم قراراتي المالية حقًا.»', name: 'أحمد ح.', role: 'لاعب تنس طاولة في الدوري الألماني، مانهايم · مترجم من الألمانية' }
+],
+revLink: 'شاهد جميع التقييمات على Google',
+stepsBlue: 'كيف تسير', stepsRest: 'الجلسة',
+steps: [
+{ num: '1', title: 'اختر موعدك', text: 'اختر موعدًا متاحًا في الأسفل. يستغرق ذلك دقيقة واحدة.' },
+{ num: '2', title: 'جلسة 30 دقيقة', text: 'عبر الفيديو أو في مكتبنا في هايدلبرغ، بالعربية أو الألمانية أو الإنجليزية.' },
+{ num: '3', title: 'خطتك كملف PDF', text: 'تحصل على كل شيء مكتوبًا وتقرر بهدوء.' }
+],
+aboutTag: 'يلا فينانزن', aboutPre: 'من', aboutName: 'نحن',
+story: [
+{ text: 'كريم عادل، مؤسس يلا فينانزن وقائد ومرشد لفريق من 15 مستشارًا شابًا وطموحًا.' },
+{ text: 'عندما انتقلت إلى ألمانيا لم أكن أعرف كيف أخطط لأموالي هنا. فجعلت مهمتي ليس فقط أن أتعلم ذلك بنفسي، بل أن أشرحه أيضًا لأصدقائي الذين يعملون أطباء ومهندسين ومعلمين في ألمانيا.' }
+],
+teamLine: 'مع فريقي في هايدلبرغ نرعى اليوم أكثر من 100 مليون يورو من الأصول.',
+scarcity: '',
+termBlue: 'اختر موعدك', termRest: 'للفحص المالي',
+calTitle: 'اختر موعد فحصك المالي', calLink: 'التقويم لا يظهر؟ اختر موعدك من هنا مباشرة',
+promiseTitle: 'وعدنا', promiseText: 'إذا لم تتعلم شيئًا جديدًا في الجلسة، أخبرنا وسنتبرع بـ 50 يورو لجهة تختارها.',
+waText: 'تفضّل الكتابة؟', waBtn: 'راسلنا على WhatsApp',
+gdTitle: 'أدخل رقمك واحصل على الدليل فورًا', gdConsent: 'أرغب في الحصول على الدليل المجاني، وأوافق على أن تتواصل معي يلا فينانزن عبر الهاتف أو واتساب أو البريد الإلكتروني لتعرض علي فحصًا ماليًا مجانيًا. يمكنني سحب هذه الموافقة في أي وقت. المزيد في', gdSubmitLabel: 'احصل على الدليل الآن', gdThanks: 'تم فتح دليلك «%g».', gdDownload: 'حمّل الدليل الآن (PDF)',
+bkStep1: 'الخطوة 1 من 2', bkStep2: 'الخطوة 2 من 2: اختر موعدك', bkTitle: 'كيف نتواصل معك؟', bkPhone: 'رقم هاتفك', ccLabel: 'رمز الدولة', bkEmail: 'بريدك الإلكتروني', bkConsent: 'أوافق على أن تتواصل معي يلا فينانزن عبر الهاتف أو واتساب أو البريد الإلكتروني لتحديد موعد الفحص المالي المجاني وإجرائه. يمكنني سحب هذه الموافقة في أي وقت. المزيد في', bkPrivLink: 'سياسة الخصوصية.', bkNext: 'التالي: اختيار الموعد', bkNote: 'مجاني. بدون نشرات بريدية أو رسائل مزعجة.', bkThanksPre: 'شكرًا', bkSep: '، ', bkThanks: 'اختر الآن موعدك. إذا لم تجد موعدًا مناسبًا، سنتصل بك.',
+cbTitle: 'تفضّل الاتصال الهاتفي؟', telText: 'اتصل بنا وحدّد موعدك مباشرة.', telNum: '0163 1549878', telHours: 'متاحون يوميًا، حتى في عطلة نهاية الأسبوع، 10–18', cbOr: 'أو نتصل نحن بك:', cbBtn: 'اطلب اتصالًا', cbTopic: 'الموضوع:', cbName: 'الاسم الأول', cbPhone: 'رقم الهاتف', cbTime: 'متى يناسبك؟', cbTimes: [{ v: 'صباحًا' }, { v: 'بعد الظهر' }, { v: 'مساءً' }], cbConsent: 'أطلب من يلا فينانزن الاتصال بي هاتفيًا بخصوص موضوعي. تُستخدم بياناتي لهذا الغرض فقط، ويمكنني سحب موافقتي في أي وقت.', cbThanks: 'شكرًا! سنتصل بك في الوقت الذي اخترته.',
+faqPre: 'الأسئلة', faqBlue: 'الشائعة',
+faqs: [
+{ q: 'هل يكلّف الفحص المالي شيئًا؟', a: 'لا. الثلاثون دقيقة مجانية.' },
+{ q: 'كيف تكسب المال؟', a: 'إذا قررت بعد الجلسة إبرام عقد، تدفع لي الشركة عمولة. الاستشارة نفسها لا تكلفك شيئًا، وقرار التوقيع لك وحدك.' },
+{ q: 'هل يجب أن أوقّع على شيء؟', a: 'لا. تحصل على خطتك كملف PDF وتقرر بهدوء إن كنت ستنفذها ومع من.' },
+{ q: 'هل لغتي الألمانية جيدة بما يكفي؟', a: 'نتحدث العربية والألمانية والإنجليزية. أنت تختار اللغة.' },
+{ q: 'هل يمكن أن تتم الجلسة عبر الإنترنت؟', a: 'نعم، عبر الفيديو من أي مكان في ألمانيا، أو شخصيًا في مكتبنا في هايدلبرغ.' }
+],
+guideText: 'لست مستعدًا بعد؟', guideLink: 'احصل على الدليل المجاني:', guideTag: 'دليل مجاني حول الموضوع', guideNote: 'شرح خطوة بخطوة، كملف PDF.', guideBtn: 'احصل على الدليل مجانًا', hlTag: 'جديد · دليل مجاني', hlTitle: 'فجوة المعاش: اعرفها في 5 دقائق وسُدّها بطريقة حلال', hlNote: 'ما هي فجوة المعاش، كيف تشعر بها، وكيف تعمل صناديق ETF الحلال. كملف PDF.',
+footAddr: 'يلا فينانزن · هايدلبرغ', footReg: '',
+footImp: 'بيانات الناشر', footPriv: 'سياسة الخصوصية', footInfo: 'المعلومات الأولية'
+},
+en: {
+promoTag: 'NEW', promoBold: 'Financial advice now also in Arabic:', promoRest: 'Book your free finance check',
+navStart: 'Home', navTopicsLabel: 'Topics', navTopics: ['Health insurance', 'Wealth', 'Pension', 'Income protection', 'Real estate'],
+ctaShort: "I'm ready to save", cta: "I'm ready to save",
+variants: [
+{ h1: 'Are you a doctor or engineer in Germany looking for the best health insurance for you?', sub: 'Get advice from the team that supports 1,000+ people every year with their health insurance.', cta: "I'm ready to save" },
+{ h1: 'Are you a doctor or engineer in Germany looking to protect your money from inflation?', sub: 'Get advice from the team that supports 1,000+ people every year with building their wealth.', cta: "I'm ready to invest" },
+{ h1: "Are you a doctor or engineer in Germany wondering exactly how much pension you will get?", sub: 'Get advice from the team that supports 1,000+ people every year with their retirement planning.', cta: 'I want to know my pension gap' },
+{ h1: 'Are you a doctor or engineer in Germany looking to protect your income for more peace of mind?', sub: 'Get advice from the team that supports 1,000+ people every year with protecting their income.', cta: 'I want to protect myself' },
+{ h1: 'Are you a doctor or engineer in Germany looking to buy your own property?', sub: 'Get advice from the team that supports 1,000+ people every year on the way to their own home.', cta: 'I want my own home' },
+{ h1: "Are you a doctor or engineer in Germany looking to protect your money and build your wealth?", sub: "Get advice from the team that supports 1,000+ people every year with protection, retirement and building wealth.", cta: "I'm ready to save" }
+],
+h1: 'Are you a doctor or engineer in Germany looking for the best health insurance for you?',
+sub: 'Get advice from the team that supports 1,000+ people every year with their health insurance.',
+reassure: 'Free · 30 minutes · in Arabic, German or English',
+cutLeft: 'Karim Adel, founder of Yalla Finanzen',
+cutRight: 'Linda, co-founder and senior advisor at Yalla Finanzen',
+cutMobile: '[Phone: one shared cut-out photo, e.g. you and your team]',
+statsLabel: 'Numbers',
+stats: [
+{ num: '1,000+', label: 'Consultations' },
+{ num: '€100M+', label: 'Assets under care' },
+{ num: '4.9 ★', label: 'from 100+ Google reviews' },
+{ num: '3', label: 'Languages' }
+],
+vidBlue: 'Explained in brief:', vidRest: 'your money topics',
+topics: [
+{ label: 'Health insurance', text: 'The wrong choice at the start can cost you a lot over the years, and switching back is often not possible. We work out which option fits you in the call.', ph: 'Video coming soon' , guide: 'Find out in 5 minutes if you are paying too much for health insurance' },
+{ label: 'Building wealth', text: 'Money that just sits in your account loses buying power every year. We go through what your plan looks like in the call.', ph: 'Video coming soon' , guide: 'Stop letting your money sit: your first ETF savings plan in 6 steps' },
+{ label: 'Retirement', text: 'The state pension replaces only part of your last salary. We show you how big your gap is and how to close it in the call.', ph: 'Video coming soon' , guide: 'Your pension gap: the 10-minute check' },
+{ label: 'Income protection', text: 'If you can no longer work, your income stops but your costs don\'t. We check whether you are properly covered in the call.', ph: 'Video coming soon' , guide: 'What you would be missing if you could no longer work: the 5-minute check' },
+{ label: 'Real estate', text: 'Banks often scrutinise expats more closely, and if you don\'t know the rules you pay more or get turned down. We go through how you can still get your own home in the call.', ph: 'Video coming soon', guide: 'Your own home as an expat: check in 10 minutes if you are ready' }
+],
+play: 'Play video',
+offerTag: 'The 30-minute finance check', offerBlue: 'What you get', offerRest: 'in 30 minutes',
+offer: [
+{ title: 'Health insurance check', text: 'Public or private: we work out what makes sense for you before you commit.' },
+{ title: 'Your wealth roadmap', text: 'How much to invest each month, for how long and in which structure.' },
+{ title: 'Disability cover check', text: 'Are you properly covered if you can no longer work? Yes or no.' },
+{ title: 'Your pension gap in euros', text: 'Calculated on your salary, so you know what you will be missing in retirement.' },
+{ title: 'Everything in writing', text: 'After the call you get your summary as a PDF.' }
+],
+forTitle: 'Who this is for', forText: 'Doctors, engineers and teachers in Germany with a good income who finally want to plan their money.',
+notTitle: 'Who this is not for', notText: 'Anyone who wants to get rich quick or is looking for stock tips.',
+revBlue: 'Real voices', revRest: 'from doctors and engineers',
+reviews: [
+{ quote: '“As an Arab doctor in Germany, I wasn’t sure how to combine private health insurance, retirement planning and building wealth in a sensible way. It mattered to me that my family obligations and my international situation were taken into account. The consultation was clearly structured and without pressure. Today I know exactly what my next steps are.”', name: 'Ali Z.', role: 'Doctor, Tübingen · translated from German' },
+{ quote: '“Before the consultation I had several savings contracts but no clear plan. Karim went through my goals, my monthly budget and my risk tolerance with me. Now I have a clear strategy for my reserves, long-term wealth building and my financial future in Germany.”', name: 'Moneeb A.', role: 'Engineer, Stuttgart · translated from German' },
+{ quote: '“I wanted to buy property in Germany but didn’t know how much equity made sense […]. The consultation helped me realistically assess the […] protection and long-term costs. Working with Karim was great. I can only recommend him.”', name: 'Habiba T.', role: 'Teacher, Munich · translated from German' },
+{ quote: '“As an expat, it was especially helpful that the complex German finance and insurance topics were explained clearly. Being able to communicate in Arabic, English and German also made many things easier. For the first time I felt I really understood my financial decisions.”', name: 'Ahmed H.', role: 'Table tennis Bundesliga player, Mannheim · translated from German' }
+],
+revLink: 'See all reviews on Google',
+stepsBlue: 'How it', stepsRest: 'works',
+steps: [
+{ num: '1', title: 'Pick a time', text: 'Choose a free slot below. It takes one minute.' },
+{ num: '2', title: '30-minute call', text: 'By video or at our office in Heidelberg, in Arabic, German or English.' },
+{ num: '3', title: 'Your plan as a PDF', text: 'You get everything in writing and decide in your own time.' }
+],
+aboutTag: 'Yalla Finanzen', aboutPre: 'About', aboutName: 'us',
+story: [
+{ text: 'Karim Adel, founder of Yalla Finanzen, team lead and mentor of a 15-person team of young, ambitious advisors.' },
+{ text: 'When I first moved to Germany, I didn’t know how to plan my finances here. So I made it my mission not only to learn it myself, but also to explain it to my friends who work as doctors, engineers and teachers in Germany.' }
+],
+teamLine: 'Together with my team in Heidelberg, we now look after more than €100 million in assets.',
+scarcity: '',
+termBlue: 'Pick your time', termRest: 'for the finance check',
+calTitle: 'Pick a time for your finance check', calLink: 'Calendar not loading? Pick your time here',
+promiseTitle: 'Our promise', promiseText: "If you didn't learn anything new in the call, tell us and we'll donate €50 to a cause of your choice.",
+waText: 'Prefer to write?', waBtn: 'Message us on WhatsApp',
+gdTitle: 'Enter your number and get the guide instantly', gdConsent: 'I want to receive the free guide and agree that Yalla Finanzen may contact me by phone, WhatsApp or email to offer me a free finance check. I can withdraw this consent at any time. More in the', gdSubmitLabel: 'Unlock the guide now', gdThanks: 'Your guide “%g” is unlocked.', gdDownload: 'Download the guide now (PDF)',
+bkStep1: 'Step 1 of 2', bkStep2: 'Step 2 of 2: Pick your time', bkTitle: 'Where can we reach you?', bkPhone: 'Your phone number', ccLabel: 'Country code', bkEmail: 'Your email', bkConsent: 'I agree that Yalla Finanzen may contact me by phone, WhatsApp or email to arrange and carry out my free finance check. I can withdraw this consent at any time. More in the', bkPrivLink: 'privacy policy.', bkNext: 'Continue to pick a time', bkNote: 'Free. No newsletter, no spam.', bkThanksPre: 'Thank you', bkThanks: 'Now pick your time. If none suits you, we will call you.',
+cbTitle: 'Prefer the phone?', telText: 'Call us and book your appointment directly.', telNum: '+49 163 1549878', telHours: 'Available daily, weekends included, 10 am–6 pm (CET)', cbOr: 'Or we call you back:', cbBtn: 'Request a callback', cbTopic: 'Topic:', cbName: 'First name', cbPhone: 'Phone number', cbTime: 'When suits you?', cbTimes: [{ v: 'Morning' }, { v: 'Afternoon' }, { v: 'Evening' }], cbConsent: 'I ask Yalla Finanzen to call me back about my topic. My details are used only for this. I can withdraw this at any time.', cbThanks: 'Thank you! We will call you at your preferred time.',
+faqPre: 'Frequently asked', faqBlue: 'questions',
+faqs: [
+{ q: 'Does the finance check cost anything?', a: 'No. The 30 minutes are free.' },
+{ q: 'How do you make money?', a: 'If you decide to sign a contract after the call, the provider pays me a commission. The advice itself costs you nothing, and whether you sign is entirely your decision.' },
+{ q: 'Do I have to sign anything?', a: 'No. You get your plan as a PDF and decide in your own time whether, and with whom, to put it into action.' },
+{ q: 'Is my German good enough?', a: 'We speak Arabic, German and English. You choose the language.' },
+{ q: 'Can we do it online?', a: 'Yes, by video from anywhere in Germany, or in person at our office in Heidelberg.' }
+],
+guideText: 'Not ready yet?', guideLink: 'Get the free guide:', guideTag: 'Free guide on this topic', guideNote: 'Explained step by step, as a PDF.', guideBtn: 'Get the free guide', hlTag: 'New · Free guide', hlTitle: 'Your pension gap: spot it in 5 minutes and close it the halal way', hlNote: 'What the pension gap is, how it feels and how halal ETFs work. As a PDF.',
+footAddr: 'Yalla Finanzen · Heidelberg', footReg: '',
+footImp: 'Legal notice', footPriv: 'Privacy policy', footInfo: 'Initial information'
+}
+};
+var lang = this.state.lang;
+var self = this;
+var ar = lang === 'ar';
+var langs = [
+{ id: 'de', label: 'DE' },
+{ id: 'ar', label: 'عربي' },
+{ id: 'en', label: 'EN' }
+].map(function (l) {
+var active = l.id === lang;
+return {
+label: l.label,
+pressed: active ? 'true' : 'false',
+pick: function () { self.setState({ lang: l.id }); },
+style: 'min-height: 36px; min-width: 44px; padding: 0 12px; border-radius: 999px; border: none; cursor: pointer; font: inherit; font-size: 14px; font-weight: 600; background: ' + (active ? '#ffffff' : 'transparent') + '; color: ' + (active ? '#1b1c2c' : '#ffffff') + ';'
+};
+});
+var tsel = this.state.topic;
+var tv = TOPIC_VIDEOS[['krankenkasse', 'vermoegen', 'rente', 'bu', 'immobilien'][tsel]];
+var vidSrc = tv && typeof tv === 'object' ? (tv[lang] || tv.en || tv.ar || tv.de || '') : (tv || '');
+var GUIDES_LIVE = true;
+var topicTabs = texts[lang].topics.map(function (tp, i) {
+var on = i === tsel;
+return {
+label: tp.label,
+selected: on ? 'true' : 'false',
+pick: function () { self.setState({ landing: i, topic: i }); },
+style: 'min-height: 44px; padding: 0 20px; border-radius: 999px; cursor: pointer; font: inherit; font-size: 15px; font-weight: 600; border: 2px solid ' + (on ? '#193329' : '#1a1b2c') + '; background: ' + (on ? '#193329' : '#ffffff') + '; color: ' + (on ? '#ffffff' : '#1a1b2c') + ';'
+};
+});
+var base = texts[lang];
+var land = this.state.landing;
+var navTopics = [base.navStart].concat(base.navTopics).map(function (label, j) {
+var i = j === 0 ? 5 : j - 1;
+var on = i === land;
+return {
+label: label,
+pressed: on ? 'true' : 'false',
+pick: function () { self.setState({ landing: i, topic: i % 5 }); try { window.scrollTo({ top: 0, behavior: 'smooth' }); } catch (e) {} },
+style: 'min-height: 40px; padding: 0 14px; border-radius: 999px; border: none; cursor: pointer; font: inherit; font-size: 15px; font-weight: 600; background: ' + (on ? '#193329' : 'transparent') + '; color: #ffffff;',
+chip: 'flex: none; min-height: 40px; padding: 0 16px; border-radius: 999px; cursor: pointer; font: inherit; font-size: 14px; font-weight: 600; border: 1px solid ' + (on ? '#193329' : '#3a3f4b') + '; background: ' + (on ? '#193329' : 'transparent') + '; color: #ffffff;'
+};
+});
+var v = base.variants[this.state.landing];
+var offerOrder = [0, 1, 3, 2, -1, -1][this.state.landing];
+var offer = base.offer.slice();
+if (offerOrder > 0) offer = [offer[offerOrder]].concat(offer.filter(function (x, i) { return i !== offerOrder; }));
+var t = Object.assign({}, base, { h1: v.h1, sub: v.sub || base.sub, cta: v.cta, ctaShort: v.cta, offer: offer });
+var ccList = [['🇩🇪','+49'],['🇦🇹','+43'],['🇨🇭','+41'],['🇪🇬','+20'],['🇲🇦','+212'],['🇩🇿','+213'],['🇹🇳','+216'],['🇸🇾','+963'],['🇯🇴','+962'],['🇱🇧','+961'],['🇮🇶','+964'],['🇵🇸','+970'],['🇸🇦','+966'],['🇦🇪','+971'],['🇹🇷','+90'],['🇬🇧','+44'],['🇫🇷','+33'],['🇳🇱','+31'],['🇺🇸','+1']];
+var fullPhone = function (el) { var n = el.phone ? el.phone.value.replace(/[^0-9+]/g, '') : ''; if (n.charAt(0) === '+') return n; return (el.cc ? el.cc.value : '+49') + n.replace(/^0+/, ''); };
+var bk = this.state.bk;
+var lead = this.state.lead;
+var gdDone = !!(this.state.gdDone || {})[tsel];
+var curGuide = texts[lang].topics[tsel].guide;
+var markGuide = function (l) { var d = Object.assign({}, self.state.gdDone || {}); d[self.state.topic] = true; self.setState({ gdDone: d, gdOpen: false, lead: l }); };
+var sendLead = function (form, l, consent) { window.ylSend(form, { name: l.name, telefon: l.phone, email: l.email, thema: texts.de.topics[self.state.topic].label, guide: form === 'guide' ? texts.de.topics[self.state.topic].guide : '', sprache: lang, einwilligung: consent + (consent.indexOf(' ') > 0 ? ' ' + base.bkPrivLink : '') }); };
+var hlDone = !!this.state.hlDone;
+var hlSend = function (l, consent) { if (window.ylSend) window.ylSend('guide', { name: l.name, telefon: l.phone, email: l.email, thema: 'Rente halal (Balken)', guide: texts.de.hlTitle, sprache: lang, einwilligung: consent + (consent.indexOf(' ') > 0 ? ' ' + base.bkPrivLink : '') }); };
+var calBase = 'https://calendly.com/karimelmaimouny/30-60mins';
+var calQ = 'name=' + encodeURIComponent(this.state.bkName || '') + '&email=' + encodeURIComponent(this.state.bkEmail || '');
+return {
+countryCodes: ccList.map(function (c) { return { code: c[1], label: c[0] + ' ' + c[1] }; }),
+bkFormDisplay: bk === 'cal' ? 'none' : 'flex',
+bkCalDisplay: bk === 'cal' ? 'flex' : 'none',
+bkThanks: (base.bkThanksPre + (this.state.bkName ? (base.bkSep || ', ') + this.state.bkName : '') + '! ' + base.bkThanks),
+calSrc: bk === 'cal' ? calBase + '?embed_type=Inline&hide_gdpr_banner=1&primary_color=193329&' + calQ : 'about:blank',
+calLinkUrl: calBase + '?' + calQ,
+gdExpanded: this.state.gdOpen ? 'true' : 'false',
+gdBtnDisplay: (!gdDone && !this.state.gdOpen) ? 'inline-flex' : 'none',
+gdFormDisplay: (!gdDone && this.state.gdOpen) ? 'flex' : 'none',
+gdThanksDisplay: gdDone ? 'block' : 'none',
+gdDlDisplay: gdDone ? 'inline-flex' : 'none',
+// Guides erst nach Karims Freigabe live schalten: GUIDES_LIVE auf true setzen
+gdBoxDisplay: GUIDES_LIVE ? 'flex' : 'none',
+checkUrl: 'finanz-check.html?' + (this.state.landing === 5 ? '' : 'thema=' + ['krankenkasse', 'vermoegen', 'rente', 'bu', 'immobilien'][tsel] + '&') + 'lang=' + lang,
+gdPdf: 'guides/' + ['01-krankenkasse', '02-vermoegen', '03-rente', '04-bu', '05-immobilien'][tsel] + '-' + lang + '.pdf',
+gdThanks: base.bkThanksPre + (lead && lead.name ? (base.bkSep || ', ') + lead.name : '') + '! ' + base.gdThanks.replace('%g', curGuide).replace('%e', lead ? lead.email : ''),
+gdOpen: function () { if (self.state.lead) { sendLead('guide', self.state.lead, 'bereits im vorherigen Formular erteilt, siehe dort'); markGuide(self.state.lead); } else { self.setState({ gdOpen: true }); } },
+gdSubmit: function (e) {
+var f = e && e.currentTarget && e.currentTarget.form;
+if (f && f.reportValidity && !f.reportValidity()) return;
+var el = f ? f.elements : {};
+var gl = { name: el.name ? el.name.value.trim() : '', phone: fullPhone(el), email: el.email ? el.email.value.trim() : '' };
+sendLead('guide', gl, base.gdConsent);
+markGuide(gl);
+},
+bkSubmit: function (e) {
+var f = e && e.currentTarget && e.currentTarget.form;
+if (f && f.reportValidity && !f.reportValidity()) return;
+var el = f ? f.elements : {};
+var l = { name: el.name ? el.name.value.trim() : '', phone: fullPhone(el), email: el.email ? el.email.value.trim() : '' };
+sendLead('termin', l, base.bkConsent);
+self.setState({ bk: 'cal', bkName: l.name, bkEmail: l.email, lead: l });
+},
+hlBtnDisplay: (!hlDone && !this.state.hlOpen) ? 'inline-flex' : 'none',
+hlFormDisplay: (!hlDone && this.state.hlOpen) ? 'flex' : 'none',
+hlThanksDisplay: hlDone ? 'block' : 'none',
+hlDlDisplay: hlDone ? 'inline-flex' : 'none',
+hlPdf: 'guides/06-halal-' + lang + '.pdf',
+hlThanks: base.bkThanksPre + (lead && lead.name ? (base.bkSep || ', ') + lead.name : '') + '! ' + base.gdThanks.replace('%g', base.hlTitle).replace('%e', lead ? lead.email : ''),
+hlOpenFn: function () { if (self.state.lead) { hlSend(self.state.lead, 'bereits im vorherigen Formular erteilt, siehe dort'); self.setState({ hlDone: true }); } else { self.setState({ hlOpen: true }); } },
+hlSubmit: function (e) {
+var f = e && e.currentTarget && e.currentTarget.form;
+if (f && f.reportValidity && !f.reportValidity()) return;
+var el = f ? f.elements : {};
+var l = { name: el.name ? el.name.value.trim() : '', phone: fullPhone(el), email: el.email ? el.email.value.trim() : '' };
+hlSend(l, base.gdConsent);
+self.setState({ hlDone: true, hlOpen: false, lead: l });
+},
+inputStyle: 'min-height: 48px; padding: 0 14px; border: 1px solid #c9ccd6; border-radius: 6px; font: inherit; font-size: 16px; font-weight: 400; background: #ffffff; color: #1a1b2c;',
+t: t,
+navTopics: navTopics,
+vidSrc: vidSrc,
+vidDisplay: vidSrc ? 'block' : 'none',
+vidPhDisplay: 'none',
+topicTabs: topicTabs,
+cur: texts[lang].topics[tsel],
+lang: lang,
+dir: ar ? 'rtl' : 'ltr',
+langs: langs,
+font: ar ? "'IBM Plex Sans Arabic', sans-serif" : "'Poppins', sans-serif",
+upper: ar ? 'none' : 'uppercase',
+arrowFlip: ar ? 'scaleX(-1)' : 'none',
+top: texts[lang].reviews[0],
+h2: 'margin: 0; font-weight: 800; font-size: clamp(28px, 3.2vw, 40px); line-height: 1.15; text-transform: ' + (ar ? 'none' : 'uppercase') + ';',
+eyebrow: 'display: inline-block; padding: 5px 14px; border-radius: 999px; background: #c6f432; color: #193329; font-size: 12px; font-weight: 700; letter-spacing: 0.08em; text-transform: ' + (ar ? 'none' : 'uppercase') + ';',
+ctaStyle: 'display: inline-flex; align-items: center; justify-content: center; min-height: 60px; padding: 0 36px; border-radius: 999px; background: #c6f432; color: #193329; font-weight: 700; font-size: 16px; letter-spacing: 0.02em; text-transform: ' + (ar ? 'none' : 'uppercase') + '; text-decoration: none;',
+forStyle: 'background: #ffffff; padding: 24px 28px; display: flex; flex-direction: column; gap: 8px; border-' + (ar ? 'right' : 'left') + ': 4px solid;',
+accentSide: ar ? 'border-right' : 'border-left',
+statStyle: 'display: flex; flex-direction: column; gap: 6px; padding-' + (ar ? 'right' : 'left') + ': 18px; border-' + (ar ? 'right' : 'left') + ': 3px solid #193329;'
+};
+}
+}
+
+ylStart(Component);
+</script>
+</body>
+</html>

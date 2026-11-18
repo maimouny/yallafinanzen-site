@@ -1,0 +1,814 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kostenloser Finanz-Check – Yalla Finanzen</title>
+<meta name="description" content="Kostenloser Finanz-Check für Ärzte und Ingenieure in Deutschland: 30 Minuten, auf Arabisch, Deutsch oder Englisch.">
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#0d0c0a">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<style>
+@font-face{font-family:'Poppins';font-weight:400;font-display:swap;src:url(fonts/poppins-latin-400-normal.woff2) format('woff2')}
+@font-face{font-family:'Poppins';font-weight:500;font-display:swap;src:url(fonts/poppins-latin-500-normal.woff2) format('woff2')}
+@font-face{font-family:'Poppins';font-weight:600;font-display:swap;src:url(fonts/poppins-latin-600-normal.woff2) format('woff2')}
+@font-face{font-family:'Poppins';font-weight:700;font-display:swap;src:url(fonts/poppins-latin-700-normal.woff2) format('woff2')}
+@font-face{font-family:'Poppins';font-weight:800;font-display:swap;src:url(fonts/poppins-latin-800-normal.woff2) format('woff2')}
+@font-face{font-family:'Poppins';font-weight:400;font-display:swap;src:url(fonts/poppins-latin-ext-400-normal.woff2) format('woff2');unicode-range:U+0100-02FF,U+1E00-1EFF}
+@font-face{font-family:'Poppins';font-weight:700;font-display:swap;src:url(fonts/poppins-latin-ext-700-normal.woff2) format('woff2');unicode-range:U+0100-02FF,U+1E00-1EFF}
+@font-face{font-family:'Plex Arabic';font-weight:400;font-display:swap;src:url(fonts/ibm-plex-sans-arabic-arabic-400-normal.woff2) format('woff2')}
+@font-face{font-family:'Plex Arabic';font-weight:600;font-display:swap;src:url(fonts/ibm-plex-sans-arabic-arabic-600-normal.woff2) format('woff2')}
+@font-face{font-family:'Plex Arabic';font-weight:700;font-display:swap;src:url(fonts/ibm-plex-sans-arabic-arabic-700-normal.woff2) format('woff2')}
+:root{
+  --black:#0d0c0a; --gold-1:#ecd28c; --gold-2:#c49a48; --gold-txt:#a07c34; --gold-dot:#d4b25c;
+  --off:#f8f7f3; --cream:#f3ede1; --ink:#13142a; --grey:#5c5f6b; --line:#e7e3da;
+  --play:#4c6ef5; --violet:#6610f2; --chev:#2f6f5a;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:'Poppins',system-ui,sans-serif;color:var(--ink);background:var(--off);-webkit-font-smoothing:antialiased}
+body.ar{font-family:'Plex Arabic','Poppins',system-ui,sans-serif}
+a{color:inherit}
+.wrap{max-width:760px;margin:0 auto;padding:0 24px}
+.wide{max-width:1080px}
+h1,h2,h3{margin:0;letter-spacing:-0.02em}
+.ar h1,.ar h2,.ar h3{letter-spacing:0}
+p{margin:0}
+
+/* top bar */
+.topbar{background:#111;color:#fff;text-align:center;padding:14px 16px;font-size:13px;font-weight:600;letter-spacing:.06em;text-transform:uppercase}
+.ar .topbar{letter-spacing:0}
+.topbar i{display:inline-block;width:9px;height:9px;border-radius:50%;background:var(--gold-dot);margin-inline-end:10px;vertical-align:1px}
+
+/* hero */
+.hero{background:radial-gradient(120% 70% at 50% 0%,#2a2418 0%,#14120e 45%,var(--black) 100%);color:#fff;text-align:center;padding:36px 0 72px}
+.logo{display:inline-flex;align-items:center;gap:10px;font-weight:800;letter-spacing:.06em;font-size:20px;color:#fff;text-decoration:none}
+.logo svg{width:34px;height:auto}
+.hero .wrap{position:relative}
+.back{position:absolute;top:2px;inset-inline-start:20px;display:inline-flex;align-items:center;min-height:40px;padding:0 16px;border:1px solid rgba(255,255,255,.35);border-radius:999px;color:#fff;text-decoration:none;font-weight:700;font-size:15px}
+.back:hover{background:rgba(255,255,255,.1)}
+@media(max-width:600px){.hero .logo{margin-top:52px}}
+.gold{background:linear-gradient(90deg,#e3c271,#c9a24e 60%,#b98f3e);-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero h1{font-size:clamp(40px,8vw,72px);line-height:1.05;font-weight:800;margin:22px 0 22px}
+.ar .hero h1{line-height:1.35}
+.hero h2{font-size:clamp(24px,4.4vw,36px);line-height:1.25;font-weight:800;max-width:640px;margin:0 auto 34px}
+.video{position:relative;aspect-ratio:16/9;border-radius:14px;overflow:hidden;background:linear-gradient(135deg,#1d1a14,#0a0907);border:1px solid #2a261d;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;color:#bdb6a6;font-size:15px}
+.play{width:72px;height:72px;border-radius:50%;background:var(--play);display:flex;align-items:center;justify-content:center;box-shadow:0 6px 24px rgba(76,110,245,.35)}
+.video video,.vcard video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;background:#000}
+.play svg{width:26px;height:26px;margin-left:4px}
+.btn-gold{display:inline-flex;align-items:center;justify-content:center;min-width:300px;min-height:68px;padding:0 40px;border-radius:12px;background:linear-gradient(90deg,var(--gold-1),var(--gold-2));color:#1a1408;font-weight:700;font-size:22px;text-decoration:none;border:none;cursor:pointer;transition:transform .15s,filter .15s}
+.btn-gold:hover{filter:brightness(1.05);transform:translateY(-1px)}
+.hero .btn-gold{margin-top:40px}
+.rating{margin-top:30px;display:flex;align-items:center;justify-content:center;gap:16px;font-weight:600;font-size:18px}
+.stars{color:#f0b429;letter-spacing:4px;font-size:22px}
+.meta{margin-top:12px;color:#a8a296;font-size:16px}
+.intro{margin:48px auto 0;max-width:640px;color:#d6d0c4;font-size:clamp(18px,2.6vw,22px);line-height:1.75}
+
+/* problem */
+.sec{padding:80px 0}
+.off{background:var(--off)}
+.cream{background:var(--cream)}
+.photo{border-radius:16px;overflow:hidden;border:1px solid var(--line)}
+.photo img{display:block;width:100%;height:auto}
+.h-big{font-size:clamp(32px,6vw,52px);line-height:1.12;font-weight:700}
+.ar .h-big{line-height:1.4}
+.problem h2{margin:56px 0 28px;max-width:600px}
+.lead{color:var(--grey);font-size:19px;line-height:1.7}
+.symptoms{margin-top:26px;border-inline-start:3px solid var(--line);padding-inline-start:28px;display:flex;flex-direction:column;gap:24px}
+.symptoms p{color:var(--grey);font-size:19px;line-height:1.7}
+
+/* systems */
+.eyebrow{font-size:14px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--gold-txt)}
+.ar .eyebrow{letter-spacing:0}
+.systems h2{margin:10px 0 22px}
+.vgrid{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin:44px 0}
+.vcard{position:relative;aspect-ratio:9/16;border-radius:14px;overflow:hidden;background:linear-gradient(160deg,#d9d2c3,#b8b0a0);display:flex;align-items:center;justify-content:center}
+.vcard .play{width:64px;height:64px}
+.vcap{position:absolute;bottom:16px;left:50%;transform:translateX(-50%);background:rgba(0,0,0,.75);color:#fff;font-size:12px;font-weight:700;text-transform:uppercase;padding:6px 10px;border-radius:4px;white-space:nowrap}
+.cards{display:flex;flex-direction:column;gap:22px}
+.card{background:#fff;border:1px solid var(--line);border-radius:16px;padding:34px 34px 38px}
+.num{font-size:44px;font-weight:700;color:var(--gold-txt);line-height:1}
+.card h3{font-size:16px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;margin:12px 0 16px}
+.ar .card h3{letter-spacing:0;font-size:18px}
+.card p{color:var(--grey);font-size:18px;line-height:1.75}
+
+/* covers */
+.covers h2{margin-bottom:36px}
+.checks{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:26px}
+.checks li{display:flex;gap:22px;color:var(--grey);font-size:19px;line-height:1.7}
+.checks li::before{content:'✓';color:var(--gold-txt);font-weight:700;font-size:24px;line-height:1.3;flex:none}
+.pgrid{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:56px}
+.pslot{aspect-ratio:4/3;border-radius:14px;overflow:hidden;border:1px solid var(--line);background:linear-gradient(135deg,#ece6d8,#ddd4c2);display:flex;align-items:center;justify-content:center;color:#8a8270;font-size:14px;font-weight:600;text-align:center;padding:12px}
+.pslot img{width:100%;height:100%;object-fit:cover;display:block}
+
+/* stat */
+.stat{text-align:center}
+.stat h2{font-size:clamp(28px,5vw,42px);line-height:1.15;font-weight:800;max-width:700px;margin:0 auto 16px}
+.stat p{color:var(--grey);font-size:19px;line-height:1.75;max-width:720px;margin:0 auto}
+
+/* objection */
+.obj p.q{font-size:15px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--gold-txt);margin-bottom:16px}
+.ar .obj p.q{letter-spacing:0}
+.obj h2{font-size:clamp(26px,4.6vw,38px);line-height:1.2;font-weight:700;margin-bottom:16px}
+
+/* dates */
+.dates{text-align:center}
+.dates h2{font-size:clamp(32px,6vw,52px);line-height:1.15;font-weight:600;margin-bottom:18px}
+.dates .lead{max-width:640px;margin:0 auto 44px}
+.dlist{display:flex;flex-direction:column;gap:26px}
+.dcard{border:1.5px solid #b08a3e;border-radius:16px;padding:40px 20px;text-decoration:none;display:flex;flex-direction:column;align-items:center;gap:18px;background:#fff;transition:transform .15s}
+.dcard:hover{transform:translateY(-2px)}
+.dcard strong{font-size:clamp(28px,5vw,40px);font-weight:600}
+.pill{display:inline-block;border:1.5px solid #b08a3e;color:var(--gold-txt);border-radius:999px;padding:10px 32px;font-size:18px;font-weight:700;letter-spacing:.12em}
+.ar .pill{letter-spacing:0}
+.dcard.full{border:1px solid #ece8df;background:#faf9f6;position:relative;cursor:default;pointer-events:none;margin-top:16px}
+.dcard.full strong{color:#b3b0aa}
+.dcard.full .pill{border-color:#9b9890;color:#9b9890}
+.badge{position:absolute;top:-19px;left:50%;transform:translateX(-50%);background:#c97c7c;color:#fff;border-radius:999px;padding:9px 24px;font-size:15px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;white-space:nowrap}
+.ar .badge{letter-spacing:0}
+
+/* booking */
+.book-outer{background:#fff;border-radius:22px;padding:28px;box-shadow:0 10px 40px rgba(0,0,0,.06)}
+.book-head{background:#fff;border-radius:16px;padding:28px 30px;box-shadow:0 6px 24px rgba(0,0,0,.07);margin-bottom:22px}
+.book-head h2{font-size:clamp(30px,5vw,42px);font-weight:800;margin-bottom:12px}
+.book-head p{color:var(--grey);font-size:19px;line-height:1.6}
+.widget{border:1px solid #d9dbe1;border-radius:12px;overflow:hidden}
+.wsteps{display:flex;justify-content:center;gap:24px;padding:18px;border-bottom:1px solid #d9dbe1;font-size:17px;color:#9aa0ab}
+.wsteps span::before{content:'';display:inline-block;width:10px;height:10px;border-radius:50%;background:#d9dbe1;margin-inline-end:10px;vertical-align:1px}
+.wsteps .on{color:var(--ink)}
+.wsteps .on::before{background:var(--violet)}
+.wbody{padding:30px 24px}
+.wbody h3{font-size:24px;font-weight:600;margin-bottom:12px}
+.wbody .lead{font-size:17px;margin-bottom:22px}
+.field{width:100%;min-height:56px;border:1px solid #d9dbe1;border-radius:10px;background:#f7f8fa;font:inherit;font-size:17px;padding:0 16px;color:var(--ink)}
+.row{display:flex;gap:16px;margin-top:16px}
+.row > *{flex:1;min-width:0}
+.phone{display:flex;border:1px solid #d9dbe1;border-radius:10px;background:#f7f8fa;overflow:hidden;direction:ltr}
+.phone select{border:none;background:transparent;font:inherit;font-size:16px;padding:0 8px 0 12px;border-right:1px solid #d9dbe1;min-height:56px}
+.phone input{border:none;background:transparent;flex:1;min-width:0;font:inherit;font-size:17px;padding:0 14px}
+.consent{display:flex;gap:12px;margin:20px 0;font-size:15px;line-height:1.55;color:#333}
+.consent input{width:20px;height:20px;flex:none;margin-top:2px}
+.btn-violet{width:100%;min-height:62px;border:none;border-radius:10px;background:var(--violet);color:#fff;font:inherit;font-size:20px;font-weight:500;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:10px}
+.cal{display:none}
+.cal iframe{width:100%;height:720px;border:0;display:block}
+.cal-link{display:block;text-align:center;padding:14px;font-size:15px;color:var(--grey)}
+.thanks{display:none;background:#f3f0ff;color:#2c1a66;border-radius:10px;padding:14px 16px;font-size:16px;margin:0 24px 0}
+
+/* callback */
+.cb{margin-top:22px;text-align:center}
+.cb-toggle{background:none;border:none;font:inherit;font-size:18px;font-weight:600;color:var(--ink);text-decoration:underline;text-underline-offset:4px;cursor:pointer;padding:10px}
+.cb-form{text-align:start;border:1px solid #d9dbe1;border-radius:12px;padding:28px 24px;margin-top:12px}
+.cb-form h3{font-size:24px;font-weight:600;margin-bottom:10px}
+.cb-form .lead{font-size:17px;margin-bottom:18px}
+.cb-label{font-weight:600;font-size:16px;margin:18px 0 10px}
+.chips{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:6px}
+.chip{border:1.5px solid #d9dbe1;background:#fff;border-radius:999px;padding:10px 18px;font:inherit;font-size:16px;cursor:pointer;color:var(--ink)}
+.chip[aria-pressed="true"]{border-color:var(--violet);background:#f1e9ff;color:#3b0a99;font-weight:600}
+.cb-form .phone{margin-top:8px}
+.cb-err{color:#b42318;font-size:15px;margin-bottom:10px}
+.cb-thanks{background:#f3f0ff;color:#2c1a66;border-radius:10px;padding:16px;font-size:17px;margin-top:16px;text-align:start}
+
+/* reviews */
+.reviews{text-align:center}
+.reviews h2{font-size:clamp(32px,6vw,48px);font-weight:600;line-height:1.15;margin:12px 0 14px}
+.rlist{display:flex;flex-direction:column;gap:28px;margin-top:48px;text-align:start}
+.rcard{background:#fff;border:1px solid var(--line);border-radius:16px;padding:36px}
+.rcard .stars{font-size:20px;letter-spacing:3px}
+.rcard blockquote{margin:20px 0 26px;color:var(--grey);font-size:18px;line-height:1.75}
+.rcard footer{border-top:1px solid var(--line);padding-top:22px}
+.rcard footer b{display:block;font-size:19px;font-weight:600}
+.rcard footer span{color:#8a8d97;font-size:16px}
+
+/* faq */
+.faq{display:flex;flex-direction:column;gap:18px}
+.faq details{background:#fff;border:1px solid var(--line);border-radius:14px;padding:0 26px}
+.faq summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:20px;padding:26px 0;font-size:19px;font-weight:600;line-height:1.35}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:'';width:12px;height:12px;border-right:2.5px solid var(--chev);border-bottom:2.5px solid var(--chev);transform:rotate(45deg);flex:none;margin-top:-6px;transition:transform .2s}
+.faq details[open] summary::after{transform:rotate(-135deg);margin-top:6px}
+.faq details p{padding:0 0 24px;color:var(--grey);font-size:17px;line-height:1.7}
+
+/* final */
+.final{background:radial-gradient(90% 80% at 30% 0%,#241f16 0%,#100e0b 50%,var(--black) 100%);color:#fff;text-align:center;padding:100px 0}
+.final h2{font-size:clamp(32px,6vw,50px);line-height:1.15;font-weight:600;margin-bottom:26px}
+.final p{color:#bdb7aa;font-size:20px;line-height:1.6;margin-bottom:44px}
+.foot{background:var(--black);color:#8b867b;font-size:14px;text-align:center;padding:26px 16px 36px;border-top:1px solid #1f1c16}
+.foot a{color:#b9b3a6;margin:0 10px}
+.langs{display:inline-flex;gap:6px;margin-top:22px}
+.langs a{color:#bdb6a6;text-decoration:none;font-size:14px;font-weight:600;padding:6px 12px;border:1px solid #3a352a;border-radius:999px}
+.langs a.on{background:#fff;color:#111;border-color:#fff}
+
+@media (max-width:600px){
+  .sec{padding:64px 0}
+  .btn-gold{min-width:0;width:100%;font-size:18px;padding:0 16px;white-space:nowrap}
+  .book-head{padding:22px 20px}
+  .vgrid,.pgrid{gap:14px}
+  .card,.rcard{padding:28px 24px}
+  .book-outer{padding:16px}
+  .wbody{padding:24px 16px}
+  .row{flex-direction:column;gap:12px}
+  .rating{flex-direction:column;gap:6px}
+}
+</style>
+</head>
+<body>
+<div class="topbar"><i></i><span data-t="top"></span></div>
+
+<header class="hero">
+  <div class="wrap">
+    <a class="back" href="index.html" data-home data-t="back"></a>
+    <a class="logo" href="index.html" data-home><svg viewBox="0 0 30 20" fill="#fff" aria-hidden="true"><path d="M15 0l15 20H0z"/><path d="M15 9l6 8H9z" fill="#14120e"/></svg>YALLA FINANZEN</a>
+    <h1 class="gold" data-t="h1"></h1>
+    <h2 data-t="h2"></h2>
+    <div class="video" id="heroVideo"><div class="play"><svg viewBox="0 0 24 24" fill="#fff"><path d="M8 5.5v13l11-6.5z"/></svg></div><span data-t="videoPh"></span></div>
+    <a class="btn-gold" href="#termin" data-t="cta"></a>
+    <div class="rating"><span class="stars">★★★★★</span><span data-t="rating"></span></div>
+    <p class="meta" data-t="meta"></p>
+    <p class="intro" data-t="intro"></p>
+  </div>
+</header>
+
+<section class="sec off problem">
+  <div class="wrap">
+    <div class="photo"><img src="img/karim-gruen.webp" alt="Karim Adel" width="900" height="675"></div>
+    <h2 class="h-big" data-t="pH"></h2>
+    <p class="lead" data-t="pLead"></p>
+    <div class="symptoms" data-list="symptoms"></div>
+  </div>
+</section>
+
+<section class="sec cream systems">
+  <div class="wrap">
+    <p class="eyebrow" data-t="sEyebrow"></p>
+    <h2 class="h-big" data-t="sH"></h2>
+    <p class="lead" data-t="sLead"></p>
+    <div class="vgrid" data-videos></div>
+    <div class="cards" data-list="pillars"></div>
+  </div>
+</section>
+
+<section class="sec off covers">
+  <div class="wrap">
+    <h2 class="h-big" data-t="cH"></h2>
+    <ul class="checks" data-list="covers"></ul>
+    <div class="pgrid" data-photos></div>
+  </div>
+</section>
+
+<section class="sec off stat" style="padding-top:0">
+  <div class="wrap">
+    <h2 data-t="statH"></h2>
+    <p data-t="statText"></p>
+  </div>
+</section>
+
+<section class="sec cream obj">
+  <div class="wrap">
+    <p class="q" data-t="objQ"></p>
+    <h2 data-t="objH"></h2>
+    <p class="lead" data-t="objText"></p>
+  </div>
+</section>
+
+<section class="sec off dates">
+  <div class="wrap">
+    <h2 data-t="dH"></h2>
+    <p class="lead" data-t="dLead"></p>
+    <div class="dlist" data-dates></div>
+  </div>
+</section>
+
+<section class="sec cream" id="termin">
+  <div class="wrap">
+    <div class="book-outer">
+      <div class="book-head"><h2 data-t="bH"></h2><p data-t="bLead"></p></div>
+      <div class="widget">
+        <div class="wsteps"><span class="on" data-step1 data-t="w1"></span><span data-step2 data-t="w2"></span></div>
+        <form class="wbody" id="bookForm" novalidate>
+          <h3 data-t="wTitle"></h3>
+          <p class="lead" data-t="wLead"></p>
+          <div class="phone"><select name="cc" aria-label="Ländervorwahl"></select><input type="tel" name="phone" required inputmode="tel" autocomplete="tel-national" data-ph="phPh"></div>
+          <div class="row"><input class="field" name="first" required autocomplete="given-name" data-ph="first"><input class="field" name="last" required autocomplete="family-name" data-ph="last"></div>
+          <label class="consent"><input type="checkbox" name="consent" required><span><span data-t="consent"></span> <a href="datenschutz.html" target="_blank" data-t="priv"></a></span></label>
+          <button class="btn-violet" type="submit"><span data-t="continue"></span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" class="chev"><path d="M9 5l7 7-7 7"/></svg></button>
+        </form>
+        <p class="thanks" id="thanks"></p>
+        <div class="cal" id="cal"><iframe title="Calendly" loading="lazy"></iframe><a class="cal-link" target="_blank" rel="noopener" data-t="calLink"></a></div>
+      </div>
+      <div class="cb">
+        <button type="button" class="cb-toggle" id="cbToggle" aria-expanded="false"><span data-t="cbLink"></span></button>
+        <form class="cb-form" id="cbForm" novalidate hidden>
+          <h3 data-t="cbTitle"></h3>
+          <p class="lead" data-t="cbLead"></p>
+          <p class="cb-label" data-t="cbTopics"></p>
+          <div class="chips" data-chips></div>
+          <div class="phone"><select name="cc" aria-label="Ländervorwahl"></select><input type="tel" name="phone" required inputmode="tel" autocomplete="tel-national" data-ph="phPh"></div>
+          <div class="row"><input class="field" name="first" required autocomplete="given-name" data-ph="first"></div>
+          <p class="cb-label" data-t="cbWhen"></p>
+          <div class="chips" data-times></div>
+          <label class="consent"><input type="checkbox" name="consent" required><span><span data-t="cbConsent"></span> <a href="datenschutz.html" target="_blank" data-t="priv"></a></span></label>
+          <p class="cb-err" id="cbErr" data-t="cbErr" hidden></p>
+          <button class="btn-violet" type="submit"><span data-t="cbSubmit"></span></button>
+        </form>
+        <p class="cb-thanks" id="cbThanks" hidden></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec cream reviews" style="padding-top:20px">
+  <div class="wrap">
+    <p class="eyebrow" data-t="rEyebrow"></p>
+    <h2 data-t="rH"></h2>
+    <p class="lead" data-t="rLead"></p>
+    <div class="rlist" data-reviews></div>
+  </div>
+</section>
+
+<section class="sec off">
+  <div class="wrap">
+    <div class="faq" data-faq></div>
+  </div>
+</section>
+
+<section class="final">
+  <div class="wrap">
+    <h2 data-t="fH"></h2>
+    <p data-t="fText"></p>
+    <a class="btn-gold" href="#termin" data-t="cta"></a>
+  </div>
+</section>
+
+<footer class="foot">
+  <div><a href="impressum.html" data-t="imp"></a><a href="datenschutz.html" data-t="dat"></a><a href="erstinformation.html" data-t="erst"></a></div>
+  <div class="langs"><a href="?lang=de" data-lang="de">DE</a><a href="?lang=ar" data-lang="ar">عربي</a><a href="?lang=en" data-lang="en">EN</a></div>
+</footer>
+
+<form name="rueckruf" data-netlify="true" netlify-honeypot="bot-field" hidden><input name="bot-field"><input name="name"><input name="telefon"><input name="themen"><input name="wann"><input name="thema"><input name="sprache"><input name="einwilligung"><input name="zeit"><input name="seite"></form>
+<form name="termin" data-netlify="true" netlify-honeypot="bot-field" hidden><input name="bot-field"><input name="name"><input name="telefon"><input name="email"><input name="thema"><input name="guide"><input name="sprache"><input name="einwilligung"><input name="zeit"><input name="seite"></form>
+
+<script>
+var TOPICS = ['krankenkasse', 'vermoegen', 'rente', 'bu', 'immobilien'];
+// Videos: Datei in den Ordner videos/ legen und hier den Namen eintragen, z. B. 'videos/krankenkasse.mp4'.
+// Pro Thema und Sprache möglich: { de: '...', ar: '...', en: '...' } oder ein Name für alle Sprachen.
+var VIDEOS = {
+  allgemein: '', // ganzheitliches Video, läuft immer oben auf dieser Seite
+  krankenkasse: '', vermoegen: '', rente: '', bu: '', immobilien: '',
+  reviews: ['', '', '', '']
+};
+// Fotos für die Galerie: Datei in img/ legen und Namen eintragen, z. B. 'img/team-1.jpg'. Leere Plätze werden ausgeblendet.
+var PHOTOS = ['', '', '', ''];
+var CAL = 'https://calendly.com/karimelmaimouny/30-60mins';
+var T = {
+de: {
+  topicName: { krankenkasse: 'Krankenversicherung', vermoegen: 'Vermögensaufbau', rente: 'Rente', bu: 'Einkommenssicherung', immobilien: 'Immobilien' },
+  top: 'Kostenloser Finanz-Check · Arabisch · Deutsch · Englisch · Jetzt Termine frei',
+  h1: 'Ärzte & Ingenieure in Deutschland:',
+  h2: {
+    allgemein: "Bring deine Finanzen in Deutschland in Ordnung, Schritt für Schritt.",
+    krankenkasse: 'Zahl nicht länger zu viel für deine Krankenversicherung.',
+    vermoegen: 'Lass dein Geld für dich arbeiten statt auf dem Konto.',
+    rente: 'Kenne deine Rentenlücke, bevor es zu spät ist.',
+    bu: 'Sichere dein Einkommen ab, bevor du es brauchst.',
+    immobilien: 'Komm Schritt für Schritt zur eigenen Wohnung.'
+  },
+  videoPh: 'Video von Karim folgt',
+  cta: 'Kostenlosen Termin sichern',
+  rating: '4,9 Google-Bewertung',
+  meta: '1.000+ Beratungsgespräche · 3 Sprachen',
+  intro: 'Du hast in Deutschland viel erreicht: Studium, Anerkennung, ein gutes Gehalt. Aber das deutsche Finanzsystem hat dir niemand erklärt. In 30 Minuten gehen wir mit dir Krankenversicherung, Vermögensaufbau, Rente und Absicherung durch, auf Arabisch, Deutsch oder Englisch.',
+  pH: 'Du verdienst gut. Aber dein Geld hat keinen Plan. Das ist das Problem.',
+  pLead: 'Typische Anzeichen:',
+  symptoms: [
+    'Dein Gehalt kommt jeden Monat, aber am Jahresende ist kaum etwas übrig.',
+    'Dein Erspartes liegt auf dem Girokonto und verliert jedes Jahr an Wert.',
+    'Du weißt nicht, ob du in der gesetzlichen oder privaten Krankenversicherung besser aufgehoben bist.',
+    'Deine Renteninformation liegt ungeöffnet in der Schublade.',
+    'Du hast Verträge, die dir jemand verkauft hat, und weißt nicht genau, wofür.',
+    'Du bist nicht nachlässig. Dir hat nur nie jemand das System erklärt.'
+  ],
+  sEyebrow: 'Die 4 Säulen',
+  sH: 'Deine Finanzen stehen auf vier Säulen.',
+  sLead: 'Wir gehen alle vier mit dir durch und sagen dir, welche du zuerst angehen solltest.',
+  vcap: 'Kundenvideo folgt',
+  pillars: [
+    ['Deine Krankenversicherung', 'Du zahlst jeden Monat einen hohen Beitrag, hast aber nie verglichen, ob gesetzlich oder privat für dich und deine Familie besser passt. Und diese Entscheidung lässt sich später oft nicht mehr rückgängig machen.'],
+    ['Dein Vermögensaufbau', 'Dein Erspartes liegt auf dem Konto oder in Verträgen, die du nicht verstehst. Die Inflation nimmt dir jedes Jahr ein Stück davon weg.'],
+    ['Deine Rente', 'Die gesetzliche Rente ersetzt nur einen Teil deines Gehalts. Als Expat fehlen dir zusätzlich Beitragsjahre. Wie groß deine Lücke ist, weißt du nicht.'],
+    ['Deine Absicherung', 'Dein Einkommen ist dein wichtigstes Vermögen. Wenn du krank wirst und nicht mehr arbeiten kannst, zahlt der Staat nur wenig. Bist du dafür abgesichert?']
+  ],
+  cH: 'Was die 30 Minuten wirklich abdecken',
+  covers: [
+    'Wir schauen auf deine Finanzen wie ein Profi, damit dein Geld dorthin geht, wo es wirklich etwas bringt.',
+    'Gesetzlich oder privat: Wir rechnen beides mit deinem Gehalt durch, heute und im Alter.',
+    'Deine Rentenlücke in Euro, netto und mit Inflation gerechnet.',
+    'Ob deine Arbeitskraft richtig abgesichert ist, mit einem klaren Ja oder Nein.',
+    'Wie viel du monatlich investieren kannst und in welchem Rahmen.',
+    'Welche deiner bestehenden Verträge sinnvoll sind und welche nicht.',
+    'Am Ende bekommst du alles schriftlich als PDF und entscheidest in Ruhe.'
+  ],
+  photoPh: 'Foto folgt',
+  statH: 'Über 1.000 Gespräche mit Menschen wie dir.',
+  statText: 'Ärzte, Ingenieure und Lehrer, die sich in Deutschland ein neues Leben aufgebaut haben. Unser Team in Heidelberg betreut über 100 Mio. € Vermögen und spricht deine Sprache: Arabisch, Deutsch oder Englisch.',
+  objQ: '„Ich habe keine Zeit dafür“',
+  objH: '30 Minuten. Per Video. Auch am Wochenende.',
+  objText: 'Du musst nirgendwo hinfahren und nichts vorbereiten. Wir beraten täglich von 10 bis 18 Uhr, auch samstags und sonntags, von überall in Deutschland oder persönlich in Heidelberg.',
+  dH: 'Freie Termine in den nächsten Tagen',
+  dLead: 'Wir beraten täglich von 10 bis 18 Uhr. Kostenlos, 30 Minuten. Termine buchst du mindestens 2 Tage im Voraus. Das ist gerade frei:',
+  today: 'Heute', tomorrow: 'Morgen', open: 'Frei', full: 'Keine Termine frei', left0: '0 Termine frei',
+  bH: 'Wähle unten deinen Termin',
+  bLead: 'Such dir einen Termin für ein kurzes Gespräch mit unserem Team aus. Wir schauen gemeinsam, wo du stehst und was du zuerst angehen solltest.',
+  w1: 'Formular ausfüllen', w2: 'Termin wählen',
+  back: '← Zurück',
+  wTitle: 'Kostenloser Finanz-Check',
+  wLead: 'Wir freuen uns auf das Gespräch mit dir. Trag dich kurz ein und wähle dann deinen Termin.',
+  phPh: 'Telefonnummer', first: 'Vorname *', last: 'Nachname *',
+  consent: 'Ich willige ein, dass Yalla Finanzen mich telefonisch, per WhatsApp oder per E-Mail kontaktiert, um meinen kostenlosen Finanz-Check zu vereinbaren und durchzuführen. Ich kann diese Einwilligung jederzeit widerrufen. Mehr dazu in der',
+  priv: 'Datenschutzerklärung',
+  continue: 'Weiter',
+  thanks: 'Danke, %n! Wähle jetzt deinen Termin. Findest du keinen passenden, rufen wir dich an.',
+  calLink: 'Kalender lädt nicht? Hier direkt deinen Termin wählen',
+  cbLink: 'Keine Zeit, einen Termin zu wählen? Wir rufen dich zurück',
+  cbTitle: 'Lieber zurückrufen lassen?',
+  cbLead: 'Hinterlass deine Nummer und wähl, was dich interessiert. Unser Team meldet sich bei dir und vereinbart den Termin mit dir.',
+  cbTopics: 'Was interessiert dich? (mehrere möglich)',
+  cbTopicList: ['Krankenversicherung', 'Vermögensaufbau', 'Rente', 'Absicherung', 'Immobilie'],
+  cbWhen: 'Wann erreichen wir dich am besten?',
+  cbTimes: ['Vormittags', 'Nachmittags', 'Abends', 'Egal'],
+  cbConsent: 'Ich bitte Yalla Finanzen, mich telefonisch oder per WhatsApp zu kontaktieren, um einen Termin für meinen kostenlosen Finanz-Check zu vereinbaren. Ich kann diese Einwilligung jederzeit widerrufen. Mehr dazu in der',
+  cbErr: 'Bitte wähle mindestens ein Thema aus.',
+  cbSubmit: 'Rückruf anfordern',
+  cbThanks: 'Danke, %n! Unser Team meldet sich bei dir, täglich zwischen 10 und 18 Uhr.',
+  rEyebrow: 'Verlass dich nicht nur auf uns',
+  rH: 'Das sagen unsere Kunden',
+  rLead: 'Echte Google-Bewertungen von Menschen in deiner Situation.',
+  rSrc: 'Google-Bewertung',
+  reviews: [
+    ['Als arabischer Arzt in Deutschland war ich unsicher, wie ich PKV, Altersvorsorge und Vermögensaufbau sinnvoll verbinden kann. Besonders wichtig war mir, dass meine familiären Verpflichtungen und meine internationale Lebenssituation berücksichtigt werden. Die Beratung war verständlich strukturiert und ohne Druck. Heute weiß ich genau, welche Schritte ich als Nächstes gehen muss.', 'Ali Z.', 'Arzt, Tübingen'],
+    ['Vor der Beratung hatte ich verschiedene Sparverträge, aber keinen klaren Plan. Karim hat mit mir meine Ziele, meinen monatlichen Spielraum und meine Risikobereitschaft analysiert. Jetzt habe ich eine verständliche Strategie für Rücklagen, den langfristigen Vermögensaufbau und meine finanzielle Zukunft in Deutschland.', 'Moneeb A.', 'Ingenieur, Stuttgart'],
+    ['Ich wollte in Deutschland eine Immobilie kaufen, wusste aber nicht, wie viel Eigenkapital sinnvoll ist […]. Die Beratung hat mir geholfen, die […] Absicherung und langfristige Belastung realistisch einzuschätzen. Es war super, mit Karim zu arbeiten. Ich kann ihn nur weiterempfehlen.', 'Habiba T.', 'Lehrerin, München'],
+    ['Als Expat war es für mich besonders hilfreich, dass die komplexen deutschen Finanz- und Versicherungsthemen verständlich erklärt wurden. Auch die Kommunikation auf Arabisch, Englisch und Deutsch hat vieles einfacher gemacht. Ich hatte zum ersten Mal das Gefühl, meine finanziellen Entscheidungen wirklich zu verstehen.', 'Ahmed H.', 'Tischtennis-Bundesligaspieler, Mannheim']
+  ],
+  faqs: [
+    ['Kostet der Finanz-Check etwas?', 'Nein. Die 30 Minuten sind kostenlos.'],
+    ['Wie verdienst du dein Geld?', 'Wenn du dich nach dem Gespräch für einen Vertrag entscheidest, zahlt mir die Gesellschaft eine Provision. Die Beratung selbst kostet dich nichts, und ob du abschließt, entscheidest du allein.'],
+    ['Muss ich etwas abschließen?', 'Nein. Du bekommst deinen Plan als PDF und entscheidest in Ruhe, ob und mit wem du ihn umsetzt.'],
+    ['Ist mein Deutsch gut genug?', 'Wir sprechen Arabisch, Deutsch und Englisch. Du wählst die Sprache.'],
+    ['Geht das auch online?', 'Ja, per Video von überall in Deutschland oder persönlich in unserem Büro in Heidelberg.']
+  ],
+  fH: 'Bereit, deine Finanzen in Ordnung zu bringen?',
+  fText: '30 Minuten. Kostenlos.\nAuf Arabisch, Deutsch oder Englisch.',
+  imp: 'Impressum', dat: 'Datenschutz', erst: 'Erstinformation',
+  locale: 'de-DE'
+},
+ar: {
+  topicName: { krankenkasse: 'التأمين الصحي', vermoegen: 'بناء الثروة', rente: 'التقاعد', bu: 'حماية الدخل', immobilien: 'العقارات' },
+  top: 'فحص مالي مجاني · بالعربية · الألمانية · الإنجليزية · مواعيد متاحة الآن',
+  h1: 'الأطباء والمهندسون في ألمانيا:',
+  h2: {
+    allgemein: "رتّب أمورك المالية في ألمانيا خطوة بخطوة.",
+    krankenkasse: 'توقف عن دفع أكثر من اللازم لتأمينك الصحي.',
+    vermoegen: 'دع أموالك تعمل من أجلك بدل أن تبقى في الحساب.',
+    rente: 'اعرف فجوة تقاعدك قبل فوات الأوان.',
+    bu: 'احمِ دخلك قبل أن تحتاج إلى ذلك.',
+    immobilien: 'خطوة بخطوة نحو شقتك الخاصة.'
+  },
+  videoPh: 'فيديو كريم قريبًا',
+  cta: 'احجز موعدك المجاني',
+  rating: '4,9 تقييم على Google',
+  meta: '+1.000 جلسة استشارية · 3 لغات',
+  intro: 'حققت الكثير في ألمانيا: الدراسة، الاعتراف بشهادتك، راتب جيد. لكن لم يشرح لك أحد النظام المالي الألماني. في 30 دقيقة نراجع معك التأمين الصحي وبناء الثروة والتقاعد والحماية، بالعربية أو الألمانية أو الإنجليزية.',
+  pH: 'دخلك جيد. لكن أموالك بلا خطة. وهذه هي المشكلة.',
+  pLead: 'علامات شائعة:',
+  symptoms: [
+    'راتبك يصل كل شهر، لكن في نهاية السنة لا يتبقى منه إلا القليل.',
+    'مدخراتك في الحساب الجاري وتفقد من قيمتها كل عام.',
+    'لا تعرف هل التأمين الصحي الحكومي أم الخاص أفضل لك.',
+    'إشعار التقاعد الخاص بك ما زال مغلقًا في الدرج.',
+    'لديك عقود باعها لك أحدهم، ولا تعرف بالضبط لماذا.',
+    'أنت لست مقصّرًا. فقط لم يشرح لك أحد النظام من قبل.'
+  ],
+  sEyebrow: 'الركائز الأربع',
+  sH: 'أموالك تقوم على أربع ركائز.',
+  sLead: 'نراجع الأربع معك ونخبرك بأيها تبدأ أولًا.',
+  vcap: 'فيديو عميل قريبًا',
+  pillars: [
+    ['تأمينك الصحي', 'تدفع كل شهر قسطًا مرتفعًا، لكنك لم تقارن أبدًا هل التأمين الحكومي أم الخاص أنسب لك ولعائلتك. وهذا القرار غالبًا لا يمكن التراجع عنه لاحقًا.'],
+    ['بناء ثروتك', 'مدخراتك في الحساب أو في عقود لا تفهمها. والتضخم يأخذ منها جزءًا كل عام.'],
+    ['تقاعدك', 'التقاعد الحكومي يغطي جزءًا فقط من راتبك. وكمغترب تنقصك سنوات اشتراك أيضًا. ولا تعرف حجم فجوتك.'],
+    ['حمايتك', 'دخلك هو أهم ما تملك. إذا مرضت ولم تعد قادرًا على العمل، تدفع الدولة القليل فقط. هل أنت محمي؟']
+  ],
+  cH: 'ما الذي تغطيه الثلاثون دقيقة فعلًا',
+  covers: [
+    'ننظر إلى أموالك بعين المحترف، لتذهب أموالك إلى حيث تفيدك فعلًا.',
+    'الحكومي أم الخاص: نحسب الاثنين براتبك، اليوم وعند التقاعد.',
+    'فجوة تقاعدك باليورو، صافية ومحسوبة مع التضخم.',
+    'هل قدرتك على العمل محمية بشكل صحيح، بجواب واضح: نعم أو لا.',
+    'كم تستطيع أن تستثمر شهريًا وفي أي إطار.',
+    'أي من عقودك الحالية مفيد وأيها لا.',
+    'في النهاية تحصل على كل شيء مكتوبًا كملف PDF وتقرر بهدوء.'
+  ],
+  photoPh: 'صورة قريبًا',
+  statH: 'أكثر من 1.000 جلسة مع أشخاص مثلك.',
+  statText: 'أطباء ومهندسون ومعلمون بنوا حياة جديدة في ألمانيا. فريقنا في هايدلبرغ يدير أكثر من 100 مليون يورو من الأصول ويتحدث لغتك: العربية أو الألمانية أو الإنجليزية.',
+  objQ: '«ليس لدي وقت لذلك»',
+  objH: '30 دقيقة. عبر الفيديو. حتى في عطلة نهاية الأسبوع.',
+  objText: 'لا تحتاج إلى الذهاب إلى أي مكان ولا إلى تحضير أي شيء. نستشير يوميًا من 10 إلى 18، حتى السبت والأحد، من أي مكان في ألمانيا أو شخصيًا في هايدلبرغ.',
+  dH: 'مواعيد متاحة في الأيام القادمة',
+  dLead: 'نستشير يوميًا من 10 إلى 18. مجانًا، 30 دقيقة. تُحجز المواعيد قبل يومين على الأقل. المتاح الآن:',
+  today: 'اليوم', tomorrow: 'غدًا', open: 'متاح', full: 'لا توجد مواعيد', left0: '0 مواعيد متاحة',
+  bH: 'اختر موعدك بالأسفل',
+  bLead: 'اختر موعدًا لمحادثة قصيرة مع فريقنا. نرى معًا أين تقف وبماذا تبدأ أولًا.',
+  w1: 'املأ النموذج', w2: 'اختر الموعد',
+  back: '→ رجوع',
+  wTitle: 'فحص مالي مجاني',
+  wLead: 'يسعدنا التحدث معك. سجّل بياناتك باختصار ثم اختر موعدك.',
+  phPh: 'رقم الهاتف', first: 'الاسم الأول *', last: 'اسم العائلة *',
+  consent: 'أوافق على أن تتواصل معي يلا فينانزن عبر الهاتف أو واتساب أو البريد الإلكتروني لتحديد الفحص المالي المجاني وإجرائه. يمكنني سحب هذه الموافقة في أي وقت. المزيد في',
+  priv: 'سياسة الخصوصية',
+  continue: 'متابعة',
+  thanks: 'شكرًا، %n! اختر الآن موعدك. إذا لم تجد موعدًا مناسبًا، سنتصل بك.',
+  calLink: 'التقويم لا يظهر؟ اختر موعدك من هنا مباشرة',
+  cbLink: 'ليس لديك وقت لاختيار موعد؟ سنتصل بك',
+  cbTitle: 'تفضّل أن نتصل بك؟',
+  cbLead: 'اترك رقمك واختر ما يهمك. سيتواصل معك فريقنا لتحديد الموعد معك.',
+  cbTopics: 'ما الذي يهمك؟ (يمكن اختيار أكثر من واحد)',
+  cbTopicList: ['التأمين الصحي', 'بناء الثروة', 'التقاعد', 'الحماية', 'العقار'],
+  cbWhen: 'متى يناسبك أن نتصل؟',
+  cbTimes: ['صباحًا', 'بعد الظهر', 'مساءً', 'أي وقت'],
+  cbConsent: 'أطلب من يلا فينانزن التواصل معي هاتفيًا أو عبر واتساب لتحديد موعد للفحص المالي المجاني. يمكنني سحب هذه الموافقة في أي وقت. المزيد في',
+  cbErr: 'يرجى اختيار موضوع واحد على الأقل.',
+  cbSubmit: 'اطلب اتصالًا',
+  cbThanks: 'شكرًا، %n! سيتواصل معك فريقنا يوميًا بين 10 و18.',
+  rEyebrow: 'لا تعتمد على كلامنا فقط',
+  rH: 'ماذا يقول عملاؤنا',
+  rLead: 'تقييمات حقيقية على Google من أشخاص في وضعك.',
+  rSrc: 'تقييم Google · مترجم من الألمانية',
+  reviews: [
+    ['كطبيب عربي في ألمانيا لم أكن متأكدًا كيف أجمع بين التأمين الصحي الخاص والتقاعد وبناء الثروة بشكل صحيح. كان مهمًا لي أن تؤخذ التزاماتي العائلية ووضعي الدولي بعين الاعتبار. كانت الاستشارة واضحة ومنظمة ودون أي ضغط. اليوم أعرف بالضبط ما هي خطوتي التالية.', 'علي ز.', 'طبيب، توبينغن'],
+    ['قبل الاستشارة كانت لدي عقود ادخار مختلفة، لكن بدون خطة واضحة. حلّل كريم معي أهدافي وهامشي الشهري ومدى استعدادي للمخاطرة. الآن لدي استراتيجية واضحة للاحتياطي وبناء الثروة على المدى الطويل ومستقبلي المالي في ألمانيا.', 'منيب أ.', 'مهندس، شتوتغارت'],
+    ['أردت شراء عقار في ألمانيا، لكنني لم أكن أعرف كم رأس المال الخاص المناسب […]. ساعدتني الاستشارة على تقييم […] التأمين والعبء طويل المدى بشكل واقعي. كان العمل مع كريم رائعًا، وأنصح به بشدة.', 'حبيبة ت.', 'معلمة، ميونخ'],
+    ['كمغترب كان من المفيد جدًا لي أن تُشرح المواضيع المالية والتأمينية الألمانية المعقدة بطريقة مفهومة. كما أن التواصل بالعربية والإنجليزية والألمانية سهّل أشياء كثيرة. لأول مرة شعرت أنني أفهم قراراتي المالية حقًا.', 'أحمد ح.', 'لاعب تنس طاولة في الدوري الألماني، مانهايم']
+  ],
+  faqs: [
+    ['هل يكلّف الفحص المالي شيئًا؟', 'لا. الثلاثون دقيقة مجانية.'],
+    ['كيف تكسب المال؟', 'إذا قررت بعد الجلسة إبرام عقد، تدفع لي الشركة عمولة. الاستشارة نفسها لا تكلفك شيئًا، وقرار التوقيع لك وحدك.'],
+    ['هل يجب أن أوقّع على شيء؟', 'لا. تحصل على خطتك كملف PDF وتقرر بهدوء إن كنت ستنفذها ومع من.'],
+    ['هل لغتي الألمانية جيدة بما يكفي؟', 'نتحدث العربية والألمانية والإنجليزية. أنت تختار اللغة.'],
+    ['هل يمكن أن تتم الجلسة عبر الإنترنت؟', 'نعم، عبر الفيديو من أي مكان في ألمانيا، أو شخصيًا في مكتبنا في هايدلبرغ.']
+  ],
+  fH: 'مستعد لترتيب أموالك؟',
+  fText: '30 دقيقة. مجانًا.\nبالعربية أو الألمانية أو الإنجليزية.',
+  imp: 'بيانات الناشر', dat: 'الخصوصية', erst: 'معلومات أولية',
+  locale: 'ar'
+},
+en: {
+  topicName: { krankenkasse: 'Health insurance', vermoegen: 'Wealth building', rente: 'Retirement', bu: 'Income protection', immobilien: 'Property' },
+  top: 'Free finance check · Arabic · German · English · Slots open now',
+  h1: 'Doctors & engineers in Germany:',
+  h2: {
+    allgemein: "Get your finances in Germany in order, step by step.",
+    krankenkasse: 'Stop paying too much for your health insurance.',
+    vermoegen: 'Make your money work for you instead of sitting in your account.',
+    rente: 'Know your pension gap before it is too late.',
+    bu: 'Protect your income before you need it.',
+    immobilien: 'Step by step to your own home.'
+  },
+  videoPh: 'Video from Karim coming soon',
+  cta: 'Book your free call',
+  rating: '4.9 Google rating',
+  meta: '1,000+ consultations · 3 languages',
+  intro: 'You have achieved a lot in Germany: your degree, your recognition, a good salary. But nobody ever explained the German financial system to you. In 30 minutes we go through health insurance, wealth building, retirement and protection with you, in Arabic, German or English.',
+  pH: 'You earn well. But your money has no plan. That is the problem.',
+  pLead: 'Typical signs:',
+  symptoms: [
+    'Your salary arrives every month, but by the end of the year hardly anything is left.',
+    'Your savings sit in your current account and lose value every year.',
+    'You don’t know whether public or private health insurance is better for you.',
+    'Your pension statement is still unopened in a drawer.',
+    'You have contracts someone sold you, and you are not quite sure what they are for.',
+    'You are not careless. Nobody ever explained the system to you.'
+  ],
+  sEyebrow: 'The 4 pillars',
+  sH: 'Your finances stand on four pillars.',
+  sLead: 'We go through all four with you, then tell you which one to tackle first.',
+  vcap: 'Client video coming soon',
+  pillars: [
+    ['Your health insurance', 'You pay a high premium every month but have never compared whether public or private fits you and your family better. And that decision often cannot be undone later.'],
+    ['Your wealth building', 'Your savings sit in your account or in contracts you don’t understand. Inflation takes a piece of it every year.'],
+    ['Your retirement', 'The state pension replaces only part of your salary. As an expat you are also missing contribution years. You don’t know how big your gap is.'],
+    ['Your protection', 'Your income is your most valuable asset. If you get ill and can no longer work, the state pays very little. Are you covered?']
+  ],
+  cH: 'What the 30 minutes actually cover',
+  covers: [
+    'We look at your finances the way a professional does, so your money goes where it actually makes a difference.',
+    'Public or private: we run both with your salary, today and in retirement.',
+    'Your pension gap in euros, net and adjusted for inflation.',
+    'Whether your ability to work is properly protected, with a clear yes or no.',
+    'How much you can invest each month and in which wrapper.',
+    'Which of your existing contracts make sense and which don’t.',
+    'At the end you get everything in writing as a PDF and decide in your own time.'
+  ],
+  photoPh: 'Photo coming soon',
+  statH: 'More than 1,000 conversations with people like you.',
+  statText: 'Doctors, engineers and teachers who have built a new life in Germany. Our team in Heidelberg manages over €100M in assets and speaks your language: Arabic, German or English.',
+  objQ: '“I don’t have time for this”',
+  objH: '30 minutes. By video. Even at the weekend.',
+  objText: 'You don’t have to go anywhere or prepare anything. We advise every day from 10 am to 6 pm, Saturdays and Sundays too, from anywhere in Germany or in person in Heidelberg.',
+  dH: 'Open slots in the next few days',
+  dLead: 'We advise every day from 10 am to 6 pm. Free, 30 minutes. Slots are booked at least 2 days ahead. Here is what is open right now:',
+  today: 'Today', tomorrow: 'Tomorrow', open: 'Open', full: 'No slots left', left0: '0 slots left',
+  bH: 'Pick a time below',
+  bLead: 'Choose a slot for a short call with our team. Together we look at where you stand and what to tackle first.',
+  w1: 'Fill out the form', w2: 'Book your call',
+  back: '← Back',
+  wTitle: 'Free finance check',
+  wLead: 'We look forward to speaking with you. Add your details, then pick your time.',
+  phPh: 'Phone number', first: 'First name *', last: 'Last name *',
+  consent: 'I agree that Yalla Finanzen may contact me by phone, WhatsApp or email to arrange and carry out my free finance check. I can withdraw this consent at any time. More in the',
+  priv: 'privacy policy',
+  continue: 'Continue',
+  thanks: 'Thank you, %n! Now pick your time. If none suits you, we will call you.',
+  calLink: 'Calendar not loading? Pick your time here',
+  cbLink: 'No time to pick a slot? We will call you back',
+  cbTitle: 'Prefer a call back?',
+  cbLead: 'Leave your number and choose what interests you. Our team will get in touch and set up the appointment with you.',
+  cbTopics: 'What interests you? (choose any)',
+  cbTopicList: ['Health insurance', 'Wealth building', 'Retirement', 'Protection', 'Property'],
+  cbWhen: 'When is the best time to reach you?',
+  cbTimes: ['Morning', 'Afternoon', 'Evening', 'Any time'],
+  cbConsent: 'I ask Yalla Finanzen to contact me by phone or WhatsApp to arrange an appointment for my free finance check. I can withdraw this consent at any time. More in the',
+  cbErr: 'Please choose at least one topic.',
+  cbSubmit: 'Request a call back',
+  cbThanks: 'Thank you, %n! Our team will get in touch, every day between 10 am and 6 pm.',
+  rEyebrow: 'Don’t take our word for it',
+  rH: 'What our clients say',
+  rLead: 'Real Google reviews from people in your situation.',
+  rSrc: 'Google review · translated from German',
+  reviews: [
+    ['As an Arab doctor in Germany, I wasn’t sure how to combine private health insurance, retirement planning and building wealth in a sensible way. It mattered to me that my family obligations and my international situation were taken into account. The consultation was clearly structured and without pressure. Today I know exactly what my next steps are.', 'Ali Z.', 'Doctor, Tübingen'],
+    ['Before the consultation I had several savings contracts but no clear plan. Karim went through my goals, my monthly budget and my risk tolerance with me. Now I have a clear strategy for my reserves, long-term wealth building and my financial future in Germany.', 'Moneeb A.', 'Engineer, Stuttgart'],
+    ['I wanted to buy property in Germany but didn’t know how much equity made sense […]. The consultation helped me realistically assess the […] protection and long-term costs. Working with Karim was great. I can only recommend him.', 'Habiba T.', 'Teacher, Munich'],
+    ['As an expat, it was especially helpful that the complex German finance and insurance topics were explained clearly. Being able to communicate in Arabic, English and German also made many things easier. For the first time I felt I really understood my financial decisions.', 'Ahmed H.', 'Table tennis Bundesliga player, Mannheim']
+  ],
+  faqs: [
+    ['Does the finance check cost anything?', 'No. The 30 minutes are free.'],
+    ['How do you make money?', 'If you decide to sign a contract after the call, the provider pays me a commission. The advice itself costs you nothing, and whether you sign is entirely your decision.'],
+    ['Do I have to sign anything?', 'No. You get your plan as a PDF and decide in your own time whether, and with whom, to put it into action.'],
+    ['Is my German good enough?', 'We speak Arabic, German and English. You choose the language.'],
+    ['Can we do it online?', 'Yes, by video from anywhere in Germany, or in person at our office in Heidelberg.']
+  ],
+  fH: 'Ready to get your finances in order?',
+  fText: '30 minutes. Free.\nIn Arabic, German or English.',
+  imp: 'Legal notice', dat: 'Privacy', erst: 'Initial information',
+  locale: 'en-GB'
+}
+};
+
+var params = new URLSearchParams(location.search);
+var lang = (params.get('lang') || '').toLowerCase();
+if (!T[lang]) lang = /^ar/i.test(navigator.language || '') ? 'ar' : 'de';
+var thema = TOPICS.indexOf(params.get('thema')) >= 0 ? params.get('thema') : 'allgemein';
+var t = T[lang];
+
+document.documentElement.lang = lang;
+document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
+if (lang === 'ar') document.body.classList.add('ar');
+document.title = t.wTitle + ' – Yalla Finanzen';
+
+function esc(s) { return String(s).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
+
+document.querySelectorAll('[data-t]').forEach(function (el) {
+  var v = t[el.getAttribute('data-t')];
+  if (v && typeof v === 'object') v = v[thema];
+  el.innerHTML = esc(v || '').replace(/\n/g, '<br>');
+});
+document.querySelectorAll('[data-ph]').forEach(function (el) { el.placeholder = t[el.getAttribute('data-ph')]; });
+document.querySelectorAll('[data-lang]').forEach(function (a) {
+  var l = a.getAttribute('data-lang');
+  a.href = '?thema=' + thema + '&lang=' + l;
+  if (l === lang) a.classList.add('on');
+});
+document.querySelectorAll('[data-home]').forEach(function (a) { a.href = 'index.html?thema=' + thema + '&lang=' + lang; });
+
+document.querySelector('[data-list="symptoms"]').innerHTML = t.symptoms.map(function (s) { return '<p>' + esc(s) + '</p>'; }).join('');
+document.querySelector('[data-list="covers"]').innerHTML = t.covers.map(function (s) { return '<li>' + esc(s) + '</li>'; }).join('');
+document.querySelector('[data-list="pillars"]').innerHTML = t.pillars.map(function (p, i) {
+  return '<div class="card"><div class="num">0' + (i + 1) + '</div><h3>' + esc(p[0]) + '</h3><p>' + esc(p[1]) + '</p></div>';
+}).join('');
+var playSvg = '<div class="play"><svg viewBox="0 0 24 24" fill="#fff"><path d="M8 5.5v13l11-6.5z"/></svg></div>';
+function vsrc(v) { return v && typeof v === 'object' ? (v[lang] || v.en || v.ar || v.de || '') : (v || ''); }
+function vtag(src) { return '<video src="' + esc(src) + '" controls playsinline preload="metadata"></video>'; }
+var hv = vsrc(VIDEOS.allgemein);
+var hero = document.getElementById('heroVideo');
+if (hv) hero.innerHTML = vtag(hv);
+else hero.style.display = 'none'; // Platzhalter ausblenden, bis das Video da ist
+var rv = VIDEOS.reviews.map(vsrc).filter(Boolean);
+var vg = document.querySelector('[data-videos]');
+if (rv.length) vg.innerHTML = rv.map(function (v) { return '<div class="vcard">' + vtag(v) + '</div>'; }).join('');
+else vg.style.display = 'none';
+var ph = PHOTOS.filter(Boolean);
+var pg = document.querySelector('[data-photos]');
+if (ph.length) pg.innerHTML = ph.map(function (p) { return '<div class="pslot" style="padding:0;overflow:hidden"><img src="' + esc(p) + '" alt="" style="width:100%;height:100%;object-fit:cover;display:block"></div>'; }).join('');
+else pg.style.display = 'none';
+document.querySelector('[data-reviews]').innerHTML = t.reviews.map(function (r) {
+  return '<article class="rcard"><div class="stars">★★★★★</div><blockquote>' + esc(r[0]) + '</blockquote><footer><b>' + esc(r[1]) + '</b><span>' + esc(t.rSrc) + ' · ' + esc(r[2]) + '</span></footer></article>';
+}).join('');
+document.querySelector('[data-faq]').innerHTML = t.faqs.map(function (f) {
+  return '<details><summary>' + esc(f[0]) + '</summary><p>' + esc(f[1]) + '</p></details>';
+}).join('');
+
+// 4 Tage ab heute: die ersten 2 belegt, die nächsten 2 frei.
+// Stimmt nur, wenn in Calendly eine Vorlaufzeit von 48 Stunden eingestellt ist (Minimum notice).
+(function () {
+  var out = [], d = new Date();
+  var now = new Date();
+  for (var i = 0; out.length < 4; i++) {
+    var day = new Date(d.getFullYear(), d.getMonth(), d.getDate() + i);
+    var diff = Math.round((day - new Date(now.getFullYear(), now.getMonth(), now.getDate())) / 864e5);
+    var label = diff === 0 ? t.today : diff === 1 ? t.tomorrow : day.toLocaleDateString(t.locale, { weekday: 'long' });
+    var date = day.toLocaleDateString(t.locale, { day: 'numeric', month: 'long', numberingSystem: 'latn' });
+    if (i < 2) out.push('<div class="dcard full"><span class="badge">' + esc(t.full) + '</span><strong>' + esc(label) + ', ' + esc(date) + '</strong><span class="pill">' + esc(t.left0) + '</span></div>');
+    else out.push('<a class="dcard" href="#termin"><strong>' + esc(label) + ', ' + esc(date) + '</strong><span class="pill">' + esc(t.open) + '</span></a>');
+  }
+  document.querySelector('[data-dates]').innerHTML = out.join('');
+})();
+
+// Ländervorwahlen wie auf der Startseite
+var CC = [['🇩🇪','+49'],['🇦🇹','+43'],['🇨🇭','+41'],['🇪🇬','+20'],['🇲🇦','+212'],['🇩🇿','+213'],['🇹🇳','+216'],['🇸🇾','+963'],['🇯🇴','+962'],['🇱🇧','+961'],['🇮🇶','+964'],['🇵🇸','+970'],['🇸🇦','+966'],['🇦🇪','+971'],['🇹🇷','+90'],['🇬🇧','+44'],['🇫🇷','+33'],['🇳🇱','+31'],['🇺🇸','+1']];
+document.querySelectorAll('select[name=cc]').forEach(function (sel) { sel.innerHTML = CC.map(function (c) { return '<option value="' + c[1] + '">' + c[0] + ' ' + c[1] + '</option>'; }).join(''); });
+
+// Rückruf statt Termin
+var TOPIC_DE = T.de.cbTopicList, TIMES_DE = T.de.cbTimes;
+function chips(sel, list, multi, preset) {
+  var box = document.querySelector(sel);
+  box.innerHTML = list.map(function (x, i) { return '<button type="button" class="chip" data-i="' + i + '" aria-pressed="' + (preset === i) + '">' + esc(x) + '</button>'; }).join('');
+  box.addEventListener('click', function (e) {
+    var b = e.target.closest('.chip'); if (!b) return;
+    if (!multi) box.querySelectorAll('.chip').forEach(function (c) { c.setAttribute('aria-pressed', 'false'); });
+    b.setAttribute('aria-pressed', b.getAttribute('aria-pressed') === 'true' && multi ? 'false' : 'true');
+  });
+}
+function picked(sel) { return Array.prototype.map.call(document.querySelectorAll(sel + ' .chip[aria-pressed="true"]'), function (b) { return +b.getAttribute('data-i'); }); }
+var topicPreset = { krankenkasse: 0, vermoegen: 1, rente: 2, bu: 3, immobilien: 4 }[thema];
+chips('[data-chips]', t.cbTopicList, true, topicPreset);
+chips('[data-times]', t.cbTimes, false, 3);
+document.getElementById('cbToggle').addEventListener('click', function () {
+  var f = document.getElementById('cbForm'); f.hidden = !f.hidden;
+  this.setAttribute('aria-expanded', String(!f.hidden));
+});
+document.getElementById('cbForm').addEventListener('submit', function (e) {
+  e.preventDefault();
+  var f = e.currentTarget, topics = picked('[data-chips]'), err = document.getElementById('cbErr');
+  err.hidden = topics.length > 0;
+  if (!topics.length || !f.reportValidity()) return;
+  var n = f.phone.value.replace(/[^\d+]/g, '');
+  var phone = n.charAt(0) === '+' ? n : f.cc.value + n.replace(/^0+/, '');
+  var when = picked('[data-times]')[0];
+  var data = {
+    'form-name': 'rueckruf', name: f.first.value.trim(), telefon: phone,
+    themen: topics.map(function (i) { return TOPIC_DE[i]; }).join(', '), wann: TIMES_DE[when === undefined ? 3 : when],
+    thema: thema, sprache: lang, einwilligung: T.de.cbConsent + ' Datenschutzerklärung.', zeit: new Date().toISOString(), seite: location.href
+  };
+  try {
+    fetch('/', { method: 'POST', headers: { 'Content-Type': 'application/x-www-form-urlencoded' }, body: new URLSearchParams(data).toString() })
+      .catch(function (err2) { console.warn('Formular nicht gesendet', err2); });
+  } catch (err2) { console.warn('Formular nicht gesendet', err2); }
+  f.hidden = true;
+  document.getElementById('cbToggle').hidden = true;
+  var th = document.getElementById('cbThanks');
+  th.textContent = t.cbThanks.replace('%n', data.name);
+  th.hidden = false;
+});
+
+document.getElementById('bookForm').addEventListener('submit', function (e) {
+  e.preventDefault();
+  var f = e.currentTarget;
+  if (!f.reportValidity()) return;
+  var n = f.phone.value.replace(/[^\d+]/g, '');
+  var phone = n.charAt(0) === '+' ? n : f.cc.value + n.replace(/^0+/, '');
+  var first = f.first.value.trim(), last = f.last.value.trim();
+  var data = {
+    'form-name': 'termin', name: first + ' ' + last, telefon: phone, email: '', thema: thema, guide: '',
+    sprache: lang, einwilligung: T.de.consent + ' Datenschutzerklärung.', zeit: new Date().toISOString(), seite: location.href
+  };
+  try {
+    fetch('/', { method: 'POST', headers: { 'Content-Type': 'application/x-www-form-urlencoded' }, body: new URLSearchParams(data).toString() })
+      .catch(function (err) { console.warn('Formular nicht gesendet', err); });
+  } catch (err) { console.warn('Formular nicht gesendet', err); }
+  var q = 'name=' + encodeURIComponent(first + ' ' + last) + '&utm_source=website&utm_medium=finanz-check&utm_campaign=' + thema + '-' + lang;
+  f.style.display = 'none';
+  var th = document.getElementById('thanks');
+  th.textContent = t.thanks.replace('%n', first);
+  th.style.display = 'block';
+  th.style.margin = '20px';
+  var cal = document.getElementById('cal');
+  cal.querySelector('iframe').src = CAL + '?embed_type=Inline&hide_gdpr_banner=1&primary_color=6610f2&' + q;
+  cal.querySelector('a').href = CAL + '?' + q;
+  cal.style.display = 'block';
+  document.querySelector('[data-step1]').classList.remove('on');
+  document.querySelector('[data-step2]').classList.add('on');
+});
+</script>
+</body>
+</html>
