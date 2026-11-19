@@ -432,7 +432,7 @@ de: {
   objText: 'Du musst nirgendwo hinfahren und nichts vorbereiten. Wir beraten täglich von 10 bis 18 Uhr, auch samstags und sonntags, von überall in Deutschland oder persönlich in Heidelberg.',
   dH: 'Freie Termine in den nächsten Tagen',
   dLead: 'Wir beraten täglich von 10 bis 18 Uhr. Kostenlos, 30 Minuten. Termine buchst du mindestens 2 Tage im Voraus. Das ist gerade frei:',
-  today: 'Heute', tomorrow: 'Morgen', open: 'Frei', full: 'Keine Termine frei', left0: '0 Termine frei',
+  today: 'Heute', tomorrow: 'Morgen', open: 'Termin wählen', full: 'Vorlauf 48 Std.', left0: 'Nicht online buchbar',
   bH: 'Wähle unten deinen Termin',
   bLead: 'Such dir einen Termin für ein kurzes Gespräch mit unserem Team aus. Wir schauen gemeinsam, wo du stehst und was du zuerst angehen solltest.',
   w1: 'Formular ausfüllen', w2: 'Termin wählen',
@@ -535,7 +535,7 @@ ar: {
   objText: 'لا تحتاج إلى الذهاب إلى أي مكان ولا إلى تحضير أي شيء. نستشير يوميًا من 10 إلى 18، حتى السبت والأحد، من أي مكان في ألمانيا أو شخصيًا في هايدلبرغ.',
   dH: 'مواعيد متاحة في الأيام القادمة',
   dLead: 'نستشير يوميًا من 10 إلى 18. مجانًا، 30 دقيقة. تُحجز المواعيد قبل يومين على الأقل. المتاح الآن:',
-  today: 'اليوم', tomorrow: 'غدًا', open: 'متاح', full: 'لا توجد مواعيد', left0: '0 مواعيد متاحة',
+  today: 'اليوم', tomorrow: 'غدًا', open: 'اختر موعدًا', full: 'مهلة 48 ساعة', left0: 'غير متاح للحجز أونلاين',
   bH: 'اختر موعدك بالأسفل',
   bLead: 'اختر موعدًا لمحادثة قصيرة مع فريقنا. نرى معًا أين تقف وبماذا تبدأ أولًا.',
   w1: 'املأ النموذج', w2: 'اختر الموعد',
@@ -638,7 +638,7 @@ en: {
   objText: 'You don’t have to go anywhere or prepare anything. We advise every day from 10 am to 6 pm, Saturdays and Sundays too, from anywhere in Germany or in person in Heidelberg.',
   dH: 'Open slots in the next few days',
   dLead: 'We advise every day from 10 am to 6 pm. Free, 30 minutes. Slots are booked at least 2 days ahead. Here is what is open right now:',
-  today: 'Today', tomorrow: 'Tomorrow', open: 'Open', full: 'No slots left', left0: '0 slots left',
+  today: 'Today', tomorrow: 'Tomorrow', open: 'Pick a time', full: '48 h notice', left0: 'Not bookable online',
   bH: 'Pick a time below',
   bLead: 'Choose a slot for a short call with our team. Together we look at where you stand and what to tackle first.',
   w1: 'Fill out the form', w2: 'Book your call',
@@ -741,8 +741,8 @@ document.querySelector('[data-faq]').innerHTML = t.faqs.map(function (f) {
   return '<details><summary>' + esc(f[0]) + '</summary><p>' + esc(f[1]) + '</p></details>';
 }).join('');
 
-// 4 Tage ab heute: die ersten 2 belegt, die nächsten 2 frei.
-// Stimmt nur, wenn in Calendly eine Vorlaufzeit von 48 Stunden eingestellt ist (Minimum notice).
+// 4 Tage ab heute: die ersten 2 wegen 48 Std. Vorlauf nicht online buchbar, ab dem 3. Tag Termin wählen.
+// Keine erfundene Knappheit (UWG): Texte nennen den echten Grund. Muss zur Vorlaufzeit in Calendly passen (Minimum notice).
 (function () {
   var out = [], d = new Date();
   var now = new Date();
