@@ -483,7 +483,10 @@ var E=function(a){return '<i class="e '+a[1]+'" aria-hidden="true">'+a[0]+'</i>'
  video(L);wire(t);
  app.querySelectorAll('[data-go]').forEach(function(b){b.onclick=function(){var fw=document.getElementById('fw');fw.scrollIntoView({behavior:'smooth',block:'start'});var q=fw.querySelector('input');if(q)setTimeout(function(){q.focus({preventScroll:true})},500)}});
 }
+// Auf true setzen, sobald videos/plan-ar.mp4 (optional auch plan-de.mp4 / plan-en.mp4) hochgeladen ist.
+var PLAN_VIDEOS=false;
 function video(L){
+ if(!PLAN_VIDEOS){var nb=document.getElementById('vid');if(nb)nb.remove();return}
  var box=document.getElementById('vid'),v=box.querySelector('video'),b=box.querySelector('.snd'),srcs=['videos/plan-'+L+'.mp4','videos/plan-ar.mp4'],i=0;
  function next(){if(i>=srcs.length){box.remove();return}v.src=srcs[i++];v.load();var p=v.play();if(p&&p.catch)p.catch(function(){})}
  v.addEventListener('loadedmetadata',function(){box.classList.add('ready')});

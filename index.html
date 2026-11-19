@@ -448,7 +448,7 @@ var active = l.id === lang;
 return {
 label: l.label,
 pressed: active ? 'true' : 'false',
-pick: function () { self.setState({ lang: l.id }); },
+pick: function () { try { var u = new URL(window.location.href); u.searchParams.set('lang', l.id); window.history.replaceState(null, '', u); } catch (e) {} self.setState({ lang: l.id }); },
 style: 'min-height: 36px; min-width: 44px; padding: 0 12px; border-radius: 999px; border: none; cursor: pointer; font: inherit; font-size: 14px; font-weight: 600; background: ' + (active ? '#ffffff' : 'transparent') + '; color: ' + (active ? '#1b1c2c' : '#ffffff') + ';'
 };
 });
@@ -512,7 +512,7 @@ gdFormDisplay: (!gdDone && this.state.gdOpen) ? 'flex' : 'none',
 gdThanksDisplay: gdDone ? 'block' : 'none',
 gdDlDisplay: gdDone ? 'inline-flex' : 'none',
 // Guides erst nach Karims Freigabe live schalten: GUIDES_LIVE auf true setzen
-gdBoxDisplay: GUIDES_LIVE ? 'flex' : 'none',
+gdBoxDisplay: GUIDES_LIVE ? 'block' : 'none',
 checkUrl: 'finanz-check.html?' + (this.state.landing === 5 ? '' : 'thema=' + ['krankenkasse', 'vermoegen', 'rente', 'bu', 'immobilien'][tsel] + '&') + 'lang=' + lang,
 gdPdf: 'guides/' + ['01-krankenkasse', '02-vermoegen', '03-rente', '04-bu', '05-immobilien'][tsel] + '-' + lang + '.pdf',
 gdThanks: base.bkThanksPre + (lead && lead.name ? (base.bkSep || ', ') + lead.name : '') + '! ' + base.gdThanks.replace('%g', curGuide).replace('%e', lead ? lead.email : ''),
