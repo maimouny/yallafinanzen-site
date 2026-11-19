@@ -15,9 +15,9 @@
 @font-face{font-family:Tajawal;font-style:normal;font-display:swap;font-weight:500;src:url(fonts/tajawal-latin-500-normal.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
 @font-face{font-family:Tajawal;font-style:normal;font-display:swap;font-weight:700;src:url(fonts/tajawal-latin-700-normal.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
 @font-face{font-family:Tajawal;font-style:normal;font-display:swap;font-weight:800;src:url(fonts/tajawal-latin-800-normal.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
-.legal{display:flex;justify-content:center;flex-wrap:wrap;gap:0 12px;padding:16px 16px 32px;font-size:14px}
-.legal a{color:#555a66;padding:12px 6px}
-body.c .legal a{color:#c9ccd3}
+.legal-links{display:flex;justify-content:center;flex-wrap:wrap;gap:0 12px;padding:16px 16px 32px;font-size:14px}
+.legal-links a{color:#555a66;padding:12px 6px}
+body.c .legal-links a{color:#c9ccd3}
 .ok a{color:inherit}
 /* Layout: one narrow white column, video first, then a tappable 4-step list; step 1 holds the WhatsApp/Instagram questionnaire. Single light look by choice (Karim: nur weißer Hintergrund). */
 @font-face{font-family:A;font-weight:400;src:url(fonts/ibm-plex-sans-arabic-arabic-400-normal.woff2)}
@@ -144,7 +144,7 @@ input[type=tel]:focus{outline:2px solid var(--g);border-color:var(--g)}
 .note{font-weight:600;color:var(--v);font-size:15px}
 .btns{display:flex;flex-direction:column;gap:8px}
 .b:not(body){display:block;text-align:center;font:inherit;font-weight:700;font-size:16px;padding:13px;border-radius:99px;border:0;cursor:pointer;text-decoration:none}
-.b.wa{background:var(--wa);color:var(--bg)}.b.ig{background:var(--v);color:var(--bg)}
+.b.wa{background:var(--wa);color:#0b2e13}.b.ig{background:var(--v);color:var(--bg)}
 
 .hp{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%);opacity:0;pointer-events:none}
 .done{font-size:17px;font-weight:600;color:var(--v);background:var(--tint);border-radius:14px;padding:16px;line-height:1.5}
@@ -153,7 +153,7 @@ input[type=tel]:focus{outline:2px solid var(--g);border-color:var(--g)}
 .wafb{display:flex;flex-direction:column;gap:10px;font-size:16px;font-weight:700;color:var(--v)}.ar .wafb{font-size:18px}
 .call{margin-top:22px;text-align:center;font-size:15px;color:var(--m)}
 .call b{display:block;font-size:22px;color:var(--v);margin-top:2px;direction:ltr;user-select:all}
-.legal{font-size:12px;color:var(--m);margin-top:22px;line-height:1.45}
+.legal{font-size:14px;color:var(--m);margin-top:22px;line-height:1.45}
 @media (prefers-reduced-motion:reduce){.chev{transition:none}}
 
 .tk{list-style:none;padding:0;margin:12px 0 0;display:flex;flex-direction:column;gap:14px}
@@ -340,7 +340,7 @@ body.d .dv .ib p.sp{font-size:15.5px;line-height:1.6;color:var(--t);margin-top:6
 <header><div class="brand">YALLA <b>FINANZEN</b></div><nav class="lg"><a data-l="ar" href="#ar">عربي</a><a data-l="de" href="#de">DE</a><a data-l="en" href="#en">EN</a></nav></header>
 <div id="app"></div>
 </div>
-<footer class="legal"><a href="impressum.html">Impressum</a><a href="datenschutz.html">Datenschutz</a><a href="erstinformation.html">Erstinformation</a></footer>
+<footer class="legal-links"><a href="impressum.html">Impressum</a><a href="datenschutz.html">Datenschutz</a><a href="erstinformation.html">Erstinformation</a></footer>
 
 <script>
 window.YV='d';var B=false,YV=window.YV||'',SKIP=YV==='d'?'q3':YV==='c'?'q2':'';
@@ -460,7 +460,7 @@ var E=function(a){return '<i class="e '+a[1]+'" aria-hidden="true">'+a[0]+'</i>'
   app.innerHTML='<h1 class="top">'+esc(c.h)+'</h1><p class="lead2">'+esc(c.lead)+'</p>'+
   '<div class="vid" id="vid"><video autoplay muted loop playsinline preload="auto"></video><button class="snd" type="button">🔊</button></div>'+
   '<div class="ins">'+LI.map(function(x,i){var q=FQ[L][i];return '<div class="box chk" data-i="'+i+'"><div class="ckh"><div class="ico">'+LE[i]+'</div><div class="nm"><b>'+esc(x.n)+(x.d?'<i dir="ltr">'+esc(x.d)+'</i>':'')+'</b><em class="lab l'+LV[i]+'">'+esc(i===4?c.labcar:c.lab[LV[i]])+'</em></div>'+
-   '<div class="ckb">'+(x.opt?'<button type="button" class="t" data-v="1">PKV</button><button type="button" class="t" data-v="0">GKV</button>':'<button type="button" data-v="1" aria-label="'+esc(c.have)+'">✓</button><button type="button" data-v="0" aria-label="'+esc(c.no)+'">✗</button>')+'</div><span class="cv" aria-hidden="true">▾</span></div>'+
+   '<div class="ckb">'+(x.opt?'<button type="button" class="t" data-v="1">PKV</button><button type="button" class="t" data-v="0">GKV</button>':'<button type="button" data-v="1" aria-label="'+esc(c.have)+'">✓</button><button type="button" data-v="0" aria-label="'+esc(c.no)+'">✗</button>')+'</div><span class="cv" role="button" tabindex="0" aria-expanded="false" aria-label="'+esc(({ar:'ليه مهم؟',de:'Warum wichtig?',en:'Why it matters'})[L])+'">▾</span></div>'+
    '<div class="more2"><div class="fqq">'+esc(q.fq)+'</div><div class="big">'+esc(q.fa||x.big)+'</div>'+'<p class="bn"><span aria-hidden="true">✓</span> '+esc(q.b)+'</p>'+(q.fp||[]).map(function(y){return '<p>'+esc(y)+'</p>'}).join('')+'</div></div>'}).join('')+'</div>'+
   '<p class="tap">'+({ar:'اضغط على السهم ▾ عشان تعرف ليه مهم',de:'Tippe auf den Pfeil ▾ und sieh, warum sie wichtig ist',en:'Tap the arrow ▾ to see why it matters'})[L]+'</p><div class="res" id="res" aria-live="polite"></div>'+
   ENDC+
@@ -470,7 +470,7 @@ var E=function(a){return '<i class="e '+a[1]+'" aria-hidden="true">'+a[0]+'</i>'
   res.innerHTML='<div class="rbox"><div class="rn">'+esc(c.np)+'</div><div class="pick">'+LI.map(function(x,i){return '<button type="button" data-i="'+i+'" aria-pressed="false">'+esc(x.n)+'</button>'}).join('')+'</div><p class="rq">'+esc(c.q)+'</p><p class="rs">'+esc(c.sol)+'</p><div class="rv1"><p>'+esc(c.rvq)+'</p><b>'+esc(c.rvb)+'</b></div><div class="rp">'+esc(REV[L].sub)+'</div><a class="b wa" target="_blank" rel="noopener">💬 '+esc(c.btn)+'</a><p class="rg">'+esc(c.prom)+'</p><p class="rph">'+esc(c.or)+' <a dir="ltr" href="tel:+491631549878" target="_blank" rel="noopener">0163 1549878</a> · '+esc(t.hotH)+'</p></div>';
   function upd(){var m=LI.filter(function(x,i){return sel[i]}).map(function(x){return x.n+(x.d?' ('+x.d+')':'')});res.querySelector('a').href='https://wa.me/491631549878?text='+encodeURIComponent(m.length?c.msg.replace('{l}',m.join(L==='ar'?'، ':', ')):c.msg0)}
   res.querySelectorAll('.pick button').forEach(function(b){b.onclick=function(){var i=+b.dataset.i;sel[i]=!sel[i];b.classList.toggle('on',!!sel[i]);b.setAttribute('aria-pressed',sel[i]?'true':'false');upd()}});
-  app.querySelectorAll('.chk .ckh').forEach(function(h){h.onclick=function(){var bx=h.parentNode,o=bx.classList.contains('open');app.querySelectorAll('.chk.open').forEach(function(z){z.classList.remove('open')});if(!o){bx.classList.add('open');bx.scrollIntoView({behavior:'smooth',block:'nearest'})}}});
+  app.querySelectorAll('.chk .ckh').forEach(function(h){h.onclick=function(){var bx=h.parentNode,o=bx.classList.contains('open');app.querySelectorAll('.chk.open').forEach(function(z){z.classList.remove('open')});if(!o){bx.classList.add('open');bx.scrollIntoView({behavior:'smooth',block:'nearest'})}app.querySelectorAll('.chk .cv').forEach(function(z){z.setAttribute('aria-expanded',z.closest('.chk').classList.contains('open')?'true':'false')})};var cv=h.querySelector('.cv');if(cv)cv.onkeydown=function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();h.onclick()}}});
   upd();return}
  app.innerHTML='<h1 class="top">'+esc(X.h)+'</h1>'+
   '<div class="vid" id="vid"><video autoplay muted loop playsinline preload="auto"></video><button class="snd" type="button">🔊</button></div>'+

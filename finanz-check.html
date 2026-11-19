@@ -20,7 +20,7 @@
 @font-face{font-family:'Plex Arabic';font-weight:600;font-display:swap;src:url(fonts/ibm-plex-sans-arabic-arabic-600-normal.woff2) format('woff2')}
 @font-face{font-family:'Plex Arabic';font-weight:700;font-display:swap;src:url(fonts/ibm-plex-sans-arabic-arabic-700-normal.woff2) format('woff2')}
 :root{
-  --black:#0d0c0a; --gold-1:#ecd28c; --gold-2:#c49a48; --gold-txt:#a07c34; --gold-dot:#d4b25c;
+  --black:#0d0c0a; --gold-1:#ecd28c; --gold-2:#c49a48; --gold-txt:#7a5a1e; --gold-dot:#d4b25c;
   --off:#f8f7f3; --cream:#f3ede1; --ink:#13142a; --grey:#5c5f6b; --line:#e7e3da;
   --play:#4c6ef5; --violet:#6610f2; --chev:#2f6f5a;
 }
@@ -133,7 +133,7 @@ p{margin:0}
 .book-head h2{font-size:clamp(30px,5vw,42px);font-weight:800;margin-bottom:12px}
 .book-head p{color:var(--grey);font-size:19px;line-height:1.6}
 .widget{border:1px solid #d9dbe1;border-radius:12px;overflow:hidden}
-.wsteps{display:flex;justify-content:center;gap:24px;padding:18px;border-bottom:1px solid #d9dbe1;font-size:17px;color:#9aa0ab}
+.wsteps{display:flex;justify-content:center;gap:24px;padding:18px;border-bottom:1px solid #d9dbe1;font-size:17px;color:#6b707c}
 .wsteps span::before{content:'';display:inline-block;width:10px;height:10px;border-radius:50%;background:#d9dbe1;margin-inline-end:10px;vertical-align:1px}
 .wsteps .on{color:var(--ink)}
 .wsteps .on::before{background:var(--violet)}
@@ -184,7 +184,7 @@ p{margin:0}
 .rcard blockquote{margin:20px 0 26px;color:var(--grey);font-size:18px;line-height:1.75}
 .rcard footer{border-top:1px solid var(--line);padding-top:22px}
 .rcard footer b{display:block;font-size:19px;font-weight:600}
-.rcard footer span{color:#8a8d97;font-size:16px}
+.rcard footer span{color:#5f6270;font-size:16px}
 
 /* faq */
 .faq{display:flex;flex-direction:column;gap:18px}
@@ -225,6 +225,8 @@ body a[href]:active,body button:active{transform:scale(.98)}
 @keyframes yl-reveal{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
 @supports (animation-timeline:view()){@media (prefers-reduced-motion:no-preference){body section{animation:yl-reveal linear both;animation-timeline:view();animation-range:entry 0% entry 35%}}}
 @media (prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important}}
+/* Footer-Links: größere Tippfläche ohne Layout-Änderung (WCAG 2.5.8) */
+.foot a{position:relative}.foot a::after{content:'';position:absolute;inset:-6px -4px}
 </style>
 </head>
 <body>
@@ -706,7 +708,8 @@ document.querySelectorAll('[data-t]').forEach(function (el) {
   if (v && typeof v === 'object') v = v[thema];
   el.innerHTML = esc(v || '').replace(/\n/g, '<br>');
 });
-document.querySelectorAll('[data-ph]').forEach(function (el) { el.placeholder = t[el.getAttribute('data-ph')]; });
+// Platzhalter dienen zugleich als Beschriftung für Screenreader
+document.querySelectorAll('[data-ph]').forEach(function (el) { el.placeholder = t[el.getAttribute('data-ph')]; el.setAttribute('aria-label', t[el.getAttribute('data-ph')].replace(/\s*\*$/, '')); });
 document.querySelectorAll('[data-lang]').forEach(function (a) {
   var l = a.getAttribute('data-lang');
   a.href = '?thema=' + thema + '&lang=' + l;
