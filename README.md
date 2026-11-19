@@ -7,7 +7,7 @@ Statische Website (kein Build). Netlify veröffentlicht den Inhalt dieses Ordner
 
 Was die Seite technisch nutzt (Grundlage der Datenschutzerklärung): Hosting Netlify; Formulare über Netlify Forms (Termin, Rückruf, Guide, Investieren); Weiterleitung jeder Anfrage nach monday.com; Calendly erst nach Klick auf „Kalender laden“; WhatsApp-/Telefon-Links; Schriften lokal (auch Tajawal); keine Cookies, kein Tracking. Wer hier etwas Neues einbindet (Video, Analyse, Pixel, externe Schrift), muss die Datenschutzerklärung anpassen und ggf. eine Einwilligung einholen.
 
-Alle Seiten haben noch `<meta name="robots" content="noindex">`.
+`check.html`, `invest.html`, `investieren.html` und `preise.html` sind fast identische Landingpage-Varianten für Werbung und bleiben bewusst auf `noindex` (doppelte Inhalte). Alle anderen Seiten sind für Suchmaschinen freigegeben.
 
 ## monday.com-Anbindung
 `netlify/functions/submission-created.mjs` läuft automatisch nach jeder geprüften Formular-Einsendung und legt in monday einen Eintrag samt Update mit allen Angaben an. Funktioniert nur, wenn Netlify die Seite über Git oder die Netlify CLI deployt (nicht per Drag-and-drop).
