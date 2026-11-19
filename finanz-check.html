@@ -363,6 +363,7 @@ body a[href]:active,body button:active{transform:scale(.98)}
 <form name="rueckruf" data-netlify="true" netlify-honeypot="bot-field" hidden><input name="bot-field"><input name="name"><input name="telefon"><input name="themen"><input name="wann"><input name="thema"><input name="sprache"><input name="einwilligung"><input name="datenschutz_stand"><input name="zeit"><input name="seite"></form>
 <form name="termin" data-netlify="true" netlify-honeypot="bot-field" hidden><input name="bot-field"><input name="name"><input name="telefon"><input name="email"><input name="thema"><input name="guide"><input name="sprache"><input name="einwilligung"><input name="datenschutz_stand"><input name="zeit"><input name="seite"></form>
 
+<script src="lead-send.js"></script>
 <script>
 var TOPICS = ['krankenkasse', 'vermoegen', 'rente', 'bu', 'immobilien'];
 // Videos: Datei in den Ordner videos/ legen und hier den Namen eintragen, z. B. 'videos/krankenkasse.mp4'.
@@ -792,10 +793,7 @@ document.getElementById('cbForm').addEventListener('submit', function (e) {
     themen: topics.map(function (i) { return TOPIC_DE[i]; }).join(', '), wann: TIMES_DE[when === undefined ? 3 : when],
     thema: thema, sprache: lang, einwilligung: T.de.cbConsent + ' Datenschutzerklärung.', datenschutz_stand: '2026-11', zeit: new Date().toISOString(), seite: location.href
   };
-  try {
-    fetch('/', { method: 'POST', headers: { 'Content-Type': 'application/x-www-form-urlencoded' }, body: new URLSearchParams(data).toString() })
-      .catch(function (err2) { console.warn('Formular nicht gesendet', err2); });
-  } catch (err2) { console.warn('Formular nicht gesendet', err2); }
+  window.ylPostLead(data).catch(function () {}); // Fehler zeigt lead-send.js als Hinweis an
   f.hidden = true;
   document.getElementById('cbToggle').hidden = true;
   var th = document.getElementById('cbThanks');
@@ -819,10 +817,7 @@ document.getElementById('bookForm').addEventListener('submit', function (e) {
     'form-name': 'termin', name: first + ' ' + last, telefon: phone, email: '', thema: thema, guide: '',
     sprache: lang, einwilligung: T.de.consent + ' Datenschutzerklärung.', datenschutz_stand: '2026-11', zeit: new Date().toISOString(), seite: location.href
   };
-  try {
-    fetch('/', { method: 'POST', headers: { 'Content-Type': 'application/x-www-form-urlencoded' }, body: new URLSearchParams(data).toString() })
-      .catch(function (err) { console.warn('Formular nicht gesendet', err); });
-  } catch (err) { console.warn('Formular nicht gesendet', err); }
+  window.ylPostLead(data).catch(function () {}); // Fehler zeigt lead-send.js als Hinweis an
   // Name nur im eingebetteten Kalender vorausfüllen (lädt erst nach Klick, landet nicht im Browserverlauf).
   // Der Link für einen neuen Tab bekommt keine personenbezogenen Daten.
   var utm = 'utm_source=website&utm_medium=finanz-check&utm_campaign=' + thema + '-' + lang;
