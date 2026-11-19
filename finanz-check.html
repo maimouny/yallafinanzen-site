@@ -155,6 +155,7 @@ p{margin:0}
 .cal{display:none}
 .cal iframe{width:100%;height:720px;border:0;display:block}
 .cal iframe[hidden]{display:none}
+.rnote{font-size:14px;line-height:1.5;color:var(--grey);margin-top:24px;text-align:center}
 .cal-gate{margin:16px 24px;padding:16px;border:1px solid #e6e7ec;border-radius:10px;font-size:14px;line-height:1.5;color:var(--grey)}
 .cal-gate p{margin:0 0 12px}
 .cal-load{width:100%;min-height:48px;border:none;border-radius:999px;background:#c6f432;color:#193329;font:inherit;font-weight:700;font-size:16px;cursor:pointer}
@@ -340,6 +341,7 @@ body a[href]:active,body button:active{transform:scale(.98)}
     <h2 data-t="rH"></h2>
     <p class="lead" data-t="rLead"></p>
     <div class="rlist" data-reviews></div>
+    <p class="rnote" data-t="rNote"></p>
   </div>
 </section>
 
@@ -442,11 +444,12 @@ de: {
   wTitle: 'Kostenloser Finanz-Check',
   wLead: 'Wir freuen uns auf das Gespräch mit dir. Trag dich kurz ein und wähle dann deinen Termin.',
   phPh: 'Telefonnummer', first: 'Vorname *', last: 'Nachname *',
-  consent: 'Ich willige ein, dass Yalla Finanzen mich telefonisch, per WhatsApp oder per E-Mail kontaktiert, um meinen kostenlosen Finanz-Check zu vereinbaren und durchzuführen. Ich kann diese Einwilligung jederzeit widerrufen. Mehr dazu in der',
+  consent: 'Ich willige ein, dass Yalla Finanzen (Linda Polatschek und Karim Adel) mich telefonisch, per WhatsApp oder per E-Mail kontaktiert, um meinen kostenlosen Finanz-Check zu vereinbaren und durchzuführen. Meine Angaben werden dafür in einem Kundensystem (monday.com) gespeichert. Ich kann diese Einwilligung jederzeit widerrufen. Mehr dazu in der',
   priv: 'Datenschutzerklärung',
   continue: 'Weiter',
   thanks: 'Danke, %n! Wähle jetzt deinen Termin. Findest du keinen passenden, rufen wir dich an.',
   calLink: 'Kalender lädt nicht? Hier direkt deinen Termin wählen',
+ rNote: 'Die Bewertungen stammen aus unserem Google-Unternehmensprofil (teils gekürzt oder übersetzt) und von Menschen, die wir beraten haben. Ob jede Bewertung auf Google von einer Kundin oder einem Kunden stammt, prüfen wir nicht technisch.',
  calGateText: 'Der Kalender kommt von Calendly (USA). Erst wenn du ihn lädst, werden Daten wie deine IP-Adresse, dein Name und deine E-Mail an Calendly übertragen, und Calendly kann Cookies setzen. Mehr dazu in der',
  calGateBtn: 'Kalender laden',
   cbLink: 'Keine Zeit, einen Termin zu wählen? Wir rufen dich zurück',
@@ -456,7 +459,7 @@ de: {
   cbTopicList: ['Krankenversicherung', 'Vermögensaufbau', 'Rente', 'Absicherung', 'Immobilie'],
   cbWhen: 'Wann erreichen wir dich am besten?',
   cbTimes: ['Vormittags', 'Nachmittags', 'Abends', 'Egal'],
-  cbConsent: 'Ich bitte Yalla Finanzen, mich telefonisch oder per WhatsApp zu kontaktieren, um einen Termin für meinen kostenlosen Finanz-Check zu vereinbaren. Ich kann diese Einwilligung jederzeit widerrufen. Mehr dazu in der',
+  cbConsent: 'Ich bitte Yalla Finanzen (Linda Polatschek und Karim Adel), mich telefonisch oder per WhatsApp zu kontaktieren, um einen Termin für meinen kostenlosen Finanz-Check zu vereinbaren. Meine Angaben werden dafür in einem Kundensystem (monday.com) gespeichert. Ich kann diese Einwilligung jederzeit widerrufen. Mehr dazu in der',
   cbErr: 'Bitte wähle mindestens ein Thema aus.',
   cbSubmit: 'Rückruf anfordern',
   cbThanks: 'Danke, %n! Unser Team meldet sich bei dir, täglich zwischen 10 und 18 Uhr.',
@@ -545,11 +548,12 @@ ar: {
   wTitle: 'فحص مالي مجاني',
   wLead: 'يسعدنا التحدث معك. سجّل بياناتك باختصار ثم اختر موعدك.',
   phPh: 'رقم الهاتف', first: 'الاسم الأول *', last: 'اسم العائلة *',
-  consent: 'أوافق على أن تتواصل معي يلا فينانزن عبر الهاتف أو واتساب أو البريد الإلكتروني لتحديد الفحص المالي المجاني وإجرائه. يمكنني سحب هذه الموافقة في أي وقت. المزيد في',
+  consent: 'أوافق على أن يتواصل معي يلا فينانزن (ليندا بولاتشيك وكريم عادل) عبر الهاتف أو واتساب أو البريد الإلكتروني لتحديد الفحص المالي المجاني وإجرائه. تُحفظ بياناتي لهذا الغرض في نظام لإدارة العملاء (monday.com). يمكنني سحب هذه الموافقة في أي وقت. المزيد في',
   priv: 'سياسة الخصوصية',
   continue: 'متابعة',
   thanks: 'شكرًا، %n! اختر الآن موعدك. إذا لم تجد موعدًا مناسبًا، سنتصل بك.',
   calLink: 'التقويم لا يظهر؟ اختر موعدك من هنا مباشرة',
+ rNote: 'التقييمات من ملفنا التجاري على Google (بعضها مختصر أو مترجم) ومن أشخاص قدّمنا لهم الاستشارة. لا نتحقق تقنيًا مما إذا كان كل تقييم على Google صادرًا من عميل لدينا.',
  calGateText: 'التقويم مقدَّم من Calendly (الولايات المتحدة). عند تحميله فقط تُنقل بيانات مثل عنوان IP واسمك وبريدك الإلكتروني إلى Calendly، وقد يضع Calendly ملفات تعريف الارتباط. المزيد في',
  calGateBtn: 'تحميل التقويم',
   cbLink: 'ليس لديك وقت لاختيار موعد؟ سنتصل بك',
@@ -559,7 +563,7 @@ ar: {
   cbTopicList: ['التأمين الصحي', 'بناء الثروة', 'التقاعد', 'الحماية', 'العقار'],
   cbWhen: 'متى يناسبك أن نتصل؟',
   cbTimes: ['صباحًا', 'بعد الظهر', 'مساءً', 'أي وقت'],
-  cbConsent: 'أطلب من يلا فينانزن التواصل معي هاتفيًا أو عبر واتساب لتحديد موعد للفحص المالي المجاني. يمكنني سحب هذه الموافقة في أي وقت. المزيد في',
+  cbConsent: 'أطلب من يلا فينانزن (ليندا بولاتشيك وكريم عادل) التواصل معي هاتفيًا أو عبر واتساب لتحديد موعد للفحص المالي المجاني. تُحفظ بياناتي لهذا الغرض في نظام لإدارة العملاء (monday.com). يمكنني سحب هذه الموافقة في أي وقت. المزيد في',
   cbErr: 'يرجى اختيار موضوع واحد على الأقل.',
   cbSubmit: 'اطلب اتصالًا',
   cbThanks: 'شكرًا، %n! سيتواصل معك فريقنا يوميًا بين 10 و18.',
@@ -648,11 +652,12 @@ en: {
   wTitle: 'Free finance check',
   wLead: 'We look forward to speaking with you. Add your details, then pick your time.',
   phPh: 'Phone number', first: 'First name *', last: 'Last name *',
-  consent: 'I agree that Yalla Finanzen may contact me by phone, WhatsApp or email to arrange and carry out my free finance check. I can withdraw this consent at any time. More in the',
+  consent: 'I agree that Yalla Finanzen (Linda Polatschek and Karim Adel) may contact me by phone, WhatsApp or email to arrange and carry out my free finance check. My details are stored for this purpose in a customer system (monday.com). I can withdraw this consent at any time. More in the',
   priv: 'privacy policy',
   continue: 'Continue',
   thanks: 'Thank you, %n! Now pick your time. If none suits you, we will call you.',
   calLink: 'Calendar not loading? Pick your time here',
+ rNote: 'The reviews come from our Google Business Profile (some shortened or translated) and from people we advised. We do not technically verify whether every review on Google comes from a client.',
  calGateText: 'The calendar is provided by Calendly (USA). Only when you load it are data such as your IP address, name and email sent to Calendly, and Calendly may set cookies. More in the',
  calGateBtn: 'Load calendar',
   cbLink: 'No time to pick a slot? We will call you back',
@@ -662,7 +667,7 @@ en: {
   cbTopicList: ['Health insurance', 'Wealth building', 'Retirement', 'Protection', 'Property'],
   cbWhen: 'When is the best time to reach you?',
   cbTimes: ['Morning', 'Afternoon', 'Evening', 'Any time'],
-  cbConsent: 'I ask Yalla Finanzen to contact me by phone or WhatsApp to arrange an appointment for my free finance check. I can withdraw this consent at any time. More in the',
+  cbConsent: 'I ask Yalla Finanzen (Linda Polatschek and Karim Adel) to contact me by phone or WhatsApp to arrange an appointment for my free finance check. My details are stored for this purpose in a customer system (monday.com). I can withdraw this consent at any time. More in the',
   cbErr: 'Please choose at least one topic.',
   cbSubmit: 'Request a call back',
   cbThanks: 'Thank you, %n! Our team will get in touch, every day between 10 am and 6 pm.',
