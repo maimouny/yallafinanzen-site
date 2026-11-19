@@ -8,6 +8,7 @@
 <meta name="robots" content="noindex">
 <meta name="theme-color" content="#0d0c0a">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="preload" href="fonts/poppins-latin-800-normal.woff2" as="font" type="font/woff2" crossorigin>
 <style>
 @font-face{font-family:'Poppins';font-weight:400;font-display:swap;src:url(fonts/poppins-latin-400-normal.woff2) format('woff2')}
 @font-face{font-family:'Poppins';font-weight:500;font-display:swap;src:url(fonts/poppins-latin-500-normal.woff2) format('woff2')}
@@ -146,11 +147,18 @@ p{margin:0}
 .phone{display:flex;border:1px solid #d9dbe1;border-radius:10px;background:#f7f8fa;overflow:hidden;direction:ltr}
 .phone select{border:none;background:transparent;font:inherit;font-size:16px;padding:0 8px 0 12px;border-right:1px solid #d9dbe1;min-height:56px}
 .phone input{border:none;background:transparent;flex:1;min-width:0;font:inherit;font-size:17px;padding:0 14px}
+/* Safari ignoriert min-height bei nativen Selects: feste Höhe + eigener Pfeil */
+.phone select{-webkit-appearance:none;appearance:none;height:56px;padding-right:26px;color:inherit;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' fill='none' stroke='%23555a66' stroke-width='1.6'/%3E%3C/svg%3E") no-repeat right 10px center}
+.phone input{height:56px}
 .consent{display:flex;gap:12px;margin:20px 0;font-size:15px;line-height:1.55;color:#333}
 .consent input{width:20px;height:20px;flex:none;margin-top:2px}
 .btn-violet{width:100%;min-height:62px;border:none;border-radius:10px;background:var(--violet);color:#fff;font:inherit;font-size:20px;font-weight:500;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:10px}
 .cal{display:none}
 .cal iframe{width:100%;height:720px;border:0;display:block}
+.cal iframe[hidden]{display:none}
+.cal-gate{margin:16px 24px;padding:16px;border:1px solid #e6e7ec;border-radius:10px;font-size:14px;line-height:1.5;color:var(--grey)}
+.cal-gate p{margin:0 0 12px}
+.cal-load{width:100%;min-height:48px;border:none;border-radius:999px;background:#c6f432;color:#193329;font:inherit;font-weight:700;font-size:16px;cursor:pointer}
 .cal-link{display:block;text-align:center;padding:14px;font-size:15px;color:var(--grey)}
 .thanks{display:none;background:#f3f0ff;color:#2c1a66;border-radius:10px;padding:14px 16px;font-size:16px;margin:0 24px 0}
 
@@ -209,6 +217,15 @@ p{margin:0}
   .row{flex-direction:column;gap:12px}
   .rating{flex-direction:column;gap:6px}
 }
+/* Feinschliff: Klick-Feedback, sichtbarer Fokus, dezentes Einblenden beim Scrollen. Layout bleibt unverändert. */
+:root{--ease:cubic-bezier(.2,.7,.2,1)}
+body a[href],body button{transition:transform .15s var(--ease),filter .2s var(--ease)}
+body a[href]:active,body button:active{transform:scale(.98)}
+@media (hover:hover){body button:not(:disabled):hover{filter:brightness(.95)}}
+:focus-visible{outline:3px solid #193329;outline-offset:2px}
+@keyframes yl-reveal{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
+@supports (animation-timeline:view()){@media (prefers-reduced-motion:no-preference){body section{animation:yl-reveal linear both;animation-timeline:view();animation-range:entry 0% entry 35%}}}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important}}
 </style>
 </head>
 <body>
@@ -293,7 +310,7 @@ p{margin:0}
           <button class="btn-violet" type="submit"><span data-t="continue"></span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" class="chev"><path d="M9 5l7 7-7 7"/></svg></button>
         </form>
         <p class="thanks" id="thanks"></p>
-        <div class="cal" id="cal"><iframe title="Calendly" loading="lazy"></iframe><a class="cal-link" target="_blank" rel="noopener" data-t="calLink"></a></div>
+        <div class="cal" id="cal"><div class="cal-gate"><p><span data-t="calGateText"></span> <a href="datenschutz.html" target="_blank" data-t="priv"></a></p><button type="button" class="cal-load" id="calLoad" data-t="calGateBtn"></button></div><iframe title="Calendly" loading="lazy" hidden></iframe><a class="cal-link" target="_blank" rel="noopener" data-t="calLink"></a></div>
       </div>
       <div class="cb">
         <button type="button" class="cb-toggle" id="cbToggle" aria-expanded="false"><span data-t="cbLink"></span></button>
@@ -344,8 +361,8 @@ p{margin:0}
   <div class="langs"><a href="?lang=de" data-lang="de">DE</a><a href="?lang=ar" data-lang="ar">عربي</a><a href="?lang=en" data-lang="en">EN</a></div>
 </footer>
 
-<form name="rueckruf" data-netlify="true" netlify-honeypot="bot-field" hidden><input name="bot-field"><input name="name"><input name="telefon"><input name="themen"><input name="wann"><input name="thema"><input name="sprache"><input name="einwilligung"><input name="zeit"><input name="seite"></form>
-<form name="termin" data-netlify="true" netlify-honeypot="bot-field" hidden><input name="bot-field"><input name="name"><input name="telefon"><input name="email"><input name="thema"><input name="guide"><input name="sprache"><input name="einwilligung"><input name="zeit"><input name="seite"></form>
+<form name="rueckruf" data-netlify="true" netlify-honeypot="bot-field" hidden><input name="bot-field"><input name="name"><input name="telefon"><input name="themen"><input name="wann"><input name="thema"><input name="sprache"><input name="einwilligung"><input name="datenschutz_stand"><input name="zeit"><input name="seite"></form>
+<form name="termin" data-netlify="true" netlify-honeypot="bot-field" hidden><input name="bot-field"><input name="name"><input name="telefon"><input name="email"><input name="thema"><input name="guide"><input name="sprache"><input name="einwilligung"><input name="datenschutz_stand"><input name="zeit"><input name="seite"></form>
 
 <script>
 var TOPICS = ['krankenkasse', 'vermoegen', 'rente', 'bu', 'immobilien'];
@@ -409,7 +426,7 @@ de: {
   ],
   photoPh: 'Foto folgt',
   statH: 'Über 1.000 Gespräche mit Menschen wie dir.',
-  statText: 'Ärzte, Ingenieure und Lehrer, die sich in Deutschland ein neues Leben aufgebaut haben. Unser Team in Heidelberg betreut über 100 Mio. € Vermögen und spricht deine Sprache: Arabisch, Deutsch oder Englisch.',
+  statText: 'Ärzte, Ingenieure und Lehrer, die sich in Deutschland ein neues Leben aufgebaut haben. Unser Team in Heidelberg betreut über 10 Mio. € Vermögen und spricht deine Sprache: Arabisch, Deutsch oder Englisch.',
   objQ: '„Ich habe keine Zeit dafür“',
   objH: '30 Minuten. Per Video. Auch am Wochenende.',
   objText: 'Du musst nirgendwo hinfahren und nichts vorbereiten. Wir beraten täglich von 10 bis 18 Uhr, auch samstags und sonntags, von überall in Deutschland oder persönlich in Heidelberg.',
@@ -428,6 +445,8 @@ de: {
   continue: 'Weiter',
   thanks: 'Danke, %n! Wähle jetzt deinen Termin. Findest du keinen passenden, rufen wir dich an.',
   calLink: 'Kalender lädt nicht? Hier direkt deinen Termin wählen',
+ calGateText: 'Der Kalender kommt von Calendly (USA). Erst wenn du ihn lädst, werden Daten wie deine IP-Adresse, dein Name und deine E-Mail an Calendly übertragen, und Calendly kann Cookies setzen. Mehr dazu in der',
+ calGateBtn: 'Kalender laden',
   cbLink: 'Keine Zeit, einen Termin zu wählen? Wir rufen dich zurück',
   cbTitle: 'Lieber zurückrufen lassen?',
   cbLead: 'Hinterlass deine Nummer und wähl, was dich interessiert. Unser Team meldet sich bei dir und vereinbart den Termin mit dir.',
@@ -510,7 +529,7 @@ ar: {
   ],
   photoPh: 'صورة قريبًا',
   statH: 'أكثر من 1.000 جلسة مع أشخاص مثلك.',
-  statText: 'أطباء ومهندسون ومعلمون بنوا حياة جديدة في ألمانيا. فريقنا في هايدلبرغ يدير أكثر من 100 مليون يورو من الأصول ويتحدث لغتك: العربية أو الألمانية أو الإنجليزية.',
+  statText: 'أطباء ومهندسون ومعلمون بنوا حياة جديدة في ألمانيا. فريقنا في هايدلبرغ يدير أكثر من 10 ملايين يورو من الأصول ويتحدث لغتك: العربية أو الألمانية أو الإنجليزية.',
   objQ: '«ليس لدي وقت لذلك»',
   objH: '30 دقيقة. عبر الفيديو. حتى في عطلة نهاية الأسبوع.',
   objText: 'لا تحتاج إلى الذهاب إلى أي مكان ولا إلى تحضير أي شيء. نستشير يوميًا من 10 إلى 18، حتى السبت والأحد، من أي مكان في ألمانيا أو شخصيًا في هايدلبرغ.',
@@ -529,6 +548,8 @@ ar: {
   continue: 'متابعة',
   thanks: 'شكرًا، %n! اختر الآن موعدك. إذا لم تجد موعدًا مناسبًا، سنتصل بك.',
   calLink: 'التقويم لا يظهر؟ اختر موعدك من هنا مباشرة',
+ calGateText: 'التقويم مقدَّم من Calendly (الولايات المتحدة). عند تحميله فقط تُنقل بيانات مثل عنوان IP واسمك وبريدك الإلكتروني إلى Calendly، وقد يضع Calendly ملفات تعريف الارتباط. المزيد في',
+ calGateBtn: 'تحميل التقويم',
   cbLink: 'ليس لديك وقت لاختيار موعد؟ سنتصل بك',
   cbTitle: 'تفضّل أن نتصل بك؟',
   cbLead: 'اترك رقمك واختر ما يهمك. سيتواصل معك فريقنا لتحديد الموعد معك.',
@@ -611,7 +632,7 @@ en: {
   ],
   photoPh: 'Photo coming soon',
   statH: 'More than 1,000 conversations with people like you.',
-  statText: 'Doctors, engineers and teachers who have built a new life in Germany. Our team in Heidelberg manages over €100M in assets and speaks your language: Arabic, German or English.',
+  statText: 'Doctors, engineers and teachers who have built a new life in Germany. Our team in Heidelberg manages over €10M in assets and speaks your language: Arabic, German or English.',
   objQ: '“I don’t have time for this”',
   objH: '30 minutes. By video. Even at the weekend.',
   objText: 'You don’t have to go anywhere or prepare anything. We advise every day from 10 am to 6 pm, Saturdays and Sundays too, from anywhere in Germany or in person in Heidelberg.',
@@ -630,6 +651,8 @@ en: {
   continue: 'Continue',
   thanks: 'Thank you, %n! Now pick your time. If none suits you, we will call you.',
   calLink: 'Calendar not loading? Pick your time here',
+ calGateText: 'The calendar is provided by Calendly (USA). Only when you load it are data such as your IP address, name and email sent to Calendly, and Calendly may set cookies. More in the',
+ calGateBtn: 'Load calendar',
   cbLink: 'No time to pick a slot? We will call you back',
   cbTitle: 'Prefer a call back?',
   cbLead: 'Leave your number and choose what interests you. Our team will get in touch and set up the appointment with you.',
@@ -768,7 +791,7 @@ document.getElementById('cbForm').addEventListener('submit', function (e) {
   var data = {
     'form-name': 'rueckruf', name: f.first.value.trim(), telefon: phone,
     themen: topics.map(function (i) { return TOPIC_DE[i]; }).join(', '), wann: TIMES_DE[when === undefined ? 3 : when],
-    thema: thema, sprache: lang, einwilligung: T.de.cbConsent + ' Datenschutzerklärung.', zeit: new Date().toISOString(), seite: location.href
+    thema: thema, sprache: lang, einwilligung: T.de.cbConsent + ' Datenschutzerklärung.', datenschutz_stand: '2026-11', zeit: new Date().toISOString(), seite: location.href
   };
   try {
     fetch('/', { method: 'POST', headers: { 'Content-Type': 'application/x-www-form-urlencoded' }, body: new URLSearchParams(data).toString() })
@@ -781,6 +804,11 @@ document.getElementById('cbForm').addEventListener('submit', function (e) {
   th.hidden = false;
 });
 
+document.getElementById('calLoad').addEventListener('click', function () {
+ var fr = document.querySelector('#cal iframe');
+ fr.src = fr.dataset.src; fr.hidden = false;
+ document.querySelector('#cal .cal-gate').hidden = true;
+});
 document.getElementById('bookForm').addEventListener('submit', function (e) {
   e.preventDefault();
   var f = e.currentTarget;
@@ -790,21 +818,24 @@ document.getElementById('bookForm').addEventListener('submit', function (e) {
   var first = f.first.value.trim(), last = f.last.value.trim();
   var data = {
     'form-name': 'termin', name: first + ' ' + last, telefon: phone, email: '', thema: thema, guide: '',
-    sprache: lang, einwilligung: T.de.consent + ' Datenschutzerklärung.', zeit: new Date().toISOString(), seite: location.href
+    sprache: lang, einwilligung: T.de.consent + ' Datenschutzerklärung.', datenschutz_stand: '2026-11', zeit: new Date().toISOString(), seite: location.href
   };
   try {
     fetch('/', { method: 'POST', headers: { 'Content-Type': 'application/x-www-form-urlencoded' }, body: new URLSearchParams(data).toString() })
       .catch(function (err) { console.warn('Formular nicht gesendet', err); });
   } catch (err) { console.warn('Formular nicht gesendet', err); }
-  var q = 'name=' + encodeURIComponent(first + ' ' + last) + '&utm_source=website&utm_medium=finanz-check&utm_campaign=' + thema + '-' + lang;
+  // Name nur im eingebetteten Kalender vorausfüllen (lädt erst nach Klick, landet nicht im Browserverlauf).
+  // Der Link für einen neuen Tab bekommt keine personenbezogenen Daten.
+  var utm = 'utm_source=website&utm_medium=finanz-check&utm_campaign=' + thema + '-' + lang;
+  var q = 'name=' + encodeURIComponent(first + ' ' + last) + '&' + utm;
   f.style.display = 'none';
   var th = document.getElementById('thanks');
   th.textContent = t.thanks.replace('%n', first);
   th.style.display = 'block';
   th.style.margin = '20px';
   var cal = document.getElementById('cal');
-  cal.querySelector('iframe').src = CAL + '?embed_type=Inline&hide_gdpr_banner=1&primary_color=6610f2&' + q;
-  cal.querySelector('a').href = CAL + '?' + q;
+  cal.querySelector('iframe').dataset.src = CAL + '?embed_type=Inline&primary_color=6610f2&' + q;
+  cal.querySelector('a').href = CAL + '?' + utm;
   cal.style.display = 'block';
   document.querySelector('[data-step1]').classList.remove('on');
   document.querySelector('[data-step2]').classList.add('on');
