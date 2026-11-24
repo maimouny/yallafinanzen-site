@@ -145,3 +145,11 @@ test('Lehnt monday die Spaltenwerte ab, wird der Lead trotzdem ohne Spalten ange
   assert.ok(calls[2].body.variables.body.includes('Spaltenwerte wurden von monday abgelehnt'));
   assert.ok(warned.length === 1 && !warned[0].includes('Lina') && !warned[0].includes('1701234567'), 'Warnung ohne personenbezogene Daten');
 });
+
+test('Kontaktformular: Nachricht wird übernommen und gekürzt', () => {
+  const lead = sanitizeLead('kontakt', { name: 'Sara', email: 's@example.com', thema: 'Rente', nachricht: 'Hallo '.repeat(500) });
+  assert.equal(lead.formular, 'kontakt');
+  assert.equal(lead.nachricht.length, 2000);
+  assert.equal(lead.kanal, 'formular');
+  assert.ok(buildUpdateBody(lead).includes('<b>Nachricht:</b>'));
+});

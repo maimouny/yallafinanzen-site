@@ -20,7 +20,7 @@
 const MONDAY_API_URL = 'https://api.monday.com/v2';
 const REQUEST_TIMEOUT_MS = 8000;
 
-const KNOWN_FORMS = new Set(['termin', 'guide', 'rueckruf', 'investieren']);
+const KNOWN_FORMS = new Set(['termin', 'guide', 'rueckruf', 'investieren', 'kontakt']);
 
 // Erlaubte Felder mit maximaler Länge. Alles andere wird verworfen.
 const FIELD_LIMITS = {
@@ -30,6 +30,7 @@ const FIELD_LIMITS = {
   thema: 200,
   themen: 300,
   wann: 100,
+  nachricht: 2000,
   guide: 200,
   sprache: 5,
   in_deutschland: 50,
@@ -50,6 +51,7 @@ const FIELD_LABELS = {
   thema: 'Thema',
   themen: 'Themen',
   wann: 'Erreichbar',
+  nachricht: 'Nachricht',
   guide: 'Guide',
   sprache: 'Sprache',
   in_deutschland: 'In Deutschland',
