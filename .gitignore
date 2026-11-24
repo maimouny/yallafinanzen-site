@@ -1,0 +1,6 @@
+# Lokale Geheimnisse und Netlify-CLI-Daten nie committen
+.env
+.env.*
+.netlify/
+node_modules/
+.DS_Store
