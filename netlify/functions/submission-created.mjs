@@ -199,15 +199,29 @@ export async function syncLeadToMonday(formName, rawData, env) {
     throw new LeadSyncError('NOT_CONFIGURED', 'MONDAY_API_TOKEN oder MONDAY_BOARD_ID fehlt');
   }
   const lead = sanitizeLead(formName, rawData);
-  const created = await callMonday(env.MONDAY_API_TOKEN, CREATE_ITEM, {
+  const createItem = (columns) => callMonday(env.MONDAY_API_TOKEN, CREATE_ITEM, {
     board: env.MONDAY_BOARD_ID,
     group: env.MONDAY_GROUP_ID || null,
     name: itemName(lead),
-    columns: JSON.stringify(buildColumnValues(lead, env)),
+    columns: JSON.stringify(columns),
   });
+  const columns = buildColumnValues(lead, env);
+  let created;
+  let columnsRejected = false;
+  try {
+    created = await createItem(columns);
+  } catch (error) {
+    // Passt eine Spalte nicht (falscher Typ/ID), lehnt monday den ganzen Eintrag ab.
+    // Dann ohne Spaltenwerte anlegen, damit kein Lead verloren geht; alle Angaben stehen im Update.
+    if (!(error instanceof LeadSyncError) || error.code !== 'MONDAY_API_ERROR' || Object.keys(columns).length === 0) throw error;
+    columnsRejected = true;
+    created = await createItem({});
+  }
   const itemId = created?.create_item?.id;
   if (!itemId) throw new LeadSyncError('MONDAY_NO_ITEM', 'monday.com hat keinen Eintrag angelegt');
-  await callMonday(env.MONDAY_API_TOKEN, CREATE_UPDATE, { item: itemId, body: buildUpdateBody(lead) });
+  const note = columnsRejected ? '<br><br><i>Hinweis: Spaltenwerte wurden von monday abgelehnt – Spalten-IDs/-Typen in Netlify prüfen.</i>' : '';
+  await callMonday(env.MONDAY_API_TOKEN, CREATE_UPDATE, { item: itemId, body: buildUpdateBody(lead) + note });
+  if (columnsRejected) log('warn', 'lead_columns_rejected', { form: lead.formular });
   return itemId;
 }
 

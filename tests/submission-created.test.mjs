@@ -73,8 +73,9 @@ test('legt Eintrag und Update in monday an, Werte nur als GraphQL-Variablen', as
 });
 
 test('meldet API-Fehler von monday', async () => {
-  mockMonday([{ json: { errors: [{ message: 'nope' }] } }]);
+  mockMonday([{ json: { errors: [{ message: 'nope' }] } }, { json: { errors: [{ message: 'nope' }] } }]);
   await assert.rejects(syncLeadToMonday('termin', { email: 'a@example.com' }, ENV), (e) => e.code === 'MONDAY_API_ERROR');
+  assert.equal(calls.length, 2, 'zweiter Versuch ohne Spalten, dann Fehler');
 });
 
 test('ohne Konfiguration wird nichts gesendet', async () => {
@@ -126,4 +127,21 @@ test('Ohne WhatsApp gilt der Kontaktweg "Rückmeldung in 24 Std."', async () => 
   await syncLeadToMonday('termin', { name: 'Omar', email: 'o@example.com', kanal: 'irgendwas' }, ENV);
   assert.deepEqual(JSON.parse(calls[0].body.variables.columns).kontaktweg, { label: 'Rückmeldung in 24 Std.' });
   assert.ok(calls[1].body.variables.body.includes('Rückmeldung in 24 Std.'));
+});
+
+test('Lehnt monday die Spaltenwerte ab, wird der Lead trotzdem ohne Spalten angelegt', async () => {
+  mockMonday([
+    { json: { errors: [{ message: 'invalid value for column' }] } },
+    { json: { data: { create_item: { id: '55' } } } },
+    { json: { data: { create_update: { id: '56' } } } },
+  ]);
+  const origWarn = console.warn; const warned = []; console.warn = (l) => warned.push(l);
+  try {
+    const id = await syncLeadToMonday('investieren', { name: 'Lina', telefon: '0170 1234567', kanal: 'formular' }, ENV);
+    assert.equal(id, '55');
+  } finally { console.warn = origWarn; }
+  assert.equal(calls.length, 3);
+  assert.deepEqual(JSON.parse(calls[1].body.variables.columns), {});
+  assert.ok(calls[2].body.variables.body.includes('Spaltenwerte wurden von monday abgelehnt'));
+  assert.ok(warned.length === 1 && !warned[0].includes('Lina') && !warned[0].includes('1701234567'), 'Warnung ohne personenbezogene Daten');
 });
