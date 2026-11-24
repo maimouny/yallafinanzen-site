@@ -2,7 +2,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="robots" content="noindex">
 <title>دليلك لأهم التأمينات</title><link rel="icon" href="favicon.svg"></head><body>
 <form name="investieren" data-netlify="true" netlify-honeypot="bot-field" hidden>
-<input name="bot-field"><input name="sprache"><input name="in_deutschland"><input name="investieren"><input name="versicherungen"><input name="telefon"><input name="einwilligung"><input name="einwilligung_zeit"><input name="datenschutz_stand"><input name="kanal">
+<input name="bot-field"><input name="name"><input name="sprache"><input name="in_deutschland"><input name="investieren"><input name="versicherungen"><input name="telefon"><input name="einwilligung"><input name="einwilligung_zeit"><input name="datenschutz_stand"><input name="kanal">
 </form>
 
 
@@ -16,6 +16,11 @@
 @font-face{font-family:Tajawal;font-style:normal;font-display:swap;font-weight:700;src:url(fonts/tajawal-latin-700-normal.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
 @font-face{font-family:Tajawal;font-style:normal;font-display:swap;font-weight:800;src:url(fonts/tajawal-latin-800-normal.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
 .rvn{font-size:14px;line-height:1.5;opacity:.85;margin-top:14px}
+.b.b2{background:transparent;color:var(--v);border:1.5px solid var(--v);font-size:15px;padding:11px}
+#fn{font:inherit;font-size:17px;padding:12px 14px;border:1.5px solid var(--line);border-radius:14px}
+#fn:focus{outline:2px solid var(--g);border-color:var(--g)}
+/* Formular im dunklen Design (Variante c) mit dunkler Schrift auf weißer Karte */
+body.c .fp{color:var(--t)}
 .legal-links{display:flex;justify-content:center;flex-wrap:wrap;gap:0 12px;padding:16px 16px 32px;font-size:14px}
 .legal-links a{color:#555a66;padding:12px 6px}
 body.c .legal-links a{color:#c9ccd3}
@@ -389,8 +394,8 @@ ar:{dir:'rtl',t1:'خطتك',t2:'في 5 خطوات',lead:'خطة لاستثمار
  q1:'ساكن في ألمانيا؟',yes:'أيوه',no:'لأ',
  q2:'الاستثمار',a2:['عايز أفهم الاستثمار وأبدأ','عندي أسئلة عن استثماراتي الحالية','هبدأ أستثمر بعدين'],
  q3:'التأمينات',a3:['محتاج أعمل بعض التأمينات','عايز أراجع تأميناتي الحالية'],
- tel:'رقم تليفونك',ok:'موافق إن يلا فينانزن (ليندا بولاتشيك وكريم عادل) يتصلوا بيا أو يكلموني على واتساب بخصوص الاستشارة. بياناتي هتتحفظ لكده في نظام العملاء (monday.com). أقدر ألغي الموافقة في أي وقت.',
- dsl:'سياسة الخصوصية',note:'وإحنا هنتواصل معاك.',send:'ابعت',thanks:'شكرًا! وصلتنا إجاباتك، وهنتواصل معاك قريب.',err:'دوس هنا وابعت إجاباتك على واتساب:',wab:'ابعت على واتساب',
+ tel:'رقم موبايلك',ok:'موافق إن يلا فينانزن (ليندا بولاتشيك وكريم عادل) يتصلوا بيا أو يكلموني على واتساب بخصوص الاستشارة. بياناتي هتتحفظ لكده في نظام العملاء (monday.com). أقدر ألغي الموافقة في أي وقت.',
+ dsl:'سياسة الخصوصية',note:'وهنتواصل معاك خلال 24 ساعة.',fname:'اسمك الأول',b2send:'ابعت بس، وهنكلمك خلال 24 ساعة',b2wa:'أو ابعتلنا على واتساب',inv:'من فضلك اكتب اسمك ورقم موبايل صحيح ووافق على التواصل.',thanks24:'شكرًا يا %n! هنتواصل معاك خلال 24 ساعة.',thanksWa:'شكرًا يا %n! واتساب هيفتح دلوقتي، ابعتلنا الرسالة. طلبك اتسجل، ولو ما بعتش هنكلمك خلال 24 ساعة.',send:'ابعت',thanks:'شكرًا! وصلتنا إجاباتك، وهنتواصل معاك قريب.',err:'دوس هنا وابعت إجاباتك على واتساب:',wab:'ابعت على واتساب',
  hi:'أهلًا Yalla Finanzen، دي إجاباتي:',okline:'✅ موافق إنكم تتصلوا بيا',
  call:'أو كلّمنا على طول',
  legal:'معلومات عامة، مش استشارة استثمارية أو قانونية. مفيش ضمان للأرباح، والخسارة واردة. الاستشارة والوساطة بتتم عن طريق ليندا بولاتشيك (وسيطة تأمين واستثمار مرخّصة)، وبتاخد عمولة من الشركات. كريم عادل بيتولى التواصل الأولي معاك. تكاليف المنتجات هتشوفها قبل ما تمضي.'},
@@ -403,8 +408,8 @@ de:{dir:'ltr',t1:'Dein Plan',t2:'in 5 Schritten',lead:'Für Investments und die 
  q1:'Wohnst du in Deutschland?',yes:'Ja',no:'Nein',
  q2:'Investieren',a2:['Ich will investieren verstehen und anfangen','Ich habe Fragen zu meinen bestehenden Investments','Ich will später mit dem Investieren anfangen'],
  q3:'Versicherungen',a3:['Ich brauche einige Versicherungen','Meine jetzigen Versicherungen prüfen'],
- tel:'Deine Telefonnummer',ok:'Ich bin einverstanden, dass Yalla Finanzen (Linda Polatschek und Karim Adel) mich zur Beratung anruft oder per WhatsApp kontaktiert. Meine Angaben werden dafür in einem Kundensystem (monday.com) gespeichert. Ich kann das jederzeit widerrufen.',
- dsl:'Datenschutzerklärung',note:'Wir melden uns bei dir.',send:'Absenden',thanks:'Danke! Deine Antworten sind angekommen. Wir melden uns bald bei dir.',err:'Tippe hier und schick deine Antworten per WhatsApp:',wab:'Per WhatsApp senden',
+ tel:'Deine Handynummer',ok:'Ich bin einverstanden, dass Yalla Finanzen (Linda Polatschek und Karim Adel) mich zur Beratung anruft oder per WhatsApp kontaktiert. Meine Angaben werden dafür in einem Kundensystem (monday.com) gespeichert. Ich kann das jederzeit widerrufen.',
+ dsl:'Datenschutzerklärung',note:'Wir melden uns innerhalb von 24 Stunden bei dir.',fname:'Dein Vorname',b2send:'Nur absenden – wir melden uns in 24 Std.',b2wa:'Lieber per WhatsApp schreiben',inv:'Bitte gib deinen Vornamen und eine gültige Handynummer an und bestätige das Einverständnis.',thanks24:'Danke, %n! Wir melden uns innerhalb von 24 Stunden bei dir.',thanksWa:'Danke, %n! WhatsApp öffnet sich jetzt – schick uns dort einfach die Nachricht. Deine Anfrage ist gespeichert; schreibst du nicht, melden wir uns innerhalb von 24 Stunden.',send:'Absenden',thanks:'Danke! Deine Antworten sind angekommen. Wir melden uns bald bei dir.',err:'Tippe hier und schick deine Antworten per WhatsApp:',wab:'Per WhatsApp senden',
  hi:'Hallo Yalla Finanzen, hier meine Antworten:',okline:'✅ Einverstanden mit Anruf',
  call:'Oder ruf uns direkt an',
  legal:'Allgemeine Information, keine Anlage- oder Rechtsberatung. Keine Garantie, Verluste möglich. Beratung und Vermittlung erfolgen durch Linda Polatschek (Versicherungsvertreterin nach § 34d, Finanzanlagenvermittlerin nach § 34f GewO), die dafür Provision von den Anbietern erhält. Karim Adel übernimmt die Kontaktanbahnung. Produktkosten siehst du vor der Unterschrift.'},
@@ -417,8 +422,8 @@ en:{dir:'ltr',t1:'Your plan',t2:'in 5 steps',lead:'For investments and the key i
  q1:'Do you live in Germany?',yes:'Yes',no:'No',
  q2:'Investing',a2:['I want to understand investing and start','I have questions about my current investments','I want to start investing later'],
  q3:'Insurance',a3:['I need to get some insurances','Check my current insurances'],
- tel:'Your phone number',ok:'I agree that Yalla Finanzen (Linda Polatschek and Karim Adel) may call me or contact me on WhatsApp about the consultation. My details are stored for this purpose in a customer system (monday.com). I can withdraw this at any time.',
- dsl:'Privacy policy',note:'We will get back to you.',send:'Send',thanks:'Thank you! We got your answers and will get back to you soon.',err:'Tap here and send your answers on WhatsApp:',wab:'Send on WhatsApp',
+ tel:'Your mobile number',ok:'I agree that Yalla Finanzen (Linda Polatschek and Karim Adel) may call me or contact me on WhatsApp about the consultation. My details are stored for this purpose in a customer system (monday.com). I can withdraw this at any time.',
+ dsl:'Privacy policy',note:'We will get back to you within 24 hours.',fname:'Your first name',b2send:'Just send – we reply within 24 hours',b2wa:'Prefer to message us on WhatsApp',inv:'Please enter your first name and a valid mobile number and confirm your consent.',thanks24:'Thank you, %n! We will get back to you within 24 hours.',thanksWa:'Thank you, %n! WhatsApp is opening now – just send us the message. Your request is saved; if you do not write, we will get back to you within 24 hours.',send:'Send',thanks:'Thank you! We got your answers and will get back to you soon.',err:'Tap here and send your answers on WhatsApp:',wab:'Send on WhatsApp',
  hi:'Hello Yalla Finanzen, here are my answers:',okline:'✅ I agree to be called',
  call:'Or call us directly',
  legal:'General information, not investment or legal advice. No guarantee, losses possible. Advice and brokerage are provided by Linda Polatschek (licensed insurance agent, § 34d, and financial investment intermediary, § 34f GewO), who receives commission from providers. Karim Adel handles the initial contact. You see product costs before you sign.'}
@@ -426,15 +431,21 @@ en:{dir:'ltr',t1:'Your plan',t2:'in 5 steps',lead:'For investments and the key i
 var app=document.getElementById('app'),cur='';
 function esc(s){return String(s).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
 function opts(name,list){return list.map(function(x,i){return '<label class="opt"><input type="radio" name="'+name+'" id="'+name+i+'" value="'+esc(x)+'">'+esc(x)+'</label>'}).join('')}
-function form(t){return '<form id="f" novalidate>'+
+function form(t){
+ // WhatsApp-Varianten (b/c/d): WhatsApp zuerst; Variante a: Absenden zuerst. Beide Wege speichern den Lead.
+ var waFirst=!!(B||SKIP);
+ var bWa='<a class="b wa'+(waFirst?'':' b2')+'" id="bwa" href="#" target="_blank" rel="noopener" aria-disabled="true">'+esc(waFirst?t.wab:t.b2wa)+'</a>';
+ var bSub='<button class="b '+(waFirst?'b2':'wa')+'" id="bsend" type="submit" aria-disabled="true">'+esc(waFirst?t.b2send:t.send)+'</button>';
+ return '<form id="f" novalidate>'+
  '<fieldset><legend>'+esc(t.q1)+'</legend><div class="row2">'+opts('q1',[t.yes,t.no])+'</div></fieldset>'+
  (SKIP==='q2'?'':'<fieldset><legend>'+esc(t.q2)+'</legend>'+opts('q2',t.a2)+'</fieldset>')+
  (SKIP==='q3'?'':'<fieldset><legend>'+esc(t.q3)+'</legend>'+opts('q3',t.a3)+'</fieldset>')+
- '<label class="f" for="tel">'+esc(t.tel)+'<input type="tel" id="tel" autocomplete="tel" placeholder="+49 …"></label>'+
- '<label class="ok" for="ok"><input type="checkbox" id="ok">'+esc(t.ok)+' <a href="datenschutz.html" target="_blank" rel="noopener">'+esc(t.dsl)+'</a></label>'+
+ '<label class="f" for="fn">'+esc(t.fname)+'<input type="text" id="fn" name="fn" autocomplete="given-name" maxlength="60"></label>'+
+ '<label class="f" for="tel">'+esc(t.tel)+'<input type="tel" id="tel" autocomplete="tel" inputmode="tel" placeholder="+49 …"></label>'+
+ '<label class="ok" for="ok"><input type="checkbox" id="ok"><span>'+esc(t.ok)+' <a href="datenschutz.html" target="_blank" rel="noopener">'+esc(t.dsl)+'</a></span></label>'+
  '<div class="note">'+esc(t.note)+'</div>'+
  '<input type="text" name="bot-field" id="botf" tabindex="-1" autocomplete="off" class="hp" aria-hidden="true">'+
- '<button class="b wa" id="bsend" type="submit" aria-disabled="true">'+esc(B||SKIP?t.wab:t.send)+'</button>'+
+ '<div class="btns">'+(waFirst?bWa+bSub:bSub+bWa)+'</div>'+
  '<div class="msg" id="msg" aria-live="polite"></div></form>'}
 function render(L){
 var E=function(a){return '<i class="e '+a[1]+'" aria-hidden="true">'+a[0]+'</i>'+(a[1]==='drive'?'<u class="wind"></u>':'')},EI=[['☂️','sway'],['❤️‍🩹','beat'],['🚗','drive'],['⚖️','tilt'],['🏠','hop']].map(E);
@@ -453,9 +464,9 @@ var E=function(a){return '<i class="e '+a[1]+'" aria-hidden="true">'+a[0]+'</i>'
   var ck=CK[L],ENDD=END.split('<section class="planwrap">')[0].replace(/<\/section>$/,'<p class="abo">'+esc(t.offL)+': <span dir="ltr">'+esc(t.offA)+'</span></p></section>')+'<section class="how"><h2 class="sec">'+esc(ck.howT)+'</h2><ol class="how3">'+ck.how.map(function(y,i){return '<li><span class="n">'+(i+1)+'</span><span>'+esc(y)+'</span></li>'}).join('')+'</ol><p class="howp">'+esc(ck.howP)+'</p></section>';
   app.innerHTML='<h1 class="top">'+esc(DV[L].h)+'</h1><p class="lead2">'+esc(t.dLead)+'</p>'+
   '<div class="vid" id="vid"><video autoplay muted loop playsinline preload="auto"></video><button class="snd" type="button">🔊</button></div>'+
-  (function(){var dv=DV[L],fq=t.ig.s[1],FD=function(ks){return ks.map(function(k){return fq['q'+k]?'<details class="etf"><summary>'+esc(fq['q'+k])+'<span class="pl" aria-hidden="true">+</span></summary><p>'+esc(fq['a'+k])+'</p></details>':''}).join('')};return '<section class="inv dv"><ol>'+dv.s.map(function(x,i){return '<li><div class="in">'+(i+1)+'</div><div class="ib"><h3>'+esc(x.t)+'</h3><p class="sp">'+esc(x.p)+'</p>'+(i===1?FD(['']):'')+'</div></li>'}).join('')+'</ol></section><div class="res"><div class="rbox"><div class="rn">'+esc(dv.ch)+'</div><ul class="pq">'+dv.pq.map(function(y){return '<li>'+esc(y)+'</li>'}).join('')+'</ul><p class="rs">'+esc(dv.sol)+'</p><div class="rv1"><p>'+esc(ck.rvq)+'</p><b>'+esc(ck.rvb)+'</b></div><div class="rp">'+esc(REV[L].sub)+'</div><a class="b wa" target="_blank" rel="noopener" href="https://wa.me/491631549878?text='+encodeURIComponent(dv.msg)+'">💬 '+esc(t.joinInv)+'</a><p class="rg">'+esc(ck.prom)+'</p><p class="rph">'+esc(ck.or)+' <a dir="ltr" href="tel:+491631549878" target="_blank" rel="noopener">0163 1549878</a> · '+esc(t.hotH)+'</p></div></div>'})()+ENDD+
+  (function(){var dv=DV[L],fq=t.ig.s[1],FD=function(ks){return ks.map(function(k){return fq['q'+k]?'<details class="etf"><summary>'+esc(fq['q'+k])+'<span class="pl" aria-hidden="true">+</span></summary><p>'+esc(fq['a'+k])+'</p></details>':''}).join('')};return '<section class="inv dv"><ol>'+dv.s.map(function(x,i){return '<li><div class="in">'+(i+1)+'</div><div class="ib"><h3>'+esc(x.t)+'</h3><p class="sp">'+esc(x.p)+'</p>'+(i===1?FD(['']):'')+'</div></li>'}).join('')+'</ol></section><div class="res"><div class="rbox"><div class="rn">'+esc(dv.ch)+'</div><ul class="pq">'+dv.pq.map(function(y){return '<li>'+esc(y)+'</li>'}).join('')+'</ul><p class="rs">'+esc(dv.sol)+'</p><div class="rv1"><p>'+esc(ck.rvq)+'</p><b>'+esc(ck.rvb)+'</b></div><div class="rp">'+esc(REV[L].sub)+'</div><a class="b wa" target="_blank" rel="noopener" href="https://wa.me/491631549878?text='+encodeURIComponent(dv.msg)+'">💬 '+esc(t.joinInv)+'</a><p class="rg">'+esc(ck.prom)+'</p><p class="rph">'+esc(ck.or)+' <a dir="ltr" href="tel:+491631549878" target="_blank" rel="noopener">0163 1549878</a> · '+esc(t.hotH)+'</p></div></div>'})()+'<section class="formwrap" id="lf"><h2 class="sec">'+esc(t.ft)+'</h2><div class="panel fp">'+form(t)+'</div></section>'+ENDD+
   '<section class="rev"><h2 class="sec">'+esc(REV[L].h)+'</h2><p class="sub">'+esc(REV[L].sub)+'</p>'+REV[L].i.filter(function(r,i){return i!==2}).map(function(r){return '<div class="rc"><div class="st">★★★★★</div><p>'+esc(r.q)+'</p><b>'+esc(r.n)+'</b><span>'+esc(r.r)+'</span></div>'}).join('')+'<p class="rvn">'+esc(REV[L].vn)+'</p></section>'+'<p class="legal">'+esc(t.legal)+'</p>';
-  video(L);wire(t);goWire();return}
+  video(L);wire(t);goWire();leadLinks();return}
  if(window.YV==='c'){var c=CK[L],st=[],cx=CX[L],LI=[cx[0],X.i[0],X.i[1],cx[1],X.i[2],X.i[3],X.i[4]],LE=[E(['🏥','beat']),EI[0],EI[1],E(['🏖️','sway']),EI[2],EI[3],EI[4]];
   var LV=[0,1,1,1,0,2,2],ENDC=END.split('<section class="planwrap">')[0].replace(/<\/section>$/,'<p class="abo">'+esc(t.offL)+': <span dir="ltr">'+esc(t.offA)+'</span></p></section>')+'<section class="how"><h2 class="sec">'+esc(c.howT)+'</h2><ol class="how3">'+c.how.map(function(y,i){return '<li><span class="n">'+(i+1)+'</span><span>'+esc(y)+'</span></li>'}).join('')+'</ol><p class="howp">'+esc(c.howP)+'</p></section>';
   app.innerHTML='<h1 class="top">'+esc(c.h)+'</h1><p class="lead2">'+esc(c.lead)+'</p>'+
@@ -463,16 +474,16 @@ var E=function(a){return '<i class="e '+a[1]+'" aria-hidden="true">'+a[0]+'</i>'
   '<div class="ins">'+LI.map(function(x,i){var q=FQ[L][i];return '<div class="box chk" data-i="'+i+'"><div class="ckh"><div class="ico">'+LE[i]+'</div><div class="nm"><b>'+esc(x.n)+(x.d?'<i dir="ltr">'+esc(x.d)+'</i>':'')+'</b><em class="lab l'+LV[i]+'">'+esc(i===4?c.labcar:c.lab[LV[i]])+'</em></div>'+
    '<div class="ckb">'+(x.opt?'<button type="button" class="t" data-v="1">PKV</button><button type="button" class="t" data-v="0">GKV</button>':'<button type="button" data-v="1" aria-label="'+esc(c.have)+'">✓</button><button type="button" data-v="0" aria-label="'+esc(c.no)+'">✗</button>')+'</div><span class="cv" role="button" tabindex="0" aria-expanded="false" aria-label="'+esc(({ar:'ليه مهم؟',de:'Warum wichtig?',en:'Why it matters'})[L])+'">▾</span></div>'+
    '<div class="more2"><div class="fqq">'+esc(q.fq)+'</div><div class="big">'+esc(q.fa||x.big)+'</div>'+'<p class="bn"><span aria-hidden="true">✓</span> '+esc(q.b)+'</p>'+(q.fp||[]).map(function(y){return '<p>'+esc(y)+'</p>'}).join('')+'</div></div>'}).join('')+'</div>'+
-  '<p class="tap">'+({ar:'اضغط على السهم ▾ عشان تعرف ليه مهم',de:'Tippe auf den Pfeil ▾ und sieh, warum sie wichtig ist',en:'Tap the arrow ▾ to see why it matters'})[L]+'</p><div class="res" id="res" aria-live="polite"></div>'+
+  '<p class="tap">'+({ar:'اضغط على السهم ▾ عشان تعرف ليه مهم',de:'Tippe auf den Pfeil ▾ und sieh, warum sie wichtig ist',en:'Tap the arrow ▾ to see why it matters'})[L]+'</p><div class="res" id="res" aria-live="polite"></div>'+'<section class="formwrap" id="lf"><h2 class="sec">'+esc(t.ft)+'</h2><div class="panel fp">'+form(t)+'</div></section>'+
   ENDC+
   '<section class="rev"><h2 class="sec">'+esc(REV[L].h)+'</h2><p class="sub">'+esc(REV[L].sub)+'</p>'+REV[L].i.filter(function(r,i){return i!==2}).map(function(r){return '<div class="rc"><div class="st">★★★★★</div><p>'+esc(r.q)+'</p><b>'+esc(r.n)+'</b><span>'+esc(r.r)+'</span></div>'}).join('')+'<p class="rvn">'+esc(REV[L].vn)+'</p></section>'+'<p class="legal">'+esc(t.legal)+'</p>';
-  video(L);wire(t);
+  video(L);var W=wire(t);
   var res=document.getElementById('res'),sel=[];
   res.innerHTML='<div class="rbox"><div class="rn">'+esc(c.np)+'</div><div class="pick">'+LI.map(function(x,i){return '<button type="button" data-i="'+i+'" aria-pressed="false">'+esc(x.n)+'</button>'}).join('')+'</div><p class="rq">'+esc(c.q)+'</p><p class="rs">'+esc(c.sol)+'</p><div class="rv1"><p>'+esc(c.rvq)+'</p><b>'+esc(c.rvb)+'</b></div><div class="rp">'+esc(REV[L].sub)+'</div><a class="b wa" target="_blank" rel="noopener">💬 '+esc(c.btn)+'</a><p class="rg">'+esc(c.prom)+'</p><p class="rph">'+esc(c.or)+' <a dir="ltr" href="tel:+491631549878" target="_blank" rel="noopener">0163 1549878</a> · '+esc(t.hotH)+'</p></div>';
-  function upd(){var m=LI.filter(function(x,i){return sel[i]}).map(function(x){return x.n+(x.d?' ('+x.d+')':'')});res.querySelector('a').href='https://wa.me/491631549878?text='+encodeURIComponent(m.length?c.msg.replace('{l}',m.join(L==='ar'?'، ':', ')):c.msg0)}
+  function upd(){var m=LI.filter(function(x,i){return sel[i]}).map(function(x){return x.n+(x.d?' ('+x.d+')':'')});if(W)W.setExtra('versicherungen',m.join(', '))}
   res.querySelectorAll('.pick button').forEach(function(b){b.onclick=function(){var i=+b.dataset.i;sel[i]=!sel[i];b.classList.toggle('on',!!sel[i]);b.setAttribute('aria-pressed',sel[i]?'true':'false');upd()}});
   app.querySelectorAll('.chk .ckh').forEach(function(h){h.onclick=function(){var bx=h.parentNode,o=bx.classList.contains('open');app.querySelectorAll('.chk.open').forEach(function(z){z.classList.remove('open')});if(!o){bx.classList.add('open');bx.scrollIntoView({behavior:'smooth',block:'nearest'})}app.querySelectorAll('.chk .cv').forEach(function(z){z.setAttribute('aria-expanded',z.closest('.chk').classList.contains('open')?'true':'false')})};var cv=h.querySelector('.cv');if(cv)cv.onkeydown=function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();h.onclick()}}});
-  upd();return}
+  upd();leadLinks();return}
  app.innerHTML='<h1 class="top">'+esc(X.h)+'</h1>'+
   '<div class="vid" id="vid"><video autoplay muted loop playsinline preload="auto"></video><button class="snd" type="button">🔊</button></div>'+
   (function(r){return '<div class="rc rtop"><div class="st">★★★★★</div><p>'+esc(r.q)+'</p><b>'+esc(r.n)+'</b><span>'+esc(r.r)+'</span></div>'})(REV[L].i[3])+'<p class="lead2">'+esc(X.lead)+'</p>'+'<details class="crd c-ins"><summary><div class="em" aria-hidden="true"><i>🛡️</i></div><h2>'+esc(t.cIns)+'</h2>'+chev+'</summary><div class="bigb"><div class="ins">'+boxes+'</div>'+
@@ -494,26 +505,37 @@ function video(L){
  v.addEventListener('error',next);next();
  b.onclick=function(){v.muted=false;v.currentTime=0;v.play();b.remove()};
 }
+// Handynummer einheitlich mit Ländervorwahl (+49 als Standard); leer, wenn unplausibel.
+function normTel(v){var s=String(v||'').replace(/[\s()./-]/g,'');if(!s)return '';
+ if(s.indexOf('00')===0)s='+'+s.slice(2);else if(s.charAt(0)==='0')s='+49'+s.slice(1);else if(s.charAt(0)!=='+')s=(/^49\d{9,}$/.test(s)?'+':'+49')+s;
+ return /^\+[1-9]\d{7,14}$/.test(s)?s:''}
+// WhatsApp-Buttons in Checkliste/Video-Block führen zum Formular, damit jeder Lead gespeichert wird.
+function leadLinks(){var fw=document.getElementById('lf');if(!fw)return;
+ app.querySelectorAll('.rbox a.b.wa').forEach(function(a){a.href='#lf';a.removeAttribute('target');a.onclick=function(e){e.preventDefault();fw.scrollIntoView({behavior:'smooth',block:'start'});var q=document.getElementById('fn');if(q)setTimeout(function(){q.focus({preventScroll:true})},500)}})}
 function wire(t){
- if(!document.getElementById('f'))return;
- var f=document.getElementById('f'),bt=document.getElementById('bsend'),msg=document.getElementById('msg'),L=document.documentElement.lang;
- var own=!B&&!SKIP&&/(^|\.)(netlify\.app|yallafinanzen\.de|yallafinanzen\.com)$/.test(location.hostname);
+ if(!document.getElementById('f'))return null;
+ var f=document.getElementById('f'),bs=document.getElementById('bsend'),bw=document.getElementById('bwa'),msg=document.getElementById('msg'),L=document.documentElement.lang,busy=false,extra={};
  function val(n){var x=f.querySelector('input[name='+n+']:checked');return x?x.value:''}
- function ready(){return val('q1')&&(SKIP==='q2'||val('q2'))&&(SKIP==='q3'||val('q3'))&&f.tel.value.replace(/\D/g,'').length>=6&&f.ok.checked}
- function txt(){return [t.hi,'','• '+t.q1+' '+val('q1'),SKIP==='q2'?null:'• '+t.q2+': '+val('q2'),SKIP==='q3'?null:'• '+t.q3+': '+val('q3'),'',t.okline].filter(function(x){return x!==null}).join('\n')}
+ function first(){return f.fn.value.trim()}
+ function tel(){return normTel(f.tel.value)}
+ function ready(){return val('q1')&&(SKIP==='q2'||val('q2'))&&(SKIP==='q3'||val('q3'))&&first()&&tel()&&f.ok.checked}
+ function txt(){return [t.hi,'','• '+t.q1+' '+val('q1'),SKIP==='q2'?null:'• '+t.q2+': '+val('q2'),SKIP==='q3'?null:'• '+t.q3+': '+val('q3'),extra.versicherungen?'• '+extra.versicherungen:null,'',t.okline].filter(function(x){return x!==null}).join('\n')}
  function wa(){return 'https://wa.me/491631549878?text='+encodeURIComponent(txt())}
- function lead(k){return {'form-name':'investieren','bot-field':f['bot-field'].value,sprache:L,in_deutschland:val('q1'),investieren:val('q2'),versicherungen:val('q3'),telefon:f.tel.value.trim(),einwilligung:t.ok+' '+t.dsl,einwilligung_zeit:new Date().toISOString(),datenschutz_stand:'2026-11',kanal:k}}
+ function lead(k){return {'form-name':'investieren','bot-field':f['bot-field'].value,name:first(),sprache:L,in_deutschland:val('q1'),investieren:val('q2'),versicherungen:[val('q3'),extra.versicherungen].filter(Boolean).join(' · '),telefon:tel(),einwilligung:t.ok+' '+t.dsl,einwilligung_zeit:new Date().toISOString(),datenschutz_stand:'2026-11',kanal:k}}
  function post(d){return fetch('/',{method:'POST',keepalive:true,headers:{'Content-Type':'application/x-www-form-urlencoded'},body:new URLSearchParams(d).toString()})}
- if(!own){var a=document.createElement('a');a.className=bt.className;a.id='bsend';a.target='_blank';a.rel='noopener';a.textContent=bt.textContent;a.href='#';bt.replaceWith(a);bt=a;
-  a.addEventListener('click',function(e){if(!ready()){e.preventDefault();return}a.href=wa();if(!a.dataset.sent){a.dataset.sent=1;post(lead('whatsapp')).catch(function(){})}});}
- function upd(){var r=ready();bt.setAttribute('aria-disabled',r?'false':'true');if(!own)bt.href=r?wa():'#'}
+ function upd(){var r=ready();bs.setAttribute('aria-disabled',r?'false':'true');bw.setAttribute('aria-disabled',r?'false':'true');bw.href=r?wa():'#';if(r)msg.textContent=''}
  f.addEventListener('input',upd);f.addEventListener('change',upd);
- f.addEventListener('submit',function(e){
-  e.preventDefault();if(!own||!ready()||bt.dataset.busy)return;bt.dataset.busy=1;msg.textContent='…';
+ // WhatsApp: Lead speichern (Kontaktweg whatsapp), WhatsApp öffnet sich über den Link
+ bw.addEventListener('click',function(e){if(!ready()){e.preventDefault();msg.textContent=t.inv;return}bw.href=wa();if(busy)return;busy=true;var n=first();
+  post(lead('whatsapp')).catch(function(){});
+  setTimeout(function(){f.innerHTML='<div class="done">✅ '+esc(t.thanksWa.replace('%n',n))+'</div>'},0)});
+ // Absenden: Lead speichern (Kontaktweg formular), Bestätigung mit 24-Std.-Zusage
+ f.addEventListener('submit',function(e){e.preventDefault();if(!ready()){msg.textContent=t.inv;return}if(busy)return;busy=true;msg.textContent='…';var n=first();
   post(lead('formular'))
-   .then(function(r){if(!r.ok)throw 0;f.innerHTML='<div class="done">✅ '+esc(t.thanks)+'</div>'})
-   .catch(function(){msg.innerHTML='<div class="wafb">'+esc(t.err)+'<a class="b wa" target="_blank" rel="noopener" href="'+wa()+'">'+esc(t.wab)+'</a></div>';bt.hidden=true;delete bt.dataset.busy});
- });
+   .then(function(r){if(!r.ok)throw 0;f.innerHTML='<div class="done">✅ '+esc(t.thanks24.replace('%n',n))+'</div>'})
+   .catch(function(){busy=false;msg.innerHTML='<div class="wafb">'+esc(t.err)+'<a class="b wa" target="_blank" rel="noopener" href="'+wa()+'">'+esc(t.wab)+'</a></div>'})});
+ upd();
+ return {setExtra:function(k,v){extra[k]=v;upd()}};
 }
 function go(){var L=(location.hash||'#ar').slice(1);if(!T[L])L='ar';if(L===cur)return;cur=L;
  document.querySelectorAll('.lg a').forEach(function(a){a.className=a.dataset.l===L?'on':''});render(L)}
