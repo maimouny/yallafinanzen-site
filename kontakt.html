@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="de"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kontakt – Yalla Finanzen</title>
+<meta name="description" content="Schreib Yalla Finanzen: Fragen zu Krankenversicherung, Vermögensaufbau, Rente, Einkommenssicherung oder Immobilien. Antwort innerhalb von 24 Stunden.">
+<meta name="theme-color" content="#193329">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="preload" href="fonts/poppins-latin-700-normal.woff2" as="font" type="font/woff2" crossorigin>
+<style>
+@font-face{font-family:'Poppins';font-display:swap;font-weight:400;src:url(fonts/poppins-latin-400-normal.woff2) format('woff2')}
+@font-face{font-family:'Poppins';font-display:swap;font-weight:600;src:url(fonts/poppins-latin-600-normal.woff2) format('woff2')}
+@font-face{font-family:'Poppins';font-display:swap;font-weight:700;src:url(fonts/poppins-latin-700-normal.woff2) format('woff2')}
+@font-face{font-family:'Plex Arabic';font-display:swap;font-weight:400;src:url(fonts/ibm-plex-sans-arabic-arabic-400-normal.woff2) format('woff2')}
+@font-face{font-family:'Plex Arabic';font-display:swap;font-weight:600;src:url(fonts/ibm-plex-sans-arabic-arabic-600-normal.woff2) format('woff2')}
+@font-face{font-family:'Plex Arabic';font-display:swap;font-weight:700;src:url(fonts/ibm-plex-sans-arabic-arabic-700-normal.woff2) format('woff2')}
+:root{--ink:#1a1b2c;--green:#193329;--lime:#c6f432;--grey:#555a66;--line:#c9ccd6;--soft:#efefee}
+*{box-sizing:border-box}
+body{margin:0;background:var(--soft);color:var(--ink);font-family:Poppins,'Plex Arabic',Arial,sans-serif;font-size:16px;line-height:1.6}
+html[dir=rtl] body{font-family:'Plex Arabic',Poppins,Arial,sans-serif}
+a{color:var(--green)}
+header{background:#fff;border-bottom:1px solid #e6e7ec}
+.bar{max-width:760px;margin:0 auto;padding:14px 16px;display:flex;align-items:center;justify-content:space-between;gap:12px}
+.brand{font-weight:800;letter-spacing:.03em;text-decoration:none;color:var(--ink)}.brand b{color:var(--green)}
+.langs{display:flex;gap:6px}
+.langs a{display:inline-flex;align-items:center;min-height:36px;padding:0 12px;border-radius:999px;text-decoration:none;font-weight:600;font-size:14px;color:var(--grey)}
+.langs a[aria-current=true]{background:var(--green);color:#fff}
+main{max-width:760px;margin:0 auto;padding:32px 16px 56px}
+h1{font-size:clamp(28px,6vw,40px);line-height:1.2;margin:0 0 8px}
+.lead{color:var(--grey);margin:0 0 24px}
+.card{background:#fff;border-radius:10px;padding:24px;display:flex;flex-direction:column;gap:16px;box-shadow:0 10px 30px rgba(25,51,41,.06)}
+label.f{display:flex;flex-direction:column;gap:6px;font-weight:600;font-size:15px}
+label.f span.opt{font-weight:400;color:var(--grey)}
+input[type=text],input[type=email],input[type=tel],select,textarea{font:inherit;font-size:16px;font-weight:400;min-height:48px;padding:10px 14px;border:1px solid var(--line);border-radius:6px;background:#fff;color:var(--ink);width:100%}
+textarea{min-height:140px;resize:vertical}
+input:focus,select:focus,textarea:focus{outline:2px solid var(--green);border-color:var(--green)}
+input[type=tel]{direction:ltr}
+html[dir=rtl] input[type=tel]{text-align:right}
+.row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+@media (max-width:560px){.row{grid-template-columns:1fr}}
+.consent{display:flex;gap:10px;align-items:flex-start;font-size:14px;line-height:1.5;color:var(--grey)}
+.consent input{width:18px;height:18px;margin-top:3px;flex:none;accent-color:var(--green)}
+button{min-height:56px;border:none;border-radius:999px;background:var(--lime);color:var(--green);font:inherit;font-weight:700;font-size:17px;cursor:pointer;transition:transform .15s,filter .2s}
+button:active{transform:scale(.98)}
+@media (hover:hover){button:hover{filter:brightness(.95)}}
+.err{color:#b3261e;font-size:14px;min-height:1em;margin:0}
+.done{background:#fff;border-radius:10px;padding:24px;font-size:18px;font-weight:600;line-height:1.5}
+.alt{margin-top:20px;color:var(--grey);font-size:15px}
+/* Spam-Schutzfeld unsichtbar; spezifischer als input[type=text], sonst wird es 100 % breit */
+#kf input.hp{position:absolute;width:1px;min-height:0;height:1px;padding:0;border:0;overflow:hidden;clip-path:inset(50%);opacity:0;pointer-events:none}
+:focus-visible{outline:3px solid var(--green);outline-offset:2px}
+footer{display:flex;flex-wrap:wrap;justify-content:center;gap:0 12px;padding:8px 16px 40px;font-size:14px}
+footer a{color:var(--grey);padding:12px 6px}
+@media (prefers-reduced-motion:reduce){*{transition-duration:.01ms!important}}
+</style></head>
+<body>
+<!-- Netlify erkennt das Formular beim Deploy an diesem versteckten Formular -->
+<form name="kontakt" data-netlify="true" netlify-honeypot="bot-field" hidden><input name="bot-field"><input name="name"><input name="email"><input name="telefon"><input name="thema"><input name="nachricht"><input name="sprache"><input name="einwilligung"><input name="datenschutz_stand"><input name="zeit"><input name="seite"></form>
+
+<header><div class="bar"><a class="brand" href="/">YALLA <b>FINANZEN</b></a>
+<nav class="langs" aria-label="Sprache"><a href="?lang=ar" data-l="ar">عربي</a><a href="?lang=de" data-l="de">DE</a><a href="?lang=en" data-l="en">EN</a></nav></div></header>
+
+<main>
+<h1 data-t="h"></h1>
+<p class="lead" data-t="lead"></p>
+<div id="box">
+<form class="card" id="kf" novalidate>
+ <div class="row">
+  <label class="f"><span data-t="name"></span><input type="text" name="vorname" autocomplete="given-name" maxlength="60" required></label>
+  <label class="f"><span data-t="email"></span><input type="email" name="email" autocomplete="email" maxlength="254" required></label>
+ </div>
+ <div class="row">
+  <label class="f"><span><span data-t="tel"></span> <span class="opt" data-t="optional"></span></span><input type="tel" name="tel" autocomplete="tel" inputmode="tel" placeholder="+49 …" maxlength="40"></label>
+  <label class="f"><span data-t="topic"></span><select name="thema" id="thema"></select></label>
+ </div>
+ <label class="f"><span data-t="msg"></span><textarea name="nachricht" maxlength="2000" required></textarea></label>
+ <label class="consent"><input type="checkbox" name="consent" required><span><span data-t="consent"></span> <a href="datenschutz.html" target="_blank" rel="noopener" data-t="priv"></a></span></label>
+ <input type="text" name="bot-field" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+ <p class="err" id="err" role="alert"></p>
+ <button type="submit" data-t="send"></button>
+</form>
+</div>
+<p class="alt"><span data-t="alt"></span> <a href="https://wa.me/491631549878" target="_blank" rel="noopener">WhatsApp</a> · <a href="tel:+491631549878" dir="ltr">0163 1549878</a></p>
+</main>
+<footer><a href="impressum.html">Impressum</a><a href="datenschutz.html">Datenschutz</a><a href="erstinformation.html">Erstinformation</a></footer>
+
+<script src="lead-send.js"></script>
+<script>
+(function () {
+  var T = {
+    de: { dir: 'ltr', h: 'Schreib uns', lead: 'Du hast eine Frage zu Krankenversicherung, Vermögensaufbau, Rente, Einkommenssicherung oder Immobilien? Schreib uns, wir melden uns innerhalb von 24 Stunden.',
+      name: 'Vorname', email: 'E-Mail', tel: 'Handynummer', optional: '(optional)', topic: 'Thema', msg: 'Deine Nachricht',
+      topics: ['Krankenversicherung', 'Vermögensaufbau', 'Rente', 'Einkommenssicherung', 'Immobilien', 'Sonstiges'],
+      consent: 'Ich willige ein, dass Yalla Finanzen (Linda Polatschek und Karim Adel) mich zu meiner Anfrage telefonisch, per WhatsApp oder per E-Mail kontaktiert. Meine Angaben werden dafür in einem Kundensystem (monday.com) gespeichert. Ich kann diese Einwilligung jederzeit widerrufen. Mehr dazu in der',
+      priv: 'Datenschutzerklärung.', send: 'Nachricht senden', invalid: 'Bitte gib deinen Vornamen, eine gültige E-Mail und deine Nachricht an und bestätige die Einwilligung.',
+      thanks: 'Danke, %n! Wir melden uns innerhalb von 24 Stunden bei dir.', alt: 'Lieber direkt?' },
+    ar: { dir: 'rtl', h: 'راسلنا', lead: 'لديك سؤال عن التأمين الصحي أو بناء الثروة أو التقاعد أو حماية الدخل أو العقارات؟ راسلنا، وسنتواصل معك خلال 24 ساعة.',
+      name: 'الاسم الأول', email: 'البريد الإلكتروني', tel: 'رقم الموبايل', optional: '(اختياري)', topic: 'الموضوع', msg: 'رسالتك',
+      topics: ['التأمين الصحي', 'بناء الثروة', 'التقاعد', 'حماية الدخل', 'العقارات', 'موضوع آخر'],
+      consent: 'أوافق على أن يتواصل معي يلا فينانزن (ليندا بولاتشيك وكريم عادل) بخصوص طلبي عبر الهاتف أو واتساب أو البريد الإلكتروني. تُحفظ بياناتي لهذا الغرض في نظام لإدارة العملاء (monday.com). يمكنني سحب هذه الموافقة في أي وقت. المزيد في',
+      priv: 'سياسة الخصوصية.', send: 'إرسال الرسالة', invalid: 'من فضلك اكتب اسمك الأول وبريدًا إلكترونيًا صحيحًا ورسالتك ووافق على التواصل.',
+      thanks: 'شكرًا يا %n! سنتواصل معك خلال 24 ساعة.', alt: 'تفضّل التواصل المباشر؟' },
+    en: { dir: 'ltr', h: 'Write to us', lead: 'Do you have a question about health insurance, building wealth, retirement, income protection or real estate? Write to us and we will get back to you within 24 hours.',
+      name: 'First name', email: 'Email', tel: 'Mobile number', optional: '(optional)', topic: 'Topic', msg: 'Your message',
+      topics: ['Health insurance', 'Building wealth', 'Retirement', 'Income protection', 'Real estate', 'Other'],
+      consent: 'I agree that Yalla Finanzen (Linda Polatschek and Karim Adel) may contact me about my request by phone, WhatsApp or email. My details are stored for this purpose in a customer system (monday.com). I can withdraw this consent at any time. More in the',
+      priv: 'privacy policy.', send: 'Send message', invalid: 'Please enter your first name, a valid email and your message, and confirm your consent.',
+      thanks: 'Thank you, %n! We will get back to you within 24 hours.', alt: 'Prefer direct contact?' }
+  };
+  // Themen für monday immer auf Deutsch speichern
+  var TOPICS_DE = T.de.topics;
+  var m = location.search.match(/[?&]lang=(de|ar|en)/i);
+  var lang = m ? m[1].toLowerCase() : (/^ar/i.test(navigator.language || '') ? 'ar' : 'de');
+  var t = T[lang];
+  document.documentElement.lang = lang;
+  document.documentElement.dir = t.dir;
+  document.querySelectorAll('[data-t]').forEach(function (el) { el.textContent = t[el.getAttribute('data-t')]; });
+  document.querySelectorAll('.langs a').forEach(function (a) { if (a.dataset.l === lang) a.setAttribute('aria-current', 'true'); });
+  var sel = document.getElementById('thema');
+  t.topics.forEach(function (label, i) { var o = document.createElement('option'); o.value = String(i); o.textContent = label; sel.appendChild(o); });
+  var pre = (location.search.match(/[?&]thema=(\d)/) || [])[1];
+  if (pre) sel.value = pre;
+
+  var f = document.getElementById('kf'), err = document.getElementById('err'), busy = false;
+  f.addEventListener('submit', function (e) {
+    e.preventDefault();
+    var first = f.vorname.value.trim(), mail = f.email.value.trim(), text = f.nachricht.value.trim();
+    var mailOk = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(mail);
+    if (!first || !mailOk || !text || !f.consent.checked) { err.textContent = t.invalid; return; }
+    if (busy) return;
+    busy = true; err.textContent = '';
+    window.ylPostLead({
+      'form-name': 'kontakt', 'bot-field': f['bot-field'].value, name: first, email: mail, telefon: f.tel.value.trim(),
+      thema: TOPICS_DE[+sel.value] || '', nachricht: text, sprache: lang,
+      einwilligung: T[lang].consent + ' ' + T[lang].priv, datenschutz_stand: '2026-11',
+      zeit: new Date().toISOString(), seite: location.href
+    }).then(function () {
+      var d = document.createElement('div'); d.className = 'done'; d.setAttribute('role', 'status');
+      d.textContent = '✅ ' + t.thanks.replace('%n', first);
+      document.getElementById('box').replaceChildren(d);
+    }).catch(function () { busy = false; });
+  });
+})();
+</script>
+</body></html>
