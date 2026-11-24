@@ -10,9 +10,11 @@
 //   MONDAY_BOARD_ID    Board für die Leads (Pflicht)
 //   MONDAY_GROUP_ID    Gruppe im Board (optional)
 //   MONDAY_COLUMN_EMAIL     Spalte vom Typ E-Mail (optional)
-//   MONDAY_COLUMN_PHONE     Spalte vom Typ Text (optional)
-//   MONDAY_COLUMN_SOURCE    Spalte vom Typ Text, z. B. "termin · whatsapp" (optional)
+//   MONDAY_COLUMN_PHONE     Spalte vom Typ Telefon (optional)
+//   MONDAY_COLUMN_CHANNEL   Spalte vom Typ Status: "WhatsApp" oder "Rückmeldung in 24 Std." (optional)
+//   MONDAY_COLUMN_SOURCE    Spalte vom Typ Text, z. B. "investieren · /preise" (optional)
 //   MONDAY_COLUMN_LANGUAGE  Spalte vom Typ Text (optional)
+//   MONDAY_COLUMN_CAMPAIGN  Spalte vom Typ Text, utm_campaign der Werbeanzeige (optional)
 // Alle Angaben landen zusätzlich als Update (Kommentar) am Eintrag.
 
 const MONDAY_API_URL = 'https://api.monday.com/v2';
@@ -53,7 +55,7 @@ const FIELD_LABELS = {
   in_deutschland: 'In Deutschland',
   investieren: 'Investieren',
   versicherungen: 'Versicherungen',
-  kanal: 'Weiter über',
+  kanal: 'Kontaktweg',
   einwilligung: 'Einwilligung',
   einwilligung_zeit: 'Einwilligung (Zeit)',
   datenschutz_stand: 'Datenschutzerklärung (Stand)',
@@ -62,7 +64,40 @@ const FIELD_LABELS = {
 };
 
 const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-const PHONE_PATTERN = /^\+?[\d\s()/.-]{6,40}$/;
+
+export const CHANNEL_LABELS = { whatsapp: 'WhatsApp', formular: 'Rückmeldung in 24 Std.' };
+
+// Ländervorwahl -> Länderkürzel für die monday-Telefonspalte (Liste wie auf der Website, längste zuerst prüfen)
+const COUNTRY_BY_PREFIX = [
+  ['212', 'MA'], ['213', 'DZ'], ['216', 'TN'], ['961', 'LB'], ['962', 'JO'], ['963', 'SY'], ['964', 'IQ'],
+  ['966', 'SA'], ['970', 'PS'], ['971', 'AE'], ['20', 'EG'], ['31', 'NL'], ['33', 'FR'], ['41', 'CH'],
+  ['43', 'AT'], ['44', 'GB'], ['49', 'DE'], ['90', 'TR'], ['1', 'US'],
+];
+
+// Einheitlich mit Ländervorwahl (+49 als Standard für Nummern ohne Vorwahl); null, wenn unplausibel.
+export function normalizePhone(raw) {
+  let s = String(raw || '').replace(/[\s()./-]/g, '');
+  if (!s) return null;
+  if (s.startsWith('00')) s = '+' + s.slice(2);
+  else if (s.startsWith('0')) s = '+49' + s.slice(1);
+  else if (!s.startsWith('+')) s = (/^49\d{9,}$/.test(s) ? '+' : '+49') + s;
+  return /^\+[1-9]\d{7,14}$/.test(s) ? s : null;
+}
+
+export function countryOf(phone) {
+  const digits = phone.slice(1);
+  const hit = COUNTRY_BY_PREFIX.find(([prefix]) => digits.startsWith(prefix));
+  return hit ? hit[1] : 'DE';
+}
+
+function pathAndCampaign(pageUrl) {
+  try {
+    const url = new URL(pageUrl);
+    return { path: url.pathname, campaign: url.searchParams.get('utm_campaign') || '' };
+  } catch {
+    return { path: '', campaign: '' };
+  }
+}
 
 export class LeadSyncError extends Error {
   constructor(code, message) {
@@ -84,7 +119,12 @@ export function sanitizeLead(formName, rawData) {
     if (clean) lead[field] = clean;
   }
   if (lead.email && !EMAIL_PATTERN.test(lead.email)) delete lead.email;
-  if (lead.telefon && !PHONE_PATTERN.test(lead.telefon)) delete lead.telefon;
+  if (lead.telefon) {
+    const phone = normalizePhone(lead.telefon);
+    if (phone) lead.telefon = phone;
+    else delete lead.telefon;
+  }
+  if (lead.kanal !== 'whatsapp') lead.kanal = 'formular';
   if (!lead.email && !lead.telefon) {
     throw new LeadSyncError('NO_CONTACT', 'Weder gültige E-Mail noch Telefonnummer');
   }
@@ -96,11 +136,14 @@ export function buildColumnValues(lead, env) {
   if (env.MONDAY_COLUMN_EMAIL && lead.email) {
     columns[env.MONDAY_COLUMN_EMAIL] = { email: lead.email, text: lead.email };
   }
-  if (env.MONDAY_COLUMN_PHONE && lead.telefon) columns[env.MONDAY_COLUMN_PHONE] = lead.telefon;
-  if (env.MONDAY_COLUMN_SOURCE) {
-    columns[env.MONDAY_COLUMN_SOURCE] = [lead.formular, lead.kanal].filter(Boolean).join(' · ');
+  if (env.MONDAY_COLUMN_PHONE && lead.telefon) {
+    columns[env.MONDAY_COLUMN_PHONE] = { phone: lead.telefon, countryShortName: countryOf(lead.telefon) };
   }
+  if (env.MONDAY_COLUMN_CHANNEL) columns[env.MONDAY_COLUMN_CHANNEL] = { label: CHANNEL_LABELS[lead.kanal] };
+  const { path, campaign } = pathAndCampaign(lead.seite);
+  if (env.MONDAY_COLUMN_SOURCE) columns[env.MONDAY_COLUMN_SOURCE] = [lead.formular, path].filter(Boolean).join(' · ');
   if (env.MONDAY_COLUMN_LANGUAGE && lead.sprache) columns[env.MONDAY_COLUMN_LANGUAGE] = lead.sprache;
+  if (env.MONDAY_COLUMN_CAMPAIGN && campaign) columns[env.MONDAY_COLUMN_CAMPAIGN] = campaign.slice(0, 100);
   return columns;
 }
 
@@ -110,9 +153,10 @@ function escapeHtml(value) {
 
 // Der Text eines monday-Updates wird als HTML dargestellt, daher jede Eingabe escapen.
 export function buildUpdateBody(lead) {
+  const displayValue = (field) => (field === 'kanal' ? CHANNEL_LABELS[lead.kanal] : lead[field]);
   const rows = Object.keys(FIELD_LABELS)
     .filter((field) => lead[field])
-    .map((field) => `<b>${FIELD_LABELS[field]}:</b> ${escapeHtml(lead[field])}`);
+    .map((field) => `<b>${FIELD_LABELS[field]}:</b> ${escapeHtml(displayValue(field))}`);
   return [`<b>Formular:</b> ${escapeHtml(lead.formular)}`, ...rows].join('<br>');
 }
 
@@ -143,7 +187,7 @@ async function callMonday(token, query, variables) {
 }
 
 const CREATE_ITEM = `mutation ($board: ID!, $group: String, $name: String!, $columns: JSON) {
-  create_item(board_id: $board, group_id: $group, item_name: $name, column_values: $columns) { id }
+  create_item(board_id: $board, group_id: $group, item_name: $name, column_values: $columns, create_labels_if_missing: true) { id }
 }`;
 
 const CREATE_UPDATE = `mutation ($item: ID!, $body: String!) {

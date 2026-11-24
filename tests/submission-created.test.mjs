@@ -1,6 +1,6 @@
 import { test, beforeEach, afterEach } from 'node:test';
 import assert from 'node:assert/strict';
-import handler, { sanitizeLead, buildUpdateBody, syncLeadToMonday, LeadSyncError } from '../netlify/functions/submission-created.mjs';
+import handler, { sanitizeLead, buildUpdateBody, syncLeadToMonday, LeadSyncError, normalizePhone, countryOf } from '../netlify/functions/submission-created.mjs';
 
 const ENV = {
   MONDAY_API_TOKEN: 'test-token',
@@ -8,6 +8,8 @@ const ENV = {
   MONDAY_COLUMN_EMAIL: 'email',
   MONDAY_COLUMN_PHONE: 'telefon',
   MONDAY_COLUMN_SOURCE: 'quelle',
+  MONDAY_COLUMN_CHANNEL: 'kontaktweg',
+  MONDAY_COLUMN_CAMPAIGN: 'kampagne',
 };
 
 const realFetch = globalThis.fetch;
@@ -27,7 +29,7 @@ afterEach(() => { globalThis.fetch = realFetch; });
 
 test('verwirft unbekannte Felder (Allowlist)', () => {
   const lead = sanitizeLead('termin', { name: 'Amira', email: 'a@example.com', isAdmin: 'true', role: 'admin' });
-  assert.deepEqual(Object.keys(lead).sort(), ['email', 'formular', 'name']);
+  assert.deepEqual(Object.keys(lead).sort(), ['email', 'formular', 'kanal', 'name']);
 });
 
 test('lehnt unbekannte Formulare ab', () => {
@@ -36,7 +38,7 @@ test('lehnt unbekannte Formulare ab', () => {
 
 test('verlangt eine gültige E-Mail oder Telefonnummer', () => {
   assert.throws(() => sanitizeLead('termin', { name: 'X', email: 'kein-mail', telefon: 'abc' }), (e) => e.code === 'NO_CONTACT');
-  assert.equal(sanitizeLead('investieren', { telefon: '+49 170 1234567' }).telefon, '+49 170 1234567');
+  assert.equal(sanitizeLead('investieren', { telefon: '+49 170 1234567' }).telefon, '+491701234567');
 });
 
 test('kürzt überlange Werte', () => {
@@ -55,12 +57,18 @@ test('legt Eintrag und Update in monday an, Werte nur als GraphQL-Variablen', as
     { json: { data: { create_item: { id: '987' } } } },
     { json: { data: { create_update: { id: '1' } } } },
   ]);
-  const id = await syncLeadToMonday('investieren', { telefon: '+49 170 1234567', kanal: 'whatsapp', sprache: 'ar' }, ENV);
+  const id = await syncLeadToMonday('investieren', { name: 'Amira', telefon: '0170 1234567', kanal: 'whatsapp', sprache: 'ar', seite: 'https://yallafinanzen.de/preise?utm_campaign=herbst-ar' }, ENV);
   assert.equal(id, '987');
   assert.equal(calls.length, 2);
   assert.equal(calls[0].options.headers.Authorization, 'test-token');
-  assert.ok(!calls[0].body.query.includes('+49 170 1234567'), 'Eingaben dürfen nicht in den Query-Text');
-  assert.deepEqual(JSON.parse(calls[0].body.variables.columns), { telefon: '+49 170 1234567', quelle: 'investieren · whatsapp' });
+  assert.ok(!calls[0].body.query.includes('1701234567'), 'Eingaben dürfen nicht in den Query-Text');
+  assert.equal(calls[0].body.variables.name, 'Amira');
+  assert.deepEqual(JSON.parse(calls[0].body.variables.columns), {
+    telefon: { phone: '+491701234567', countryShortName: 'DE' },
+    kontaktweg: { label: 'WhatsApp' },
+    quelle: 'investieren · /preise',
+    kampagne: 'herbst-ar',
+  });
   assert.equal(calls[1].body.variables.item, '987');
 });
 
@@ -95,4 +103,27 @@ test('Handler loggt keine personenbezogenen Daten', async () => {
   assert.ok(!logged[0].includes('amira'), 'keine E-Mail im Log');
   assert.ok(!logged[0].includes('Amira'), 'kein Name im Log');
   assert.ok(logged[0].includes('MONDAY_HTTP_500'));
+});
+
+test('Telefonnummern werden einheitlich mit Ländervorwahl gespeichert', () => {
+  assert.equal(normalizePhone('0170 123 45 67'), '+491701234567');
+  assert.equal(normalizePhone('+49 (170) 1234567'), '+491701234567');
+  assert.equal(normalizePhone('0049 170 1234567'), '+491701234567');
+  assert.equal(normalizePhone('1701234567'), '+491701234567');
+  assert.equal(normalizePhone('+20 100 123 4567'), '+201001234567');
+  assert.equal(normalizePhone('12345'), null);
+  assert.equal(normalizePhone('abc'), null);
+  assert.equal(countryOf('+201001234567'), 'EG');
+  assert.equal(countryOf('+9715012345678'), 'AE');
+  assert.equal(countryOf('+491701234567'), 'DE');
+});
+
+test('Ohne WhatsApp gilt der Kontaktweg "Rückmeldung in 24 Std."', async () => {
+  mockMonday([
+    { json: { data: { create_item: { id: '1' } } } },
+    { json: { data: { create_update: { id: '2' } } } },
+  ]);
+  await syncLeadToMonday('termin', { name: 'Omar', email: 'o@example.com', kanal: 'irgendwas' }, ENV);
+  assert.deepEqual(JSON.parse(calls[0].body.variables.columns).kontaktweg, { label: 'Rückmeldung in 24 Std.' });
+  assert.ok(calls[1].body.variables.body.includes('Rückmeldung in 24 Std.'));
 });
